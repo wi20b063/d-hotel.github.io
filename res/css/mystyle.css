@@ -1,0 +1,13 @@
+.navbar {
+    /*to remove space between navbar and jumotron*/
+    margin-bottom: 0;
+    /*to remove rounded corners at navbar*/
+    border-radius: 0;
+}
+
+
+/*adding a background image to the home-jumbotron*/
+#jumbotron-home {
+    background-image: url("p4.jfif");
+    background-size: cover;
+}
