@@ -1,0 +1,126 @@
+Login-Area rechts:
+attachment: fixed;
+position: right top; ???
+
+
+
+
+So, if an element has a specified width, the padding added to that element will be added to the total
+width of the element. This is often an undesirable result. To keep the width at 300px, no matter the
+amount of padding, you can use the box-sizing property. This causes the element to maintain its
+actual width; if you increase the padding, the available content space will decrease.
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+************************************************************
+
+
+Building an responsive Grid-View:
+
+Add the following code in your CSS:
+
+* {
+  box-sizing: border-box;
+}
+
+
+.menu {
+  width: 25%;
+  float: left;
+}
+.main {
+  width: 75%;
+  float: left;
+}
+
+
+button ändert Farbe, wenn man mit Maus drüberfährt:
+.menu li:hover {
+  background-color: #0099cc;
+}
+
+
+Code for designing mobile first:
+
+/* For mobile phones: */
+[class*="col-"] {
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+
+
+
+
+Media Query for different design between Landscape and Portrait:
+@media only screen and (orientation: landscape) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+
+
+Media query for hiding elements on small screens:
+/* If the screen size is 600px wide or less, hide the element */
+@media only screen and (max-width: 600px) {
+  div.example {
+    display: none;
+  }
+}
+
+
+
+
+Media query for different font sizes on different screen sizes:
+/* If the screen size is 601px or more, set the font-size of <div> to 80px */
+@media only screen and (min-width: 601px) {
+  div.example {
+    font-size: 80px;
+  }
+}
+
+/* If the screen size is 600px or less, set the font-size of <div> to 30px */
+@media only screen and (max-width: 600px) {
+  div.example {
+    font-size: 30px;
+  }
+}
+
+
+
+.navbar {
+    /*to remove space between navbar and jumotron*/
+    margin-bottom: 0;
+    /*to remove rounded corners at navbar*/
+    border-radius: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
