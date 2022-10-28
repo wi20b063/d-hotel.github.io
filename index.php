@@ -4,14 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!--Stylesheet-->
+    <link rel="stylesheet" type="text/css" href="res/css/mystyle.css">
+    <!--CDN to use font awesome-->
+    <script src="https://use.fontawesome.com/19e7f602a2.js"></script>
+    <!-- font awesome for social media icons-->
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>  
+
+    <title>Distant Hotel | Home</title>
 </head>
 <body>
 
 
 <?php
 
-include("navbar.php")
+include "pages/navbar.php";
+include "pages/text.php";
+include "pages/footer.php";
 
 // Use a switch statement to compose the webpages
 
