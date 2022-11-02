@@ -21,7 +21,7 @@
                         <div class="col-lg-2 col-sm-6 footer-menus">
                             <h4></h4>
                             <ul>
-                                <li> <a href="#">ÜBER UNS</a></li>
+                                <li> <a href="aboutus.php">ÜBER UNS</a></li>
                                 
                             </ul>
                         </div>
@@ -29,7 +29,7 @@
                         <div class="col-lg-3 col-sm-6 footer-menus">
                             <h4></h4>
                             <ul>
-                                <li><a href="#">DATENSCHTZ</a></li>
+                                <li><a href="https://www.oesterreich.gv.at/themen/dokumente_und_recht/datenschutz.html">DATENSCHUTZ</a></li>
                             </ul>
                         </div>
 
