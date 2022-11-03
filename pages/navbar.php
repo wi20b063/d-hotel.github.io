@@ -12,7 +12,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="..\res\img\distant-logo.PNG">Distant Hotel</a>
+        <a class="navbar-brand" href="..\index.php">
+          <img class="distant-logo" src="..\res\img\distant-logo.PNG" alt="distant-logo">
+        </a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->

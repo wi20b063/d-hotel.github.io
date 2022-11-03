@@ -1,6 +1,7 @@
 
 
 <!--basic concept of a jubotron to integrate the big photo at the homepage-->
+<div class="container">
 <div class="jumbotron" id="jumbotron-home">
   <h1 class="display-4">Willkomen im Distant Hotel!</h1>
   <h2 class="lead slogan"></h2>
@@ -10,4 +11,5 @@
   <p class="lead">
     <a class="btn btn-primary btn-lg" href="#" role="button">Mehr erfahren</a>
   </p>
+</div>
 </div>

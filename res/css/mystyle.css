@@ -6,9 +6,18 @@
 }
 
 
+/*making the logo in der nav bar full hight*/
+.navbar-brand {
+    margin-top: -20px;
+}
+.distant-logo {
+    max-height: 55px;
+}
+
+
 /*adding a background image to the home-jumbotron*/
 #jumbotron-home {
-    background-image: url("p4.jfif");
+    background-image: url("../img/hotel-1.jpg");
     background-size: cover;
 }
 
@@ -16,16 +25,20 @@ footer {
     background: #677279;
     color: #fff;
     font-size: 14px;
+    margin-top: 50px;
 }
+
 footer .footer-top {
     background: #1a5276;
     padding: 50px 0px 20px;
 }
+
 footer .address p {
     font-size: 16px;
     color: #fff;
     font-style: italic;
 }
+
 footer .social-links a {
     font-size: 17px;
     display: inline-block;
@@ -40,38 +53,47 @@ footer .social-links a {
     height: 36px;
     transition: 0.4s;
 }
+
 footer .social-links a:hover {
     background: #1a5276;
 }
+
 footer h4 {
     font-size: 18px;
     color: #fff;
     padding-bottom: 12px;
 }
+
 footer .footer-menus {
     margin-bottom: 30px;
 }
+
 footer .footer-menus ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
+
 footer .footer-menus ul li {
     margin-bottom: 10px;
 }
+
 footer .footer-menus ul i {
     color: #ffffff;
     font-size: 12px;
     margin-right: 3px;
 }
+
 footer .footer-menus ul a {
     color: #fff;
     text-decoration: none;
 }
+
 footer .footer-menus ul a:hover {
     background: #1a5276;
     color: #fff;
 }
+
 footer .newsletter form {
     margin-top: 30px;
     background: #fff;
@@ -80,15 +102,18 @@ footer .newsletter form {
     border-radius: 50px;
     border: 1px solid #3a3a3a;
 }
+
 footer .newsletter form input[type="email"] {
     border: 0;
     padding: 5px;
     background: #fff#3a3a3a;
     color: #3a3a3a;
 }
+
 footer .newsletter form input[type="email"]:focus {
     outline: none;
 }
+
 footer .newsletter form input[type="submit"] {
     position: absolute;
     top: -1px;
@@ -101,13 +126,18 @@ footer .newsletter form input[type="submit"] {
     border-bottom-right-radius: 50px;
     border-top-right-radius: 50px;
 }
+
 footer .newsletter form input[type="submit"]:hover {
     background: #7e8689;
 }
+
 .footer-bottom {
     padding: 20px 0px;
 }
+
 footer .footer-bottom a {
     color: #fff;
     text-decoration: none;
 }
+
+

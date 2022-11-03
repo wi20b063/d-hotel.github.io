@@ -1,4 +1,7 @@
-<footer>
+
+<!-- class fixed-bottom or sticky-botton should make footer
+stick to the bottom regardless of the lenght of the content -->
+<footer class="footer sticky-bottom">
             <div class="footer-top">
                 <div class="container">
                     <div class="row">
