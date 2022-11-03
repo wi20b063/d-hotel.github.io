@@ -22,11 +22,18 @@
 <body>
 
 
-<?php
 
-include "pages/navbar.php";
-include "pages/text.php";
-include "pages/footer.php";
+<nav>
+  <?php include "pages/navbar.php";?>
+</nav>
+
+<main>
+  <?php include "pages/text.php";?>
+</main>
+
+<footer>
+  <?php include "pages/footer.php";?>
+</footer>
 
 // Use a switch statement to compose the webpages
 
@@ -47,7 +54,6 @@ switch (n) {
 }
 */
 
-?>
 
     
 </body>
