@@ -22,12 +22,14 @@
   </head>
 
   <body>
+    
 
     <nav>
       <?php include "pages/navbar.php";?>
     </nav>
 
     <main>
+      <?php include "pages/login.php";?>
       <?php include "pages/home-jumbotron.php";?>
       <?php include "pages/text.php";?>
     </main>
