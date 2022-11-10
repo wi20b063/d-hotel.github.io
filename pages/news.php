@@ -1,5 +1,36 @@
-<div class="container">
-<div class="row">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Stylesheet-->
+    <link rel="stylesheet" type="text/css" href="res/css/mystyle.css">
+    <!--CDN to use font awesome-->
+    <script src="https://use.fontawesome.com/19e7f602a2.js"></script>
+    <!-- font awesome for social media icons-->
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <title>Distant Hotel | News</title>
+</head>
+
+<body>
+
+
+    <nav>
+        <?php include "../pages/navbar.php";?>
+    </nav>
+
+    <main>
+        <div class="container">
+            <div class="row">
                 <div class="content col-9">
 
                     <h3>Lorem ipsum dolor sit amet</h3>
@@ -45,4 +76,33 @@
                     </p>
                 </div>
             </div>
-</div>
+        </div>
+    </main>
+
+    <footer>
+        <?php include "../pages/footer.php";?>
+    </footer>
+
+    <!-- // Use a switch statement to compose the webpages
+    /*
+    switch (n) {
+      case label1:
+        code to be executed if n=label1;
+        break;
+      case label2:
+        code to be executed if n=label2;
+        break;
+      case label3:
+        code to be executed if n=label3;
+        break;
+        ...
+      default:
+        code to be executed if n is different from all labels;
+    }
+    */ -->
+
+
+
+</body>
+
+</html>
