@@ -12,7 +12,7 @@
     <div class="carousel-inner">
 
         <div class="carousel-item active">
-            <img class="d-block w-100" src="res\img\hotel-1 - Kopie.jpg" alt="First slide">
+            <img class="d-block w-100" src="res\img\hote-view" alt="First slide">
             <div class="container carousel-caption d-none d-md-block">
                 <h1>Willkomen im Distant Hotel!</h1>
                 <h2 class="lead slogan">Your HOME Away From HOME</h2>

@@ -36,27 +36,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </nav>
 
     <main>
-        <div class="login col-?">
-            <form action="" method="post" target="_blank">
-                <div>
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" placeholder="Username">
-                    <!--required-->
-                    <?php if ($error["username"]) echo "<div>Error</div>"?>
+        <div class="content">
+            <div class="container">
+                <div class="row col-8">
+                    <form class="data-form" action="" method="post" target="_blank">
+
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username:</label>
+                            <input type="text" id="username" name="username" placeholder="Username"
+                                class="form-control">
+                            <!--required-->
+                            <?php if ($error["username"]) echo "<div>Error</div>"?>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="current-password" class="form-label">Passwort:</label>
+                            <input type="text" id="current-password" name="current-password" placeholder="Passwort"
+                                class="form-control">
+                            <!--required-->
+                            <?php if ($error["current-password"]) echo "<div>Error</div>"?>
+                        </div>
+
+                        <div class="mb-3">
+                            <input type="checkbox" id="save" name="save">
+                            <label for="save">Username und Passwort merken</label>
+                            <?php if ($error["save"]) echo "<div>Error</div>"?>
+                        </div>
+
+                        <button type="submit" class="btn">Bestätigen</button>
+                    </form>
                 </div>
-                <div>
-                    <label for="current-password">Passwort</label>
-                    <input type="text" id="current-password" name="current-password" placeholder="Passwort">
-                    <!--required-->
-                    <?php if ($error["current-password"]) echo "<div>Error</div>"?>
-                </div>
-                <div>
-                    <input type="checkbox" id="save" name="save">
-                    <label for="save">Username und Passwort merken</label>
-                    <?php if ($error["save"]) echo "<div>Error</div>"?>
-                </div>
-                <button type="submit">Bestätigen</button>
-            </form>
+            </div>
         </div>
 
     </main>

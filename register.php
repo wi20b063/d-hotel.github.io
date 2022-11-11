@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <?php include "components/head.php";?>
-    <title>Distant Hotel | Über uns</title>
-</head>
-
-<body>
-    <nav>
-        <?php include "components/navbar.php";?>
-    </nav>
-
-    <main>
-
-        <!---können noch Placeholder überlegen einzusezten-->
-        <!--bei name autocomplete empfehlung der browser verwenden-->
-
-        <?php
+<?php
 
         //define variables and set to empty values
 
@@ -78,51 +60,99 @@
           }
           ?>
 
-        <div class="container">
-            <h1>Reservierungsformular</h2>
-                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<!DOCTYPE html>
+<html lang="en">
 
-                    Anrede: *<br>
-                    <input type="radio" id="frau" name="anrede" value="frau">
-                    <label for="frau">Frau</label><br>
+<head>
+    <?php include "components/head.php";?>
+    <title>Distant Hotel | Über uns</title>
+</head>
 
+<body>
+    <nav>
+        <?php include "components/navbar.php";?>
+    </nav>
 
-                    <input type="radio" id="herr" name="anrede" value="herr">
-                    <label for="herr">Herr</label><br>
+    <main>
 
-                    <input type="radio" id="neutral" name="anrede" value="neutral">
-                    <label for="neutral">Neutrale Anrede</label>
+        <!---können noch Placeholder überlegen einzusezten-->
+        <!--bei name autocomplete empfehlung der browser verwenden-->
 
-                    <span class="error"> <?php echo $anredeErr;?></span><br><br>
+        <div class="content">
+            <div class="container form-element">
+                <div class="row col-8">
+                    <h1>Reservierungsformular</h2>
+                        <form class="data-form" method="post"
+                            action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
-                    <label for="fname">Vorname:</label>
-                    <input type="text" id="fname" name="fname">
-                    <span class="error">* <?php echo $fnameErr;?></span><br><br>
+                            <div class="mb-3">
+                                Anrede: *<br>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="salutation" id="male">
+                                    <label class="form-check-label" for="male">
+                                        Herr
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="salutation" id="female" checked>
+                                    <label class="form-check-label" for="female">
+                                        Frau
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="salutation" id="neutral" checked>
+                                    <label class="form-check-label" for="neutral">
+                                        Neutrale Anrede
+                                    </label>
+                                </div>
+                                <span class="error"> <?php echo $anredeErr;?></span>
+                            </div>
 
-                    <label for="lname">Nachname:</label>
-                    <input type="text" id="lname" name="lname">
-                    <span class="error">* <?php echo $lnameErr;?></span><br><br>
+                            <div class="mb-3">
+                                <label for="fname" class="form-label">Vorname:</label>
+                                <input type="text" id="fname" name="fname" class="form-control">
+                                <span class="error">* <?php echo $fnameErr;?></span>
+                            </div>
 
-                    <label for="mail">E-Mail:</label>
-                    <input type="email" id="mail" name="mail">
-                    <span class="error">* <?php echo $mailErr;?></span><br><br>
+                            <div class="mb-3">
+                                <label for="lname" class="form-label">Nachname:</label>
+                                <input type="text" id="lname" name="lname" class="form-control">
+                                <span class="error">* <?php echo $lnameErr;?></span>
+                            </div>
 
-                    <label for="uname">Username:</label>
-                    <input type="text" id="uname" name="uname">
-                    <span class="error">* <?php echo $unameErr;?></span><br><br>
+                            <div class="mb-3">
+                                <label for="mail" class="form-label">E-Mail:</label>
+                                <input type="email" id="mail" name="mail" class="form-control">
+                                <span class="error">* <?php echo $mailErr;?></span>
+                            </div>
 
-                    <label for="pw">Passwort:</label>
-                    <input type="password" id="pw" name="pw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                        title="Muss mindestens eine Zahl und einen Groß- und Kleinbuchstaben sowie mindestens 8 oder mehr Zeichen enthalten">
-                    <span class="error">* <?php echo $pwErr;?></span><br><br>
-                    <label for="pw2">Wiederholung Passwort:</label>
-                    <input type="password" id="pw2" name="pw2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                        title="Muss mindestens eine Zahl und einen Groß- und Kleinbuchstaben sowie mindestens 8 oder mehr Zeichen enthalten">
-                    <span class="error">* <?php echo $pw2Err;?></span><br><br>
+                            <div class="mb-3">
+                                <label for="uname" class="form-label">Username:</label>
+                                <input type="text" id="uname" name="uname" class="form-control">
+                                <span class="error">* <?php echo $unameErr;?></span>
+                            </div>
 
-                    <button type="reset">Zurücksetzen</button>
-                    <button type="submit">Absenden</button>
-                </form>
+                            <div class="mb-3">
+                                <label for="pw" class="form-label">Passwort:</label>
+                                <input type="password" id="pw" name="pw" class="form-control"
+                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                    title="Muss mindestens eine Zahl und einen Groß- und Kleinbuchstaben sowie mindestens 8 oder mehr Zeichen enthalten">
+                                <span class="error">* <?php echo $pwErr;?></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="pw2" class="form-label">Wiederholung Passwort:</label>
+                                <input type="password" id="pw2" name="pw2" class="form-control"
+                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                    title="Muss mindestens eine Zahl und einen Groß- und Kleinbuchstaben sowie mindestens 8 oder mehr Zeichen enthalten">
+                                <span class="error">* <?php echo $pw2Err;?></span>
+                            </div>
+
+                            <button type="reset" class="btn">Zurücksetzen</button>
+                            <button type="submit" class="btn">Absenden</button>
+                        </form>
+                </div>
+            </div>
         </div>
 
     </main>

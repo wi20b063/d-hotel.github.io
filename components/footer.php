@@ -6,14 +6,16 @@ stick to the bottom regardless of the lenght of the content -->
             <div class="col-lg-3 col-sm-6">
                 <div class="address">
                     <h4>KONTAKT</h4>
-                    <p class="mb-4 mt-4">
-                    <p> Traumstraße, Wuste
+                    <p class="mb-3 mt-3">
+                    <p> Traumstraße 1
                         <br>
-                        7777, Wien | Österreich
+                        1010 Wien | Österreich
                         <br>
-                        <strong>Tel./Fax:</strong> +43 21234567
                     </p>
-                    <p><strong>Email:</strong>
+                    <p>
+                        <strong>Tel./Fax:</strong> +43 21234567
+                        <br>
+                        <strong>Email:</strong>
                         <a href="mailto:office@distant-hotel.at">office@distant-hotel.at</a>
                     </p>
                     </p>

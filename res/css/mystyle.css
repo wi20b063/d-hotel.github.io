@@ -1,14 +1,15 @@
+
+.content {
+    margin-top: 30px;
+}
+
 .navbar {
     background-color: #1a5276;
+    color: white;
     /*to remove space between navbar and jumotron*/
     /* margin-bottom: 0; */
     /*to remove rounded corners at navbar*/
     /* border-radius: 0; */
-}
-
-/*making the logo in der nav bar full hight*/
-.navbar-brand {
-
 }
 
 #logo-nav {
@@ -33,6 +34,17 @@
     background-size: cover;
 } */
 
+/*damit Eingabe-Formulare linksbündig sind*/
+.data-form {
+    float: left;
+}
+
+.btn {
+    color: white;
+    background-color: #677279;
+}
+
+
 footer {
     background: #677279;
     color: #fff;
@@ -55,21 +67,10 @@ footer .address p {
     font-style: italic;
 }
 
-
-
-footer .social-links a {
-    font-size: 17px;
-    display: inline-block;
-    background: #1a5276;
-    color: #fff;
-    line-height: 1;
-    padding: 9px 0;
-    margin-right: 5px;
-    border-radius: 100%;
-    text-align: center;
-    width: 36px;
-    height: 36px;
-    transition: 0.4s;
+footer .address a {
+    font-size: 16px;
+    font-style: italic;
+    color: white;
 }
 
 footer .footer-menus {
@@ -139,6 +140,21 @@ footer .newsletter form input[type="submit"]:hover {
     background: #7e8689;
 }
 
+footer .social-links a {
+    font-size: 17px;
+    display: inline-block;
+    background: #1a5276;
+    color: #fff;
+    line-height: 1;
+    padding: 9px 0;
+    margin-right: 5px;
+    border-radius: 100%;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    transition: 0.4s;
+}
+
 .footer-bottom {
     padding: 10px 0px 5px;
 }
@@ -165,10 +181,6 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.content {
-    margin-top: 30px;
 }
 
 /* create accordion for faq - hidden information to be shown by a click on it */

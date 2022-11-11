@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
+    <div class="container">
         <a class="navbar-brand" href="index.php">
             <img id="logo-nav" src="res\img\distant-logo-nobg.PNG" alt="Logo Hotel Distant">
         </a>
