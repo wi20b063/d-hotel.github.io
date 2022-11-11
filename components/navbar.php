@@ -10,7 +10,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.php">
+            <a class="navbar-brand" href="..\index.php">
                 <img class="distant-logo" src="res\img\distant-logo.PNG" alt="distant-logo">
             </a>
         </div>
@@ -31,7 +31,8 @@
                         <li><a href="#">One more separated link</a></li>
                     </ul>
                 </li>
-                <li class="active"><a href="pages\register.php">Registrierung<span class="sr-only">(current)</span></a>
+                <li class="active"><a href="..\pages\register.php">Registrierung<span
+                            class="sr-only">(current)</span></a>
                 </li>
                 <li><a href="#">Link 2</a></li>
 
@@ -46,7 +47,7 @@
             </form> -->
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="pages\login.php">Login</a></li>
+                <li><a href="..\pages\login.php">Login</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                         aria-expanded="false">Dropdown <span class="caret"></span></a>

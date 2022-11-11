@@ -2,63 +2,80 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Stylesheet-->
-    <link rel="stylesheet" type="text/css" href="res/css/mystyle.css">
-    <!--CDN to use font awesome-->
-    <script src="https://use.fontawesome.com/19e7f602a2.js"></script>
-    <!-- font awesome for social media icons-->
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <!-- Bootstrap 5 -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css
-        integrity=" sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"> -->
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+    <?php include "components/head.php";?>
     <title>Distant Hotel | Home</title>
 </head>
 
 <body>
-
-
     <nav>
-        <?php include "pages/navbar.php";?>
+        <?php include "components/navbar.php";?>
     </nav>
 
     <main>
-        <?php include "pages/home-carousel.php";?>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="res\img\hotel-1 - Kopie.jpg" alt="First slide">
+                    <div class="container carousel-caption d-none d-md-block">
+                        <h1>Willkomen im Distant Hotel!</h1>
+                        <h2 class="lead slogan">Your HOME Away From HOME</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium sit repellat excepturi,
+                            beatae
+                            delectus soluta et modi incidunt aliquam.</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="../res/img/hotel-1 - Kopie.jpg" alt="Second slide">
+                    <div class="container carousel-caption d-none d-md-block">
+                        <h1>Willkomen im Distant Hotel!</h1>
+                        <h2 class="lead slogan">Your HOME Away From HOME</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium sit repellat excepturi,
+                            beatae
+                            delectus soluta et modi incidunt aliquam.</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="../res/img/hotel-1 - Kopie.jpg" alt="Third slide">
+                    <div class="container carousel-caption d-none d-md-block">
+                        <h1>Willkomen im Distant Hotel!</h1>
+                        <h2 class="lead slogan">Your HOME Away From HOME</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium sit repellat excepturi,
+                            beatae
+                            delectus soluta et modi incidunt aliquam.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
         <?php include "pages/someText.php";?>
+
     </main>
 
     <footer>
-        <?php include "pages/footer.php";?>
+        <?php include "components/footer.php";?>
     </footer>
-
-    <!-- // Use a switch statement to compose the webpages
-    /*
-    switch (n) {
-      case label1:
-        code to be executed if n=label1;
-        break;
-      case label2:
-        code to be executed if n=label2;
-        break;
-      case label3:
-        code to be executed if n=label3;
-        break;
-        ...
-      default:
-        code to be executed if n is different from all labels;
-    }
-    */ -->
-
-
 
 </body>
 
