@@ -69,11 +69,29 @@
             </a>
         </div>
 
-        <?php include "pages/someText.php";?>
+        <div class="container content">
+            <h1>Atque eum porro cum quia</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim recusandae, fugiat praesentium excepturi
+                libero, id atque eum porro cum quia eius debitis aut autem, ex blanditiis? Possimus non facilis
+                reprehenderit!
+            </p>
+            <br>
+            <h1>Porro cum quia</h1>
+            <p>
+                Consectetur adipisicing elit. Beatae reprehenderit ea quos nesciunt ipsam,
+                praesentium eaque, minus iusto voluptas distinctio, id consectetur doloribus sunt consequuntur fugit
+                possimus asperiores laudantium! Cum. dolor sit amet, Lorem ipsum, dolor sit amet consectetur adipisicing
+                elit. Illo non, quod saepe perferendis iure vero porro ea earum inventore doloribus, facere, pariatur
+                delectus. Pariatur magnam et quasi repellat totam in!
+            </p>
+        </div>
+
+
 
     </main>
 
-    <footer>
+    <footer class="footer sticky-bottom">
         <?php include "components/footer.php";?>
     </footer>
 

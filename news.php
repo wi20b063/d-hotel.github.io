@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-    <?php include "../components/head.php";?>
-    <title>Distant Hotel | Über uns</title>
+    <?php include "components/head.php";?>
+    <title>Distant Hotel | News</title>
 </head>
 
 <body>
     <nav>
-        <?php include "../components/navbar.php";?>
+        <?php include "components/navbar.php";?>
     </nav>
 
     <main>
@@ -63,7 +63,7 @@
     </main>
 
     <footer>
-        <?php include "../components/footer.php";?>
+        <?php include "components/footer.php";?>
     </footer>
 
 </body>

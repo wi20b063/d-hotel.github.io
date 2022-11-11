@@ -1,26 +1,37 @@
 .navbar {
+    background-color: #1a5276;
     /*to remove space between navbar and jumotron*/
-    margin-bottom: 0;
+    /* margin-bottom: 0; */
     /*to remove rounded corners at navbar*/
-    border-radius: 0;
+    /* border-radius: 0; */
 }
-
 
 /*making the logo in der nav bar full hight*/
 .navbar-brand {
-    margin-top: -20px;
+
 }
 
-.distant-logo {
-    max-height: 55px;
+#logo-nav {
+    max-height: 70px;
 }
 
+.navbar a {
+    color: white;
+}
+
+.navbar a {
+    color: white;
+}
+
+.navbar a:hover {
+    color: lightgrey;
+}
 
 /*adding a background image to the home-jumbotron*/
-#jumbotron-home {
+/* #jumbotron-home {
     background-image: url("../img/hotel-1.jpg");
     background-size: cover;
-}
+} */
 
 footer {
     background: #677279;
@@ -34,11 +45,17 @@ footer .footer-top {
     padding: 50px 0px 20px;
 }
 
+footer h4 {
+    font-size: 18px;
+    padding-bottom: 12px;
+}
+
 footer .address p {
     font-size: 16px;
-    color: #fff;
     font-style: italic;
 }
+
+
 
 footer .social-links a {
     font-size: 17px;
@@ -53,16 +70,6 @@ footer .social-links a {
     width: 36px;
     height: 36px;
     transition: 0.4s;
-}
-
-footer .social-links a:hover {
-    background: #1a5276;
-}
-
-footer h4 {
-    font-size: 18px;
-    color: #fff;
-    padding-bottom: 12px;
 }
 
 footer .footer-menus {
@@ -107,7 +114,7 @@ footer .newsletter form {
 footer .newsletter form input[type="email"] {
     border: 0;
     padding: 5px;
-    background: #fff#3a3a3a;
+    background: #fff;
     color: #3a3a3a;
 }
 
@@ -133,16 +140,13 @@ footer .newsletter form input[type="submit"]:hover {
 }
 
 .footer-bottom {
-    padding: 20px 0px;
+    padding: 10px 0px 5px;
 }
 
 footer .footer-bottom a {
     color: #fff;
     text-decoration: none;
 }
-
-
-
 
 *,
 *::before,
@@ -163,11 +167,8 @@ section {
     justify-content: center;
 }
 
-.container {
-    width: 100%;
-    max-width: 80rem;
-    margin: 0 auto;
-    padding: 0 1.5rem;
+.content {
+    margin-top: 30px;
 }
 
 /* create accordion for faq - hidden information to be shown by a click on it */
@@ -218,7 +219,6 @@ section {
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-
 }
 
 .answer p {
