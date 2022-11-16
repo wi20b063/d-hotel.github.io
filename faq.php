@@ -46,8 +46,8 @@
                         <div class="accordion-item" id="question2">
                             <a class="accordion-link" href="#question2">
                                 Wozu werden meine Kreditkartendetails benötigt?
-                                <i class="icon ion-md-add"></i>
-                                <i class="icon ion-md-remove"></i>
+                                <ion-icon name="add-outline"></ion-icon>
+                                <ion-icon name="remove-outline"></ion-icon>
                             </a>
                             <div class="answer">
                                 <p>
@@ -69,8 +69,8 @@
                         <div class="accordion-item" id="question3">
                             <a class="accordion-link" href="#question3">
                                 Wie sicher ist die Eingabe meiner persönlichen Daten auf Ihrer Website?
-                                <i class="icon ion-md-add"></i>
-                                <i class="icon ion-md-remove"></i>
+                                <ion-icon name="add-outline"></ion-icon>
+                                <ion-icon name="remove-outline"></ion-icon>
                             </a>
                             <div class="answer">
                                 <p>
@@ -90,8 +90,8 @@
                         <div class="accordion-item" id="question4">
                             <a class="accordion-link" href="#question4">
                                 Stornierung einer Reservierung
-                                <i class="icon ion-md-add"></i>
-                                <i class="icon ion-md-remove"></i>
+                                <ion-icon name="add-outline"></ion-icon>
+                                <ion-icon name="remove-outline"></ion-icon>
                             </a>
                             <div class="answer">
                                 <p>
@@ -112,8 +112,8 @@
                         <div class="accordion-item" id="question5">
                             <a class="accordion-link" href="#question5">
                                 Was ist zu tun, wenn ich keine Reservierungsbestätigung erhalte?
-                                <i class="icon ion-md-add"></i>
-                                <i class="icon ion-md-remove"></i>
+                                <ion-icon name="add-outline"></ion-icon>
+                                <ion-icon name="remove-outline"></ion-icon>
                             </a>
                             <div class="answer">
                                 <p>
@@ -126,7 +126,9 @@
 
                                 </p>
                             </div>
-
+                        </div>
+                    </div>
+                </div>
 
             </section>
         </div>
@@ -139,6 +141,8 @@
         <?php include "components/footer.php";?>
     </footer>
 
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

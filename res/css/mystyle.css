@@ -1,16 +1,28 @@
-
 .content {
     margin-top: 30px;
+}
+
+body {
+    padding-top: 70px;
 }
 
 .navbar {
     background-color: #1a5276;
     color: white;
+
+
+
     /*to remove space between navbar and jumotron*/
     /* margin-bottom: 0; */
     /*to remove rounded corners at navbar*/
     /* border-radius: 0; */
+
 }
+
+
+
+
+
 
 #logo-nav {
     max-height: 70px;
@@ -18,15 +30,37 @@
 
 .navbar a {
     color: white;
+
 }
 
-.navbar a {
+/*.navbar a {
     color: white;
 }
-
+*/
 .navbar a:hover {
     color: lightgrey;
 }
+
+/*slogan*/
+.lead {
+    color: #fff;
+    font-size: 4em;
+    margin-bottom: 50px;
+    font-family: 'Passions Conflict', cursive;
+    padding-right: 22rem;
+
+}
+
+h1 {
+
+    padding-right: 22rem;
+}
+
+p {
+
+    padding-right: 4rem;
+}
+
 
 /*adding a background image to the home-jumbotron*/
 /* #jumbotron-home {
@@ -44,6 +78,19 @@
     background-color: #677279;
 }
 
+body {
+    padding-top: px;
+}
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+body {}
 
 footer {
     background: #677279;
@@ -100,7 +147,7 @@ footer .footer-menus ul a {
 
 footer .footer-menus ul a:hover {
     background: #1a5276;
-    color: #fff;
+    color: black;
 }
 
 footer .newsletter form {
@@ -172,6 +219,9 @@ footer .footer-bottom a {
     box-sizing: inherit;
 }
 
+ion-icon {
+    font-size: 23px;
+}
 
 /*section used for centering process*/
 section {
