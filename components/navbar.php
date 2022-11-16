@@ -45,8 +45,8 @@
                     Profil
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Daten</a></li>
-                    <li><a class="dropdown-item" href="#">Blabla</a></li>
+                    <li><a class="dropdown-item" href="#">Lorem ipsum</a></li>
+                    <li><a class="dropdown-item" href="#">Lorem ipsum</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
