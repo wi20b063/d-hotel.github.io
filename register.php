@@ -1,5 +1,7 @@
 <?php
 
+        include "components/session.php";
+
         //define variables and set to empty values
 
         $anredeErr = $fnameErr = $lnameErr = $mailErr = $unameErr = $pwErr = $pw2Err = "";

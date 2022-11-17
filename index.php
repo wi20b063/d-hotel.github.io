@@ -1,3 +1,5 @@
+<?php include "components/session.php";?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +14,7 @@
     </nav>
 
     <main>
+
         <div id="carouselHomepasge" class="carousel slide" data-ride="carousel">
 
             <!-- Indicators -->

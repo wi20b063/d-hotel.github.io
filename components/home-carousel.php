@@ -15,7 +15,7 @@
             <img class="d-block w-100" src="" alt="First slide">
             <div class="container carousel-caption d-none d-md-block">
                 <h1>Willkomen im Distant Hotel!</h1>
-                <div class="lead slogan">Your HOME Away From HOME</div>
+                <div class="lead-slogan">Your HOME Away From HOME</div>
             </div>
         </div>
 
@@ -31,7 +31,7 @@
                 <img class="d-block w-100" src="../res/img/hotel-1 - Kopie.jpg" alt="Third slide">
                 <div class="container carousel-caption d-none d-md-block">
                     <h1>Willkomen im Distant Hotel!</h1>
-                    <div class="lead slogan">Your HOME Away From HOME</div>
+                    <div class="lead-slogan">Your HOME Away From HOME</div>
 
                 </div>
             </div>

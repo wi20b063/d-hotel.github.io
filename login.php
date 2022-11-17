@@ -1,4 +1,7 @@
 <?php
+
+    include "components/session.php";
+
     // echo "<pre>"; print_r($_SERVER); "</pre>";
     // echo "<pre>"; print_r($_POST); "</pre>";
     // echo $_POST["username"];
@@ -7,6 +10,7 @@
     $error["username"] = false;
     $error["current-password"] = false;
     $error["save"] = false;
+    
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["username"])) {
@@ -18,8 +22,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["save"])) {
         $error["save"] = true;
     }
-}
+    if ((!empty($_POST["username"])) && (!empty($_POST["current-password"]))) {
+        $cookie_name = "username";
+        $cookie_value = $_POST["username"];
+        setcookie($cookie_name, $cookie_value, time() + (86400 * 30)); // 86400 = 1 day / secure, httponly
 
+        $_SESSION["username"] = $_POST["username"];
+        
+        header('Refresh: 0; URL = index.php');
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -39,14 +51,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="content">
             <div class="container">
                 <div class="row col-8">
-                    <form class="data-form" action="" method="post" target="_blank">
+                    <form class="data-form" action="" method="post">
 
                         <div class="mb-3">
                             <label for="username" class="form-label">Username:</label>
                             <input type="text" id="username" name="username" placeholder="Username"
                                 class="form-control">
                             <!--required-->
-                            <?php if ($error["username"]) echo "<div>Error</div>"?>
+                            <?php if ($error["username"]) echo "<div>Please enter Username!</div>"?>
                         </div>
 
                         <div class="mb-3">
@@ -54,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <input type="text" id="current-password" name="current-password" placeholder="Passwort"
                                 class="form-control">
                             <!--required-->
-                            <?php if ($error["current-password"]) echo "<div>Error</div>"?>
+                            <?php if ($error["current-password"]) echo "<div>Please enter Password!</div>"?>
                         </div>
 
                         <div class="mb-3">
