@@ -12,7 +12,7 @@
     $error["save"] = false;
     
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST['submit']) && ($_SERVER["REQUEST_METHOD"] == "POST") ){
     if (empty($_POST["username"])) {
         $error["username"] = true;
     }

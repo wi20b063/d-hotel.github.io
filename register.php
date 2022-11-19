@@ -8,7 +8,7 @@
 
         $anrede = $fname = $lname= $mail= $uname = $pw= $pw2 =  ""; 
 
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (isset($_POST['submit']) && ($_SERVER["REQUEST_METHOD"] == "POST") ){
             if (empty($_POST["anrede"])) {
               $anredeErr = "anrede ist erforderlich";
             } else {
@@ -111,43 +111,43 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="fname" class="form-label">Vorname:</label>
+                                <label for="fname" class="form-label">Vorname: *</label>
                                 <input type="text" id="fname" name="fname" class="form-control">
-                                <span class="error">* <?php echo $fnameErr;?></span>
+                                <span class="error"> <?php echo $fnameErr;?></span>
                             </div>
 
                             <div class="mb-3">
-                                <label for="lname" class="form-label">Nachname:</label>
+                                <label for="lname" class="form-label">Nachname: *</label>
                                 <input type="text" id="lname" name="lname" class="form-control">
-                                <span class="error">* <?php echo $lnameErr;?></span>
+                                <span class="error"><?php echo $lnameErr;?></span>
                             </div>
 
                             <div class="mb-3">
-                                <label for="mail" class="form-label">E-Mail:</label>
+                                <label for="mail" class="form-label">E-Mail: *</label>
                                 <input type="email" id="mail" name="mail" class="form-control">
-                                <span class="error">* <?php echo $mailErr;?></span>
+                                <span class="error"><?php echo $mailErr;?></span>
                             </div>
 
                             <div class="mb-3">
-                                <label for="uname" class="form-label">Username:</label>
+                                <label for="uname" class="form-label">Username: *</label>
                                 <input type="text" id="uname" name="uname" class="form-control">
-                                <span class="error">* <?php echo $unameErr;?></span>
+                                <span class="error"> <?php echo $unameErr;?></span>
                             </div>
 
                             <div class="mb-3">
-                                <label for="pw" class="form-label">Passwort:</label>
+                                <label for="pw" class="form-label">Passwort: *</label>
                                 <input type="password" id="pw" name="pw" class="form-control"
                                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                                     title="Muss mindestens eine Zahl und einen Groß- und Kleinbuchstaben sowie mindestens 8 oder mehr Zeichen enthalten">
-                                <span class="error">* <?php echo $pwErr;?></span>
+                                <span class="error"><?php echo $pwErr;?></span>
                             </div>
 
                             <div class="mb-3">
-                                <label for="pw2" class="form-label">Wiederholung Passwort:</label>
+                                <label for="pw2" class="form-label">Wiederholung Passwort: *</label>
                                 <input type="password" id="pw2" name="pw2" class="form-control"
                                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                                     title="Muss mindestens eine Zahl und einen Groß- und Kleinbuchstaben sowie mindestens 8 oder mehr Zeichen enthalten">
-                                <span class="error">* <?php echo $pw2Err;?></span>
+                                <span class="error"> <?php echo $pw2Err;?></span>
                             </div>
 
                             <button type="reset" class="btn">Zurücksetzen</button>
