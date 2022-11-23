@@ -70,13 +70,11 @@ body {
 }
 
 /*slogan*/
-.lead {
+.lead-slogan {
     color: #fff;
     font-size: 4em;
     margin-bottom: 50px;
     font-family: "Passions Conflict", sans-serif;
-    padding-right: 22rem;
-
 }
 
 /*adding a background image to the home-jumbotron*/
@@ -329,4 +327,8 @@ display: none;
 
 .accordion-item:target .accordion-link .remove-outline {
     display: block;
+}
+
+.news-img {
+    height: auto;
 }

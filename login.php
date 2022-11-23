@@ -12,8 +12,9 @@
     $error["save"] = false;
     
 
-    if (isset($_POST['submit']) && ($_SERVER["REQUEST_METHOD"] == "POST") ){
-    if (empty($_POST["username"])) {
+    if ((isset($_POST['submit'])) && ($_SERVER["REQUEST_METHOD"] == "POST")){ //Version Sara
+    //if ($_SERVER["REQUEST_METHOD"] == "POST") { //Version Sandra
+        if (empty($_POST["username"])) {
         $error["username"] = true;
     }
     if (empty($_POST["current-password"])) {

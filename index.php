@@ -15,45 +15,41 @@
 
     <main>
 
-        <div id="carouselHomepasge" class="carousel slide" data-ride="carousel">
+        <div id="carouselHomepage" class="carousel slide" data-bs-ride="carousel">
 
             <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#carouselHomepasge" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselHomepasge" data-slide-to="1"></li>
-                <li data-target="#carouselHomepasge" data-slide-to="2"></li>
-            </ol>
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselHomepage" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselHomepage" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselHomepage" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
 
             <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-
+            <div class="carousel-inner">                
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="res\img\hotel-view.png" alt="First slide">
-                    <div class="container carousel-caption d-none d-md-block">
-                        <h1>Willkomen im Distant Hotel!</h1>
-                        <h2 class="lead slogan">Your HOME Away From HOME</h2>
+                    <img src="res\img\hotel-view.png" class="d-block w-100" alt="Hotel View">
+                    <div class="carousel-caption d-none d-md-block">
+                    <h1>Willkomen im Distant Hotel!</h1>
+                        <h2 class="lead-slogan">Your HOME Away From HOME</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium sit repellat excepturi,
+                            beatae delectus soluta et modi incidunt aliquam.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="res\img\hotel-rooms.png" class="d-block w-100" alt="Hotel Rooms">
+                    <div class="carousel-caption d-none d-md-block">
+                    <h1>Die wundervollen Hotel-Zimmer</h1>
+                        <h2 class="lead-slogan">Jedes Zimmer ist eine Insel der Erholung!</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium sit repellat excepturi,
                             beatae
                             delectus soluta et modi incidunt aliquam.</p>
                     </div>
                 </div>
-
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="res\img\hotel-rooms.png" alt="Second slide">
-                    <div class="container carousel-caption d-none d-md-block">
-                        <h1>Die wundervollen Hotel-Zimmer</h1>
-                        <h2 class="lead slogan">Jedes Zimmer ist eine Insel der Erholung!</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium sit repellat excepturi,
-                            beatae
-                            delectus soluta et modi incidunt aliquam.</p>
-                    </div>
-                </div>
-
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="res\img\hotel-pool.png" alt="Third slide">
-                    <div class="container carousel-caption d-none d-md-block">
+                    <img src="res\img\hotel-pool.png" class="d-block w-100" alt="Hotel Infinity-Pool">
+                    <div class="carousel-caption d-none d-md-block">
                         <h1>Der Distant-Pool</h1>
-                        <h2 class="lead slogan">Ein Infinty-Pool zum Seele baumeln lassen!</h2>
+                        <h2 class="lead-slogan">Ein Infinty-Pool zum Seele baumeln lassen!</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium sit repellat excepturi,
                             beatae
                             delectus soluta et modi incidunt aliquam.</p>
@@ -62,14 +58,14 @@
             </div>
 
             <!-- Left and right controls -->
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselHomepage" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselHomepage" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
 
         <div class="content">
