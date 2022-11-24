@@ -48,8 +48,8 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" id="navbar-dropdown-menu"
                         aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Lorem ipsum</a></li>
-                        <li><a class="dropdown-item" href="#">Lorem ipsum</a></li>
+                        <li><a class="dropdown-item" href="profile.php">Profil</a></li>
+                        <li><a class="dropdown-item" href="#">Buchungen</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>

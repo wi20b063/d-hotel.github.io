@@ -19,6 +19,8 @@ body {
     padding-top: 70px;
 }
 
+/* styling of navbar */
+
 .navbar {
     background-color: #1a5276;
     color: white;
@@ -70,6 +72,7 @@ body {
 }
 
 /*slogan*/
+/*Bug: Google Font is not responsive*/
 .lead-slogan {
     color: #fff;
     font-size: 4em;
@@ -106,6 +109,11 @@ footer {
     color: #fff;
     font-size: 14px;
     margin-top: 50px;
+    display: block;
+}
+
+.mt-auto {
+    margin-top: auto;
 }
 
 footer .footer-top {
@@ -220,16 +228,12 @@ footer .footer-bottom a {
     text-decoration: none;
 }
 
-
-
 h1 {
     text-align: center;
     font-family: "Popins", sans-serif;
     margin-bottom: 10px;
     padding-top: 30px;
 }
-
-
 
 
 /*section used for centering*/
@@ -330,5 +334,6 @@ display: none;
 }
 
 .news-img {
-    height: auto;
+    /*height full box size*/
+    height: 100%;
 }

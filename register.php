@@ -3,54 +3,51 @@
         include "components/session.php";
 
         //define variables and set to empty values
-
-        $anredeErr = $fnameErr = $lnameErr = $mailErr = $unameErr = $pwErr = $pw2Err = "";
-
-        $anrede = $fname = $lname= $mail= $uname = $pw= $pw2 =  ""; 
+        $salutationErr = $firstNameErr = $lastNameErr = $emailErr = $usernameErr = $newPasswordErr = $newPasswordRepeatedErr = "";
+        $salutation = $firstName = $lastName= $email= $username = $newPassword = $newPasswordRepeated =  ""; 
 
         if (isset($_POST['submit']) && ($_SERVER["REQUEST_METHOD"] == "POST") ){
             if (empty($_POST["anrede"])) {
-              $anredeErr = "anrede ist erforderlich";
+              $salutationErr = "Anrede ist erforderlich";
             } else {
-              $anrede = test_input($_POST["anrede"]);
-            }
+              $salutation = test_input($_POST["anrede"]);
+            }            
             
-            
-            if (empty($_POST["fname"])) {
-              $fnameErr = "Vorname ist erforderlich";
+            if (empty($_POST["firstName"])) {
+              $firstNameErr = "Vorname ist erforderlich";
             } else {
-              $fname = test_input($_POST["fname"]);
-            }
-              
+              $firstName = test_input($_POST["firstName"]);
+            }              
 
-            if (empty($_POST["lname"])) {
-                $lnameErr = "Nachname ist erforderlich";
+            if (empty($_POST["lastName"])) {
+                $lastNameErr = "Nachname ist erforderlich";
             } else {
-                $lname = test_input($_POST["lname"]);
+                $lastName = test_input($_POST["lastName"]);
             }
 
             if (empty($_POST["email"])) {
-                $mailErr = "Email ist erforderlich";
+                $emailErr = "Email ist erforderlich";
               } else {
-                $mail = test_input($_POST["email"]);
+                $email = test_input($_POST["email"]);
               }
 
-              if (empty($_POST["uname"])) {
-                $lnameErr = "Username ist erforderlich";
+              //Username needs to be unique, check if it already exists in database
+              if (empty($_POST["username"])) {
+                $lastNameErr = "Username ist erforderlich";
             } else {
-                $uname = test_input($_POST["uname"]);
+                $username = test_input($_POST["username"]);
             }
           
-            if (empty($_POST["pw"])) {
-              $pwErr = "Passwort ist erforderlich";
+            if (empty($_POST["new-password"])) {
+              $newPasswordErr = "Passwort ist erforderlich";
             } else {
-              $pw = test_input($_POST["pw"]);
+              $newPassword = test_input($_POST["new-password"]);
             }
 
-            if (empty($_POST["pw2"])) {
-                $pw2Err = "Wiederholung Passwort ist erforderlich";
+            if (empty($_POST["new-passwordRepeated"])) {
+                $newPasswordRepeatedErr = "Wiederholung Passwort ist erforderlich";
               } else {
-                $pw2 = test_input($_POST["pw2"]);
+                $newPasswordRepeated = test_input($_POST["new-passwordRepeated"]);
               }
           }
 
@@ -77,14 +74,13 @@
 
     <main>
 
-        <!---können noch Placeholder überlegen einzusezten-->
-        <!--bei name autocomplete empfehlung der browser verwenden-->
+        <!--Autocomplete Empfehlung von mozilla eingebaut-->
 
         <div class="content">
             <div class="container form-element">
                 <div class="row col-8">
                     <h1>Reservierungsformular</h2>
-                        <form class="data-form" method="post"
+                        <form class="data-form" method="post" autocomplete="on"
                             action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
                             <div class="mb-3">
@@ -107,47 +103,47 @@
                                         Neutrale Anrede
                                     </label>
                                 </div>
-                                <span class="error"> <?php echo $anredeErr;?></span>
+                                <span class="error"> <?php echo $salutationErr;?></span>
                             </div>
 
                             <div class="mb-3">
-                                <label for="fname" class="form-label">Vorname: *</label>
-                                <input type="text" id="fname" name="fname" class="form-control">
-                                <span class="error"> <?php echo $fnameErr;?></span>
+                                <label for="firstName" class="form-label">Vorname: *</label>
+                                <input type="text" id="firstName" name="firstName" class="form-control" autocomplete="given-name" placeholder="Vorname">
+                                <span class="error"> <?php echo $firstNameErr;?></span>
                             </div>
 
                             <div class="mb-3">
-                                <label for="lname" class="form-label">Nachname: *</label>
-                                <input type="text" id="lname" name="lname" class="form-control">
-                                <span class="error"><?php echo $lnameErr;?></span>
+                                <label for="lastName" class="form-label">Nachname: *</label>
+                                <input type="text" id="lastName" name="lastName" class="form-control" autocomplete="family-name" placeholder="Nachname">
+                                <span class="error"><?php echo $lastNameErr;?></span>
                             </div>
 
                             <div class="mb-3">
                                 <label for="mail" class="form-label">E-Mail: *</label>
-                                <input type="email" id="mail" name="mail" class="form-control">
-                                <span class="error"><?php echo $mailErr;?></span>
+                                <input type="email" id="mail" name="mail" class="form-control" autocomplete="off" placeholder="E-Mail-Adresse">
+                                <span class="error"><?php echo $emailErr;?></span>
                             </div>
 
                             <div class="mb-3">
-                                <label for="uname" class="form-label">Username: *</label>
-                                <input type="text" id="uname" name="uname" class="form-control">
-                                <span class="error"> <?php echo $unameErr;?></span>
+                                <label for="username" class="form-label">Username: *</label>
+                                <input type="text" id="username" name="username" class="form-control" autocomplete="username" placeholder="Username">
+                                <span class="error"> <?php echo $usernameErr;?></span>
                             </div>
 
                             <div class="mb-3">
-                                <label for="pw" class="form-label">Passwort: *</label>
-                                <input type="password" id="pw" name="pw" class="form-control"
+                                <label for="new-password" class="form-label">Passwort: *</label>
+                                <input type="password" id="new-password" name="new-password" class="form-control" autocomplete="new-password" placeholder="Neues Passwort"
                                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                                     title="Muss mindestens eine Zahl und einen Groß- und Kleinbuchstaben sowie mindestens 8 oder mehr Zeichen enthalten">
-                                <span class="error"><?php echo $pwErr;?></span>
+                                <span class="error"><?php echo $newPasswordErr;?></span>
                             </div>
 
                             <div class="mb-3">
-                                <label for="pw2" class="form-label">Wiederholung Passwort: *</label>
-                                <input type="password" id="pw2" name="pw2" class="form-control"
+                                <label for="new-passwordRepeated" class="form-label">Wiederholung Passwort: *</label>
+                                <input type="password" id="new-passwordRepeated" name="new-passwordRepeated" class="form-control" autocomplete="new-password" placeholder="Neues Passwort Wiederholung"
                                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                                     title="Muss mindestens eine Zahl und einen Groß- und Kleinbuchstaben sowie mindestens 8 oder mehr Zeichen enthalten">
-                                <span class="error"> <?php echo $pw2Err;?></span>
+                                <span class="error"> <?php echo $newPasswordRepeatedErr;?></span>
                             </div>
 
                             <button type="reset" class="btn">Zurücksetzen</button>

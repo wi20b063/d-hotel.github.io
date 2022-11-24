@@ -52,11 +52,11 @@
         <div class="content">
             <div class="container">
                 <div class="row col-8">
-                    <form class="data-form" action="" method="post">
+                    <form class="data-form" action="" method="post" autocomplete="on">
 
                         <div class="mb-3">
                             <label for="username" class="form-label">Username:</label>
-                            <input type="text" id="username" name="username" placeholder="Username"
+                            <input type="text" id="username" name="username" autocomplete="username" placeholder="Username"
                                 class="form-control">
                             <!--required-->
                             <?php if ($error["username"]) echo "<div>Please enter Username!</div>"?>

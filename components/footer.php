@@ -1,5 +1,13 @@
+
+<!--Stylesheet-->
+<link rel="stylesheet" type="text/css" href="res/css/mystyle.css">
+
 <!-- class fixed-bottom or sticky-botton should make footer
 stick to the bottom regardless of the lenght of the content -->
+
+<!-- footer mt-auto py-3 bg-light -->
+
+<div class="footer mt-auto">
 <div class="footer-top">
     <div class="container">
         <div class="row">
@@ -68,4 +76,5 @@ stick to the bottom regardless of the lenght of the content -->
     <div class="row">
         <p class="text-center mb-2">&copy; Copyright <strong>2022 Distant Hotel GmbH</strong></p>
     </div>
+</div>
 </div>
