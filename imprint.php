@@ -17,10 +17,9 @@
         <div class="content">
             <div class="container">
 
+                <section>
                 <div class="headline">
-                    <section>
                         <h1>Impressum</h1>
-                    </section>
                 </div>
 
                 <p>
@@ -107,6 +106,7 @@
                     </p>
                 </div>
             </div>
+                </section>
         </div>
 
     </main>

@@ -16,7 +16,7 @@
     <main>
 
         <section>
-            <div class=" container">
+            <div class="container">
                 <div class="accordion">
                     <div class="accordion-item" id="question1">
                         <a class="accordion-link" href="#question1">
