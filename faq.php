@@ -15,7 +15,7 @@
 
     <main>
 
-        <section class="faq-section">
+        <section>
             <div class=" container">
                 <div class="accordion">
                     <div class="accordion-item" id="question1">
@@ -146,9 +146,6 @@
 
         </section>
         </div>
-        <!-- ion icons -->
-        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
     </main>
 
@@ -156,7 +153,9 @@
         <?php include "components/footer.php";?>
     </footer>
 
-
+    <!-- ion icons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </body>
 
