@@ -24,6 +24,21 @@
                 <li class="nav-item">
                     <a class="nav-link" href="faq.php">FAQ</a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Beiträge verwalten
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" id="navbar-dropdown-menu"
+                        aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Beiträge erstellen</a></li>
+                        <li><a class="dropdown-item" href="#">Bilder hochladen</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="components\logout.php">Logout</a></li>
+                    </ul>
+                </li>
 
 
                 <!-- <li class="nav-item">

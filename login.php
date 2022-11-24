@@ -64,7 +64,7 @@
 
                         <div class="mb-3">
                             <label for="current-password" class="form-label">Passwort:</label>
-                            <input type="text" id="current-password" name="current-password" placeholder="Passwort"
+                            <input type="password" id="current-password" name="current-password" placeholder="Passwort"
                                 class="form-control">
                             <!--required-->
                             <?php if ($error["current-password"]) echo "<div>Please enter Password!</div>"?>
