@@ -79,7 +79,7 @@
         <div class="content">
             <div class="container form-element">
                 <div class="row col-8">
-                    <h1>Reservierungsformular</h2>
+                    <h1 class="headline">Reservierungsformular</h2>
                         <form class="data-form" method="post" autocomplete="on"
                             action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
@@ -146,8 +146,8 @@
                                 <span class="error"> <?php echo $newPasswordRepeatedErr;?></span>
                             </div>
 
-                            <button type="reset" class="btn">Zurücksetzen</button>
-                            <button type="submit" class="btn">Absenden</button>
+                            <button type="submit" name="submit" class="btn">Zurücksetzen</button>
+                            <button type="submit" name="submit" class="btn">Absenden</button>
                         </form>
                 </div>
             </div>

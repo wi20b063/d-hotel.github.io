@@ -12,8 +12,7 @@
     $error["save"] = false;
     
 
-    if ((isset($_POST['submit'])) && ($_SERVER["REQUEST_METHOD"] == "POST")){ //Version Sara
-    //if ($_SERVER["REQUEST_METHOD"] == "POST") { //Version Sandra
+    if ((isset($_POST['submit'])) && ($_SERVER["REQUEST_METHOD"] == "POST")) {
         if (empty($_POST["username"])) {
         $error["username"] = true;
     }
@@ -51,6 +50,7 @@
     <main>
         <div class="content">
             <div class="container">
+                <h1 class="headline">Login</h1>
                 <div class="row col-8">
                     <form class="data-form" action="" method="post" autocomplete="on">
 
@@ -76,7 +76,7 @@
                             <?php if ($error["save"]) echo "<div>Error</div>"?>
                         </div>
 
-                        <button type="submit" class="btn">Bestätigen</button>
+                        <button type="submit" name="submit" class="btn">Bestätigen</button>
                     </form>
                 </div>
             </div>

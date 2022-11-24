@@ -14,9 +14,8 @@
     </nav>
 
     <main>
-
-        <section>
             <div class="container">
+                <h1 class="headline">FAQ</h1>
                 <div class="accordion">
                     <div class="accordion-item" id="question1">
                         <a class="accordion-link" href="#question1">
@@ -102,8 +101,6 @@
                     </div>
                 </div>
             </div>
-
-        </section>
         </div>
 
     </main>

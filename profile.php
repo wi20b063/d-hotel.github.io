@@ -21,7 +21,7 @@
 		<div class="col-12">
 			<!-- Page title -->
 			<div class="my-5">
-				<h3>My Profile</h3>
+				<h1 class="headline">My Profile</h1>
 				<hr>
 			</div>
 			<!-- Form START -->

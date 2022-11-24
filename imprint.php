@@ -18,10 +18,7 @@
             <div class="container">
 
                 <section>
-                <div class="headline">
-                        <h1>Impressum</h1>
-                </div>
-
+                        <h1 class="headline">Impressum</h1>
                 <p>
                     <strong>
                         Distant Hotel Gmbh
