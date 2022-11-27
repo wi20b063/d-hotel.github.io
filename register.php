@@ -33,7 +33,7 @@
 
               //Username needs to be unique, check if it already exists in database
               if (empty($_POST["username"])) {
-                $lastNameErr = "Username ist erforderlich";
+                $usernameErr = "Username ist erforderlich";
             } else {
                 $username = test_input($_POST["username"]);
             }
@@ -103,31 +103,31 @@
                                         Neutrale Anrede
                                     </label>
                                 </div>
-                                <span class="error"> <?php echo $salutationErr;?></span>
+                                <span style="color:red; font-size:small"><?php echo $salutationErr;?></span>
                             </div>
 
                             <div class="mb-3">
                                 <label for="firstName" class="form-label">Vorname: *</label>
                                 <input type="text" id="firstName" name="firstName" class="form-control" autocomplete="given-name" placeholder="Vorname">
-                                <span class="error"> <?php echo $firstNameErr;?></span>
+                                <span style="color:red; font-size:small"><?php echo $firstNameErr;?></span>
                             </div>
 
                             <div class="mb-3">
                                 <label for="lastName" class="form-label">Nachname: *</label>
                                 <input type="text" id="lastName" name="lastName" class="form-control" autocomplete="family-name" placeholder="Nachname">
-                                <span class="error"><?php echo $lastNameErr;?></span>
+                                <span style="color:red; font-size:small"><?php echo $lastNameErr;?></span>
                             </div>
 
                             <div class="mb-3">
                                 <label for="mail" class="form-label">E-Mail: *</label>
                                 <input type="email" id="mail" name="mail" class="form-control" autocomplete="off" placeholder="E-Mail-Adresse">
-                                <span class="error"><?php echo $emailErr;?></span>
+                                <span style="color:red; font-size:small"><?php echo $emailErr;?></span>
                             </div>
 
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username: *</label>
                                 <input type="text" id="username" name="username" class="form-control" autocomplete="username" placeholder="Username">
-                                <span class="error"> <?php echo $usernameErr;?></span>
+                                <span style="color:red; font-size:small"> <?php echo $usernameErr;?></span>
                             </div>
 
                             <div class="mb-3">
@@ -135,7 +135,7 @@
                                 <input type="password" id="new-password" name="new-password" class="form-control" autocomplete="new-password" placeholder="Neues Passwort"
                                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                                     title="Muss mindestens eine Zahl und einen Groß- und Kleinbuchstaben sowie mindestens 8 oder mehr Zeichen enthalten">
-                                <span class="error"><?php echo $newPasswordErr;?></span>
+                                <span style="color:red; font-size:small"><?php echo $newPasswordErr;?></span>
                             </div>
 
                             <div class="mb-3">
@@ -143,11 +143,15 @@
                                 <input type="password" id="new-passwordRepeated" name="new-passwordRepeated" class="form-control" autocomplete="new-password" placeholder="Neues Passwort Wiederholung"
                                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                                     title="Muss mindestens eine Zahl und einen Groß- und Kleinbuchstaben sowie mindestens 8 oder mehr Zeichen enthalten">
-                                <span class="error"> <?php echo $newPasswordRepeatedErr;?></span>
+                                <span style="color:red; font-size:small"><?php echo $newPasswordRepeatedErr;?></span>
                             </div>
+
+                            <p  style="font-size:small; margin-top:20px;">* Pflichtfelder</p>
+
 
                             <button type="submit" name="submit" class="btn">Zurücksetzen</button>
                             <button type="submit" name="submit" class="btn">Absenden</button>
+
                         </form>
                 </div>
             </div>

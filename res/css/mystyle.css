@@ -338,3 +338,8 @@ display: none;
     height: 100%;
     width: auto;
 }
+
+.error {
+    color: red;
+    font-size: small;
+}

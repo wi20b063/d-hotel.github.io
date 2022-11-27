@@ -30,7 +30,7 @@
                     <img src="res\img\hotel-view.png" class="d-block w-100" alt="Hotel View">
                     <div class="carousel-caption d-none d-md-block">
                     <h1>Willkomen im Distant Hotel!</h1>
-                        <h2 class="lead-slogan">Your HOME Away From HOME</h2>
+                        <h2>Your HOME Away From HOME</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium sit repellat excepturi,
                             beatae delectus soluta et modi incidunt aliquam.</p>
                     </div>
@@ -39,7 +39,7 @@
                     <img src="res\img\hotel-rooms.png" class="d-block w-100" alt="Hotel Rooms">
                     <div class="carousel-caption d-none d-md-block">
                     <h1>Die wundervollen Hotel-Zimmer</h1>
-                        <h2 class="lead-slogan">Jedes Zimmer ist eine Insel der Erholung!</h2>
+                        <h2>Jedes Zimmer ist eine Insel der Erholung!</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium sit repellat excepturi,
                             beatae
                             delectus soluta et modi incidunt aliquam.</p>
@@ -49,7 +49,7 @@
                     <img src="res\img\hotel-pool.png" class="d-block w-100" alt="Hotel Infinity-Pool">
                     <div class="carousel-caption d-none d-md-block">
                         <h1>Der Distant-Pool</h1>
-                        <h2 class="lead-slogan">Ein Infinty-Pool zum Seele baumeln lassen!</h2>
+                        <h2>Ein Infinty-Pool zum Seele baumeln lassen!</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium sit repellat excepturi,
                             beatae
                             delectus soluta et modi incidunt aliquam.</p>
