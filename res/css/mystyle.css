@@ -97,6 +97,11 @@ body {
     background-color: #677279;
 }
 
+.btn-warning {
+    color: white;
+    background-color: #ffcc00 !important;
+}
+
 .fixed-top {
     position: fixed;
     top: 0;

@@ -1,5 +1,5 @@
-<!--Stylesheet-->
-<link rel="stylesheet" type="text/css" href="res/css/mystyle.css">
+
+<!--Administrator*innen der Website haben die Möglichkeit News-Beiträge zu posten, welche in einem eigenen Bereich der Webseite zu sehen sind.-->
 
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid">

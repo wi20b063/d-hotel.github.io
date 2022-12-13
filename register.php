@@ -57,6 +57,16 @@
             $data = htmlspecialchars($data);
             return $data;
           }
+
+          if (!empty($_POST["username"]) && !empty($_POST["new-password"]) && !empty($_POST["new-passwordRepeated"]) && (($_POST["new-password"]) === ($_POST["new-passwordRepeated"]))) {
+            $cookie_name = "username";
+            $cookie_value = $_POST["username"];
+            setcookie($cookie_name, $cookie_value, time() + (86400 * 30)); // 86400 = 1 day / secure, httponly
+    
+            $_SESSION["username"] = $_POST["username"];
+            
+            header('Refresh: 0; URL = index.php');
+        }
           ?>
 
 <!DOCTYPE html>

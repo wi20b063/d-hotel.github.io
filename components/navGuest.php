@@ -1,5 +1,6 @@
-<!--Stylesheet-->
-<link rel="stylesheet" type="text/css" href="res/css/mystyle.css">
+
+
+<!--Anonyme User*innen können die News-Beiträge der Administrator*innen (auch ohne eingeloggt zu sein) auf der Webseite sehen.-->
 
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid">

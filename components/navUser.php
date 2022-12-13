@@ -1,5 +1,6 @@
-<!--Stylesheet-->
-<link rel="stylesheet" type="text/css" href="res/css/mystyle.css">
+
+
+<!--Registrierte User*innen der Webseite können Zimmer reservieren und Ihre Reservierungsdetails einsehen.-->
 
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid">
@@ -24,6 +25,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="faq.php">FAQ</a>
                 </li>
+                <li>
+                    <a class="nav-link btn btn-warning" href="booking.php">Buchen</a>
+                </li>
 
 
                 <!-- <li class="nav-item">
@@ -46,7 +50,7 @@
                     <ul class="dropdown-menu dropdown-menu-end" id="navbar-dropdown-menu"
                         aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="profile.php">Profil</a></li>
-                        <li><a class="dropdown-item" href="#">Buchungen</a></li>
+                        <li><a class="dropdown-item" href="#">Buchungen verwalten</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
