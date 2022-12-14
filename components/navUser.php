@@ -26,7 +26,7 @@
                     <a class="nav-link" href="faq.php">FAQ</a>
                 </li>
                 <li>
-                    <a class="nav-link btn btn-warning" href="booking.php">Buchen</a>
+                    <a class="nav-link btn btn-warning" href="rooms.php">Buchen</a>
                 </li>
 
 
