@@ -1,15 +1,16 @@
 <?php
-    if (!isset($_SESSION["username"])) {
+if (isset($_SESSION["role"]) && $_SESSION["role"] === "0") {
 
-        include "navGuest.php";
-    
-    } else if ($_SESSION["username"] === "testuser") {
-        
-        include "navUser.php";
+    include "navUser.php";
 
-    } else if ($_SESSION["username"] === "admin") {
-        
-        include "navAdmin.php";
-        
-    }
+} elseif (isset($_SESSION["role"]) && $_SESSION["role"] === "1") {
+
+    include "navAdmin.php";
+
+} else {
+
+    include "navGuest.php";
+}
+
+
 ?>

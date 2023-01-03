@@ -1,8 +1,9 @@
 
+<!--Stylesheet-->
+<link rel="stylesheet" type="text/css" href="res/css/mystyle.css">
 
 <!-- class fixed-bottom or sticky-botton should make footer
 stick to the bottom regardless of the lenght of the content -->
-
 
 <!-- footer mt-auto py-3 bg-light -->
 

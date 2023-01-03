@@ -2,65 +2,38 @@ main {
     margin-top: 100px;
 }
 
-body {
-    padding-top: 10px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+/*
+h1 {
+    padding-right: 22rem;
+}
+*/
+
+p {
+    padding-right: 4rem;
 }
 
 .content {
-    margin: 30px 0 70px;
+    margin-top: 30px;
 }
 
-.headline {
-    font-family: "Popins", sans-serif;
-    margin: 30px 0 30px 0;
+body {
+    padding-top: 70px;
 }
 
-.news-img {
-    /*height full box size*/
-    max-height: auto;
-    width: auto;
-}
+/* styling of navbar */
 
-.card-img-top {
-    width: 100%;
-    height: 15vw;
-    object-fit: cover;
-}
-
-.error {
-    color: red;
-    font-size: small;
-}
-
-/* get rid of the white space above the carousel */
-#carouselHomepage {
-    margin-top: -35px;
-}
-
-/*damit Eingabe-Formulare linksbündig sind*/
-.data-form {
-    float: left;
-}
-
-/*adding a background image to the home-jumbotron*/
-/* #jumbotron-home {
-    background-image: url("../img/hotel-1.jpg");
-    background-size: cover;
-} */
-
-
-
-/* START styling of navbar */
 .navbar {
     background-color: #1a5276;
     color: white;
+
+    /*to remove space between navbar and jumbotron*/
+    /* margin-bottom: 0; */
+    /*to remove rounded corners at navbar*/
+    /* border-radius: 0; */
 }
 
 #logo-nav {
-    max-height: 50px;
+    max-height: 70px;
 }
 
 .navbar a {
@@ -77,20 +50,26 @@ body {
 }
 
 #navbar-dropdown-menu {
+    color: white;
     background-color: #1a5276;
     right: 0
 }
 
+.navbar-nav dropdown-item {
+    color: white;
+    background-color: #1a5276;
+}
+
 .navbar-nav a:hover {
-    color: lightgrey;    
+    color: lightgrey;
 }
 
-.navbar-nav a:focus {
-    color: lightgrey;    
+.navbar-nav dropdown a:active {
+    color: lightgrey;
 }
 
-.dropdown-menu a:hover {
-    color: black;    
+.navbar-nav dropdown a:visted {
+    color: lightgrey;
 }
 
 /*slogan*/
@@ -102,9 +81,25 @@ body {
     font-family: "Passions Conflict", sans-serif;
 }
 
+/*adding a background image to the home-jumbotron*/
+/* #jumbotron-home {
+    background-image: url("../img/hotel-1.jpg");
+    background-size: cover;
+} */
+
+/*damit Eingabe-Formulare linksbündig sind*/
+.data-form {
+    float: left;
+}
+
 .btn {
     color: white;
     background-color: #677279;
+}
+
+.btn-warning {
+    color: white;
+    background-color: #ffcc00;
 }
 
 .fixed-top {
@@ -115,33 +110,11 @@ body {
     z-index: 1030;
 }
 
-/* END styling of navbar */
-
-
-
-/* START styling of booking button */
-
-.btn-warning {
-    color: white;
-    background-color: #ffcc00;
-    margin-left: 30px;
-}
-
-
-
-
-
-/* END styling of booking button */
-
-
-
-/* START styling of footer */
-
 footer {
     background: #677279;
     color: #fff;
     font-size: 14px;
-    margin-top: auto;
+    margin-top: 50px;
     display: block;
 }
 
@@ -261,11 +234,16 @@ footer .footer-bottom a {
     text-decoration: none;
 }
 
-/* END styling of footer */
+.headline {
+    font-family: "Popins", sans-serif;
+    margin: 30px 0 30px 0;
+}
 
 
-
-/* START styling of faq */
+/*section used for centering*/
+section {
+    text-align: center;
+}
 
 .faq-section {
     width: 100%;
@@ -281,17 +259,20 @@ footer .footer-bottom a {
     padding: 0 1.5rem;
 }
 
+
+
 /* create accordion for faq - hidden information to be shown by a click on it */
+
 .accordion-item {
-    background-color: #283042;
+    background-color: #415464;
     border-radius: .4rem;
     margin-bottom: 1rem;
-    padding: 0 1rem;
+    padding: 1rem;
     box-shadow: .5rem 2px .5rem rgba(0, 0, 0, .1);
 }
 
 .accordion-link {
-    font-size: 1.1rem;
+    font-size: 1.6rem;
     color: rgba(255, 255, 255, .8);
     text-decoration: none;
     background-color: #283042;
@@ -306,6 +287,7 @@ footer .footer-bottom a {
     color: #6097c4;
 }
 
+
 /* .accordion-link {
 display: none;
 } */
@@ -313,6 +295,7 @@ display: none;
 .remove-outline {
     display: none;
 }
+
 
 .answer {
     max-height: 0;
@@ -332,16 +315,19 @@ display: none;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
+
 }
 
 .answer p {
-    font-size: 1rem;
+    font-size: 1.4rem;
     color: rgba(255, 255, 255, .6);
-    padding: 1rem 2rem;
+    padding: 2rem;
+
 }
 
 .accordion-item:target .answer {
     max-height: 20rem;
+
 }
 
 .accordion-item:target .accordion-link .add-outline {
@@ -352,7 +338,20 @@ display: none;
     display: block;
 }
 
-/* END styling of faq */
+.news-img {
+    /*height full box size*/
+    height: 100%;
+    width: auto;
+}
 
-
-
+.error {
+    color: red;
+    font-size: small;
+}
+.modal:nth-of-type(even) {
+    z-index: 1052 !important;
+}
+.modal-backdrop.show:nth-of-type(even) {
+    z-index: 1051 !important;
+}
+    

@@ -1,0 +1,46 @@
+- OPEN
++ DONE
+--------------------------------------------------------------------------
+LAST WORKDED ON:
+DB Room and Booking done
+--------------------------------------------------------------------------
+register.php 
+- feedback msg after sucessful register (before forwarding to login page), get rid of half hidden msg
+
+profile php: 
++ image must be less than 3MB, png/jpg/jpeg, filnam must not yet exist in destination, 
++ unique filename for picture upload 
+
++ display improved error and feedback on profile changes ($_SESSION["transactE..."])
++ hide buttons that are not required in each step
+- display size of profile picture: set reasonable
+- user delete-> 
+    and deactivate: shift to Admin page. update bookings table: delete bookings in future. set UID to generic "deleted user"...
+    + delete old profile picture after new profile picture has been uploaded by user (reuse funciton from profile delete?)
++ logout/session destroy after delete profice successful
+- cleanup $_SESSION["transactNotice"]  and similar (simplify)
+- Booking.php: Delete bookings if a users delete their profiles??? -> cancle bookings and overwrite previous bookings with dummy entry ("deleted user")
+
+booking:
+Desc: 
+
+ - User: 
+    .) Rooms.php fro instant booking with Modal. Need to create 2 step (1->select date and number of guests, submit to query DB for availability, 2-> select room and optional features)
+    .) view booking to view pending bookings and reservation code
+
+-Admin:
+    - see all existing (future) reservations
+        --> creates table with all (future) reservations
+    -  optional: cancle or edit own reservation?
+
+Components:
+-
+    - use Bootstrap Modal where possible
+- database table: 
+- queries:
+    - sanity checks
+    - 
+
+
+
+

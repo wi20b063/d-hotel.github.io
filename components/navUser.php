@@ -1,6 +1,5 @@
-
-
-<!--Registrierte User*innen der Webseite können Zimmer reservieren und Ihre Reservierungsdetails einsehen.-->
+<!--Stylesheet-->
+<link rel="stylesheet" type="text/css" href="res/css/mystyle.css">
 
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid">
@@ -11,7 +10,7 @@
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="index.php">Home</a>
@@ -26,10 +25,12 @@
                     <a class="nav-link" href="faq.php">FAQ</a>
                 </li>
                 <li>
-                    <a class="nav-link btn btn-warning px-4" href="rooms.php">Buchen</a>
+
+                    <a class="nav-link btn btn-warning" href="rooms.php"> Zimmer Info</a>
                 </li>
-
-
+                <li>
+                    <a class="nav-link btn btn-warning" href="booking.php"> Zimmer buchen</a>
+                </li>
                 <!-- <li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                 </li> -->
@@ -39,7 +40,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <span class="navbar-text d-flex align-items-center">
-                        <?php echo "Willkommen " . $_SESSION["username"] . "!";?>
+                         <?php echo "Willkommen " . $_SESSION["firstName"] . "!  "; ?>
                     </span>
                 </li>
                 <li class="nav-item dropdown">
@@ -49,8 +50,8 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" id="navbar-dropdown-menu"
                         aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="profile.php">Profil</a></li>
-                        <li><a class="dropdown-item" href="#">Buchungen verwalten</a></li>
+                        <li><a class="dropdown-item" href="..\profile.php">Profil</a></li>
+                        <li><a class="dropdown-item" href="#">Buchungen</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>

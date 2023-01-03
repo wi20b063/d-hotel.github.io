@@ -18,10 +18,10 @@
                 <h1 class="headline">FAQ</h1>
                 <div class="accordion">
                     <div class="accordion-item" id="question1">
-                        <a class="accordion-link" data-toggle="collapse" href="#question1">
+                        <a class="accordion-link" href="#question1">
                             Wie können Reservierungen vorgenommen werden?
-                            <ion-icon class="add-outline" name="add-outline"></ion-icon>
-                            <ion-icon class="remove-outline" name="remove-outline"></ion-icon>
+                            <ion-icon class="add-outline" name="add-outline" size="medium"> </ion-icon>
+                            <ion-icon  class="remove-outline" name="remove-outline" size="medium"> </ion-icon>
                         </a>
                         <div class="answer">
                             <p>
@@ -40,8 +40,8 @@
                     <div class="accordion-item" id="question2">
                         <a class="accordion-link" href="#question2">
                             Wozu werden meine Kreditkartendetails benötigt?
-                            <ion-icon class="add-outline" name="add-outline"></ion-icon>
-                            <ion-icon class="remove-outline" name="remove-outline"></ion-icon>
+                            <ion-icon class="add-outline" name="add-outline" size="medium"> </ion-icon>
+                            <ion-icon class="remove-outline" name="remove-outline" size="medium"></ion-icon>
                         </a>
                         <div class="answer">
                             <p>
@@ -57,8 +57,8 @@
                     <div class="accordion-item" id="question3">
                         <a class="accordion-link" href="#question3">
                             Wie sicher ist die Eingabe meiner persönlichen Daten auf Ihrer Website?
-                            <ion-icon class="add-outline" name="add-outline"></ion-icon>
-                            <ion-icon class="remove-outline" name="remove-outline"></ion-icon>
+                            <ion-icon class="add-outline" name="add-outline" size="medium"></ion-icon>
+                            <ion-icon class="remove-outline" name="remove-outline" size="medium"></ion-icon>
                         </a>
                         <div class="answer">
                             <p>
@@ -73,8 +73,8 @@
                     <div class="accordion-item" id="question4">
                         <a class="accordion-link" href="#question4">
                             Stornierung einer Reservierung
-                            <ion-icon class="add-outline" name="add-outline"></ion-icon>
-                            <ion-icon class="remove-outline" name="remove-outline"></ion-icon>
+                            <ion-icon class="add-outline" name="add-outline" size="medium"></ion-icon>
+                            <ion-icon class="remove-outline" name="remove-outline" size="medium"></ion-icon>
                         </a>
                         <div class="answer">
                             <p>
@@ -89,8 +89,8 @@
                     <div class="accordion-item" id="question5">
                         <a class="accordion-link" href="#question5">
                             Was ist zu tun, wenn ich keine Reservierungsbestätigung erhalte?
-                            <ion-icon class="add-outline" name="add-outline"></ion-icon>
-                            <ion-icon class="remove-outline" name="remove-outline"></ion-icon>
+                            <ion-icon class="add-outline" name="add-outline" size="medium"></ion-icon>
+                            <ion-icon class="remove-outline" name="remove-outline" size="medium"></ion-icon>
                         </a>
                         <div class="answer">
                             <p>
@@ -104,15 +104,15 @@
         </div>
 
     </main>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
     <footer>
         <?php include "components/footer.php";?>
     </footer>
 
     <!-- ion icons -->
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+    
 </body>
 
 </html>
