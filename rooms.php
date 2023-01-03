@@ -14,13 +14,13 @@
     </nav>
 
     <main>
-        <div class="content">
+        <div class="content">/
             <div class="container">
                 <h1 class="headline">Zimmer buchen</h1>
                 
-                <div class="row">
+                <div class="row pb-5">
                     <div class="col-sm-6">
-                        <div class="card">
+                        <div class="card h-100">
                             <img src="res\img\img rooms\budget room.png" class="card-img-top" alt="Budget Zimmer">
                             <div class="card-body">
                                 <h5 class="card-title">Budget Zimmer</h5>
@@ -31,19 +31,19 @@
                         </div>
                     </div>
                     <div class="col-sm-6">
-                        <div class="card">
+                        <div class="card h-100">
                             <img src="res\img\img rooms\standard room.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Standard Zimmer</h5>
-                                <p class="card-text">Das Budget Zimmer ist ein hochwertiges Zimmer zu einem günsteren Preis. Das Zimmer ist als Einzel- oder Doppelzimmer buchbar und befindet sich im 1. Stock. Inkludiert sind TV und gratis WLAN.</p>
+                                <p class="card-text">Das Standard Zimmer ist ein hochwertiges Zimmer zu einem günsteren Preis. Das Zimmer ist als Einzel- oder Doppelzimmer buchbar und befindet sich im 1. Stock. Inkludiert sind TV und gratis WLAN.</p>
                                 <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#bookingModal">Buchen</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-6">
-                        <div class="card">
+                <div class="row pb-5">
+                    <div class="col-sm-6">
+                        <div class="card h-100">
                             <img src="res\img\img rooms\premium room.png" class="card-img-top" alt="Budget Zimmer">
                             <div class="card-body">
                                 <h5 class="card-title">Premium Zimmer</h5>
@@ -52,8 +52,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-6">
-                        <div class="card">
+                    <div class="col-sm-6">
+                        <div class="card h-100">
                             <img src="res\img\img rooms\modern suite.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Moderne Suite</h5>
@@ -63,9 +63,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-6">
-                        <div class="card">
+                <div class="row pb-5">
+                    <div class="col-sm-6">
+                        <div class="card h-100">
                             <img src="res\img\img rooms\luxury suite.png" class="card-img-top" alt="Budget Zimmer">
                             <div class="card-body">
                                 <h5 class="card-title">Luzoriöse Suite</h5>

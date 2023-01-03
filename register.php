@@ -87,9 +87,10 @@
         <!--Autocomplete Empfehlung von mozilla eingebaut-->
 
         <div class="content">
-            <div class="container form-element">
-                <div class="row col-8">
-                    <h1 class="headline">Reservierungsformular</h2>
+            <div class="container">
+                <h1 class="headline">Reservierungsformular</h2>
+                <div class="row col-8 form-element">
+                    
                         <form class="data-form" method="post" autocomplete="on"
                             action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 

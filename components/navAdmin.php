@@ -31,12 +31,9 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" id="navbar-dropdown-menu"
                         aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Beiträge erstellen</a></li>
-                        <li><a class="dropdown-item" href="#">Bilder hochladen</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="components\logout.php">Logout</a></li>
+                        <li><a class="dropdown-item" href="#">Beitrag erstellen</a></li>
+                        <li><a class="dropdown-item" href="#">Beitrag bearbeiten</a></li>
+                        <li><a class="dropdown-item" href="#">Beitrag löschen</a></li>
                     </ul>
                 </li>
 

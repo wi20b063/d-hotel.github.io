@@ -18,7 +18,7 @@
                 <h1 class="headline">FAQ</h1>
                 <div class="accordion">
                     <div class="accordion-item" id="question1">
-                        <a class="accordion-link" href="#question1">
+                        <a class="accordion-link" data-toggle="collapse" href="#question1">
                             Wie können Reservierungen vorgenommen werden?
                             <ion-icon class="add-outline" name="add-outline"></ion-icon>
                             <ion-icon class="remove-outline" name="remove-outline"></ion-icon>
