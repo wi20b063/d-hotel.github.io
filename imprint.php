@@ -80,7 +80,7 @@
                     <strong>Online-Streitbeilegung</strong>
                     <p>Verbraucher haben die Möglichkeit, Beschwerden an die Online-Streitbeilegungsplattform der EU zu
                         richten:
-                        <a href="http://ec.europa.eu/odr">http://ec.europa.eu/odr</a>.<br>
+                        <a href="https://ec.europa.eu/odr" target="_blank">https://ec.europa.eu/odr</a>.<br>
                         Sie können allfällige Beschwerde auch an die oben angegebene E-Mail-Adresse richten.
                     </p>
                 </div>

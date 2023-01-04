@@ -574,10 +574,10 @@ function update_pwd($newPassword, $idPerson)
 				<form action="profile.php" method="post" enctype="multipart/form-data">
 					<div class="gap-3 d-md-flex justify-content-md-end text-center">
 
-						<button type="submit" name="edit_profile" class="btn btn-primary btn-lg">Profil
+						<button type="submit" name="edit_profile" class="btn">Profil
 							bearbeiten</button>
 
-						<button type="submit" name="delete_profile" class="btn btn-danger btn-lg">Profil
+						<button type="submit" name="delete_profile" class="btn btn-danger">Profil
 							löschen</button>
 					</div>
 				</form>

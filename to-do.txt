@@ -43,7 +43,60 @@ Components:
 
 
 
+NEWS:
+- cropped images need to be responsive
+- images need to be centered in col-3
+- creating news articles inkl. picture upload
+    - newest news arcticles on top (descending order)
+    + check if user is admin
+    - upload pictures
+        + "serverseitig verkleinert" --> pictures are
+        displayed in same size as Thumbnails (Bilder
+        werden als Thumbnails konstanter Größe dargestellt.
+        Achten Sie darauf, dass die Bilder, tatsächlich nur
+        in Thumbnail-Größe vom Server zum Browser übertragen
+        werden. Es empfiehlt sich die Thumbnails als fertige
+        Bilder am Server in einem eigenen Verzeichnis
+        vorzubereiten (automatische Verkleinerung mittels
+        PHP gleich nach dem Upload).)
+        - only pictures located in folder "news" can be uploaded
+- displaying news arcticles
+    - articles are loaded from the DB and displayed
+    - path to the related pictrue needs to be saved with the according articles
+    - each article need to include the date of the publication
+- OPTIONAL: deleting news articles
+- Article overview:
+    - formatting table
+    - links to thumbs do not work
+
+
+NAV:
+- add vertical rule to admin navbar
+
+
+- Create file with all functions in it
+
+
 --------------------------------------------------------------------------
 BUGS
 --------------------------------------------------------------------------
 * profile: when changing some data in the profile, than click on e.g. Home --> User is logged out
+* register: button "Zurücksetzen" is also named "submit"
+
+
+
+--------------------------------------------------------------------------
+TEST USER
+--------------------------------------------------------------------------
+
+Username: saras
+PW: Aaa12345
+Role: 0
+
+Username: max
+PW: Aaa12345
+Role: 0
+
+Username: admin
+PW: Aaa12345
+Role: 1

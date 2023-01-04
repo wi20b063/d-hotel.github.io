@@ -19,11 +19,12 @@ body {
 }
 
 .news-img {
-    /*height full box size*/
-    max-height: auto;
-    width: auto;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
 }
 
+/* styling cards for rooms page */
 .card-img-top {
     width: 100%;
     height: 15vw;
@@ -40,9 +41,14 @@ body {
     margin-top: -35px;
 }
 
-/*damit Eingabe-Formulare linksbÃ¼ndig sind*/
+/*make data form float left*/
 .data-form {
     float: left;
+}
+
+#vr {
+    color: white;
+    background-color: white;
 }
 
 /*adding a background image to the home-jumbotron*/
@@ -119,7 +125,7 @@ body {
 
 
 
-/* START styling of booking button */
+/* START styling of buttons */
 
 .btn-warning {
     color: white;
@@ -127,11 +133,13 @@ body {
     margin-left: 30px;
 }
 
+.btn-danger {
+    color: white;
+    background-color: #D42A04;
+    margin-left: 30px;
+}
 
-
-
-
-/* END styling of booking button */
+/* END styling of buttons */
 
 
 
@@ -355,6 +363,9 @@ display: none;
 /* END styling of faq */
 
 
+
+/* START styling of booking form */
+
 .modal:nth-of-type(even) {
     z-index: 1052 !important;
 }
@@ -362,4 +373,6 @@ display: none;
 .modal-backdrop.show:nth-of-type(even) {
     z-index: 1051 !important;
 }
+
+/* END styling of booking form */
     

@@ -24,17 +24,23 @@
                 <li class="nav-item">
                     <a class="nav-link" href="faq.php">FAQ</a>
                 </li>
+                <div class="vr bg-dark"></div>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        Beiträge verwalten
+                        News-Beiträge verwalten
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" id="navbar-dropdown-menu"
                         aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Beitrag erstellen</a></li>
-                        <li><a class="dropdown-item" href="#">Beitrag bearbeiten</a></li>
-                        <li><a class="dropdown-item" href="#">Beitrag löschen</a></li>
+                        <li><a class="dropdown-item" href="newsCreation.php">News-Beitrag erstellen</a></li>
+                        <li><a class="dropdown-item" href="newsOverview.php">News-Beiträge Übersicht</a></li>
                     </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Buchungsübersicht</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Userübersicht</a>
                 </li>
 
 

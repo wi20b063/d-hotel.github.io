@@ -206,7 +206,7 @@ function test_input($data)
                             <p style="font-size:small; margin-top:20px;">* Pflichtfelder</p>
 
 
-                            <button type="submit" name="submit" class="btn">Zurücksetzen</button>
+                            <button type="reset" name="reset" class="btn">Zurücksetzen</button>
                             <button type="submit" name="submit" class="btn">Absenden</button>
 
                         </form>
