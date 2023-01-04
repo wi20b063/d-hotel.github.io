@@ -16,7 +16,7 @@
     <main>
         <div class="content">
             <div class="container">
-                <h1 class="headline">Über Uns</h1>
+                <h1 class="headline">Über uns</h1>
                 <div class="row">
                     <div class="col-9">
 

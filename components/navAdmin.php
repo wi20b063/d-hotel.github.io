@@ -1,5 +1,5 @@
-<!--Stylesheet-->
-<link rel="stylesheet" type="text/css" href="res/css/mystyle.css">
+
+<!--Administrator*innen der Website haben die Möglichkeit News-Beiträge zu posten, welche in einem eigenen Bereich der Webseite zu sehen sind.-->
 
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid">
@@ -31,12 +31,9 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" id="navbar-dropdown-menu"
                         aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Beiträge erstellen</a></li>
-                        <li><a class="dropdown-item" href="#">Bilder hochladen</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="components\logout.php">Logout</a></li>
+                        <li><a class="dropdown-item" href="#">Beitrag erstellen</a></li>
+                        <li><a class="dropdown-item" href="#">Beitrag bearbeiten</a></li>
+                        <li><a class="dropdown-item" href="#">Beitrag löschen</a></li>
                     </ul>
                 </li>
 
@@ -50,8 +47,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <span class="navbar-text d-flex align-items-center">
-                        <?php echo "Willkommen aadmin" ;?>
-                       <!-- . $_SESSION["username"] . "!";?>
+                        <?php echo "Willkommen " . $_SESSION["username"] . "!";?>
                     </span>
                 </li>
                 <li class="nav-item dropdown">

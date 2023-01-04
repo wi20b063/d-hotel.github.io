@@ -43,4 +43,7 @@ Components:
 
 
 
-
+--------------------------------------------------------------------------
+BUGS
+--------------------------------------------------------------------------
+* profile: when changing some data in the profile, than click on e.g. Home --> User is logged out
