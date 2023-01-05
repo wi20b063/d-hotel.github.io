@@ -20,6 +20,8 @@ profile php:
 + logout/session destroy after delete profice successful
 - cleanup $_SESSION["transactNotice"]  and similar (simplify)
 - Booking.php: Delete bookings if a users delete their profiles??? -> cancle bookings and overwrite previous bookings with dummy entry ("deleted user")
+- add labels to input fields in p_status::PROFILE_MODIFY to ensure accessability
+
 
 booking:
 Desc: 
@@ -44,12 +46,13 @@ Components:
 
 
 NEWS:
-- cropped images need to be responsive
-- images need to be centered in col-3
-- creating news articles inkl. picture upload
-    - newest news arcticles on top (descending order)
+- images in News-Beiträge ...
+    - need to be responsive
+    - need to be centered in col-3
++ creating news articles inkl. picture upload
+    + newest news arcticles on top (descending order)
     + check if user is admin
-    - upload pictures
+    + upload pictures
         + "serverseitig verkleinert" --> pictures are
         displayed in same size as Thumbnails (Bilder
         werden als Thumbnails konstanter Größe dargestellt.
@@ -59,15 +62,24 @@ NEWS:
         Bilder am Server in einem eigenen Verzeichnis
         vorzubereiten (automatische Verkleinerung mittels
         PHP gleich nach dem Upload).)
-        - only pictures located in folder "news" can be uploaded
-- displaying news arcticles
-    - articles are loaded from the DB and displayed
-    - path to the related pictrue needs to be saved with the according articles
-    - each article need to include the date of the publication
++ displaying news arcticles
+    + articles are loaded from the DB and displayed
+    + path to the related pictrue needs to be saved with the according articles
+    + each article need to include the date of the publication
 - OPTIONAL: deleting news articles
-- Article overview:
-    - formatting table
-    - links to thumbs do not work
++ Article overview:
+    + formatting table
+    + links to thumbs do not work
+
+
+
+USER LIST:
++ List of all users
++ possibility to change profile data of all users
++ possibility to change passwords of all users
++ changing user status --> aktiv / inactive
+    - inactive users can not log in anymore, but data in db is still available
+
 
 
 NAV:

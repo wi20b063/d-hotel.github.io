@@ -350,7 +350,7 @@ function update_pwd($newPassword, $idPerson)
 	                                                    echo $_SESSION["address"];
                                                     } else { ?>
 													<input type="text" id="address" name="address" class="form-control"
-														autocomplete="given-name" value=<?php echo $_SESSION["address"]
+														autocomplete="address" value=<?php echo $_SESSION["address"]
                                                         	?>>
 													<span style="color:red; font-size:small">
 														<?php } ?>
@@ -426,10 +426,13 @@ function update_pwd($newPassword, $idPerson)
 														<?php echo $emailErr; ?>
 														<?php } ?>
 												</p>
-												<?php
+												
+											</div>
+											<div class="text-center">
+											<?php
                                                 if ($profile_status == p_status::PROFILE_MODIFY) { ?>
 												<button type="submit" name="apply_profile"
-													class="btn btn-primary btn-lg">Änderungen übernehmen</button>
+													class="btn btn-primary btn">Änderungen übernehmen</button>
 												<?php } ?>
 											</div>
 
@@ -527,10 +530,10 @@ function update_pwd($newPassword, $idPerson)
 
 									</div>
 
-									<div class="col-md-6">
+									<div class="col-md-6 text-center">
 										<p>
 											<button type="submit" name="update_password"
-												class="btn btn-primary btn-lg">Password Ändern</button>
+												class="btn btn-primary">Password Ändern</button>
 										</p>
 									</div>
 								</form>

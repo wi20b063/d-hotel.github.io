@@ -6,8 +6,27 @@ require(dirname(__FILE__, 1) . "\components\inputValidation.php");
 
 
 //define variables and set to empty values
-$headlineErr = $textErr = $newsImgErr = "";
+$headlineErr = $textErr = $newsImgErr = $msg = "";
 $headline = $test = $personID = $newsImg = "";
+
+// Check if valid user is logged in
+if (!isset($_SESSION["username"])) {
+    $msg = "Bitte einloggen um News Beiträge zu erstellen!";
+    exit();
+}
+if ($_SESSION["role"] != "1") {
+    $msg = "Sie haben keine Berechtigung News Beiträge zu erstellen!";
+    exit();
+}
+
+// Check if session is expired.
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
+    // last request was more than 30 minutes ago
+    session_unset();     // unset $_SESSION variable for the run-time
+    session_destroy();   // destroy session data in storage
+    $msg = "Session ist abgelaufen. Bitte neu einloggen!";
+    exit();
+}
 
 $readyForSubmit = true;
 
@@ -91,10 +110,11 @@ if (isset($_POST['submit']) && ($_SERVER["REQUEST_METHOD"] == "POST")) {
         $stmt -> bind_param("ssiss", $headline, $text, $personID, $newsImg_target_file, $thumb_newsImg_target_file);
         $stmt -> execute();
         
-        echo "<div class='container'><p>Artikel wurde erfolgreich erstellt!</p></div>";
+        $msg = "Artikel wurde erfolgreich erstellt!";
+        header("Refresh: 5; url=newsOverview.php");
 
     } else {
-        echo "Fehler: Artikel konnte nicht erstellt werden!";
+        $msg = "Artikel konnte nicht erstellt werden!";
     }
 }
 
@@ -137,27 +157,10 @@ function makeThumb($src, $dest, $desired_width, $desired_height) {
                 <div class="row col-8">
                     <h1 class="headline">Newsbeitrag erstellen</h2>
 
-                    <?php
-                        // Check if valid user is logged in
-                        if (!isset($_SESSION["username"])) {
-                            echo '<p>Bitte einloggen um News Beiträge zu erstellen!<p>';
-                            exit();
-                        }
-                        if ($_SESSION["role"] != "1") {
-                            echo '<p>Sie haben keine Berechtigung News Beiträge zu erstellen!<p>';
-                            exit();
-                        }
-                        
-                        // Check if session is expired.
-                        if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
-                            // last request was more than 30 minutes ago
-                            session_unset();     // unset $_SESSION variable for the run-time
-                            session_destroy();   // destroy session data in storage
-                            echo 'Session ist abgelaufen. Bitte neu einloggen!';
-                            exit();
-                        }
-                        
-                        ?>
+                    <div class="row g-3">
+                        <div class="col-md-6 mb-4" style="background-color:lightgrey"><?php echo $msg; ?></div>
+                    </div>
+
                         <form class="data-form" method="post" enctype="multipart/form-data">
                           
                             <div class="mb-3">

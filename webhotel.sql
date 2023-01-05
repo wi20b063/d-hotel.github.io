@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 03, 2023 at 06:26 PM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Erstellungszeit: 05. Jan 2023 um 14:36
+-- Server-Version: 10.4.24-MariaDB
+-- PHP-Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `webhotel`
+-- Datenbank: `webhotel`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `general_log`
+-- Tabellenstruktur für Tabelle `general_log`
 --
 
 CREATE TABLE `general_log` (
@@ -39,7 +39,7 @@ CREATE TABLE `general_log` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `slow_log`
+-- Tabellenstruktur für Tabelle `slow_log`
 --
 
 CREATE TABLE `slow_log` (
@@ -60,7 +60,34 @@ CREATE TABLE `slow_log` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_reservation`
+-- Tabellenstruktur für Tabelle `tbl_news`
+--
+
+CREATE TABLE `tbl_news` (
+  `id` int(16) NOT NULL,
+  `headline` varchar(150) NOT NULL,
+  `text` text NOT NULL,
+  `personID` int(16) NOT NULL,
+  `newsImgPath` varchar(200) NOT NULL,
+  `newsImgThumbPath` varchar(200) NOT NULL,
+  `publicationDate` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Daten für Tabelle `tbl_news`
+--
+
+INSERT INTO `tbl_news` (`id`, `headline`, `text`, `personID`, `newsImgPath`, `newsImgThumbPath`, `publicationDate`) VALUES
+(30, 'Yoga-Kurs mit Anna', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. \n\nDuis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ', 20, './res/img/img news/yoga.jpg', './res/img/img news/thumbs/thumb_yoga.jpg', '2023-01-04 16:10:00'),
+(31, 'Neue Liegen direkt im Pool', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   \r\n\r\nDuis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.   \r\n\r\nUt wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.   \r\n\r\nNam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer', 20, './res/img/img news/pool beds.jpg', './res/img/img news/thumbs/thumb_pool beds.jpg', '2023-01-03 12:15:39'),
+(32, 'Tägliche mehrere Ausflüge in die Stadt', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. \r\n\r\nDuis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. \r\n\r\nUt wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. \r\n\r\nNam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.', 20, './res/img/img news/sightseeing.jpg', './res/img/img news/thumbs/thumb_sightseeing.jpg', '2023-01-02 09:35:58'),
+(33, 'Erholung in den Ruheräumen', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.', 20, './res/img/img news/silent room.jpg', './res/img/img news/thumbs/thumb_silent room.jpg', '2023-01-01 11:16:44'),
+(34, 'Poolservice nun bis 24 Uhr', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. \r\n\r\nDuis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,', 20, './res/img/img news/pool service.jpg', './res/img/img news/thumbs/thumb_pool service.jpg', '2022-12-30 10:15:03');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `tbl_reservation`
 --
 
 CREATE TABLE `tbl_reservation` (
@@ -80,7 +107,7 @@ CREATE TABLE `tbl_reservation` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_room`
+-- Tabellenstruktur für Tabelle `tbl_room`
 --
 
 CREATE TABLE `tbl_room` (
@@ -94,7 +121,7 @@ CREATE TABLE `tbl_room` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_room`
+-- Daten für Tabelle `tbl_room`
 --
 
 INSERT INTO `tbl_room` (`ID`, `ROOMNUM`, `ROOMNAME`, `PRICE`, `Category`, `GuestsMax`, `IMAGE`) VALUES
@@ -113,7 +140,7 @@ INSERT INTO `tbl_room` (`ID`, `ROOMNUM`, `ROOMNAME`, `PRICE`, `Category`, `Guest
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_login`
+-- Tabellenstruktur für Tabelle `user_login`
 --
 
 CREATE TABLE `user_login` (
@@ -124,17 +151,19 @@ CREATE TABLE `user_login` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user_login`
+-- Daten für Tabelle `user_login`
 --
 
 INSERT INTO `user_login` (`ID`, `username`, `password`, `active`) VALUES
-(14, 'max', 'd0c81c7f1e56b65f6168d1a3cd134076', 1),
-(15, 'saras', '265a9b497722342d9c3506671e429215', 1);
+(14, 'max', '$2y$10$Ix8uDAtnSULH6VLDxDAEGu7KARk.X53ewMQemAARLwbJ1cY22/9za', 1),
+(15, 'saras', '265a9b497722342d9c3506671e429215', 1),
+(20, 'admin', '265a9b497722342d9c3506671e429215', 1),
+(21, 'AnnaM', '$2y$10$NwZ7OapOSahLHpbLrQvz.ufNssIcZeiZf38IUcfh8676xQOkSK.ni', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_profile`
+-- Tabellenstruktur für Tabelle `user_profile`
 --
 
 CREATE TABLE `user_profile` (
@@ -153,19 +182,27 @@ CREATE TABLE `user_profile` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user_profile`
+-- Daten für Tabelle `user_profile`
 --
 
 INSERT INTO `user_profile` (`personID`, `role`, `firstName`, `lastName`, `email`, `zipcode`, `city`, `address`, `address2`, `tel`, `salutation`, `target_file`) VALUES
-(14, 0, 'Max', 'Mara', 'maram@dd.at', '111', '', 'Test2', '4466', '', 'male', '63af39182401e.jpg'),
-(15, 0, 'Sara', 'Seey', 'saras@sey.com', '1190', 'Wien', 'TestStrasse 11', '22/44', '12355354', 'female', '63af32f6a506a.jpg');
+(14, 0, 'Max', 'Mara', 'maram@dd.at', '1110', 'Wien', 'Test2', '4466', '', 'male', '63af39182401e.jpg'),
+(15, 0, 'Sara', 'Seey', 'saras@sey.com', '1190', 'Wien', 'Test', '22', '12355354', 'female', '63af32f6a506a.jpg'),
+(20, 1, 'Admin', 'Test', 'admin@a1.at', '1200', 'Wien', 'Admin-Weg', '111', '06641234578', 'neutral', NULL),
+(21, 0, 'Anna', 'Maier', 'anna@google.com', '1010', 'Wien', 'Teststraße', '1/1/1', '12345678', 'female', NULL);
 
 --
--- Indexes for dumped tables
+-- Indizes der exportierten Tabellen
 --
 
 --
--- Indexes for table `tbl_reservation`
+-- Indizes für die Tabelle `tbl_news`
+--
+ALTER TABLE `tbl_news`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indizes für die Tabelle `tbl_reservation`
 --
 ALTER TABLE `tbl_reservation`
   ADD PRIMARY KEY (`RESERVEID`),
@@ -173,57 +210,63 @@ ALTER TABLE `tbl_reservation`
   ADD KEY `GUESTID` (`GUESTID`);
 
 --
--- Indexes for table `tbl_room`
+-- Indizes für die Tabelle `tbl_room`
 --
 ALTER TABLE `tbl_room`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `user_login`
+-- Indizes für die Tabelle `user_login`
 --
 ALTER TABLE `user_login`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `user_profile`
+-- Indizes für die Tabelle `user_profile`
 --
 ALTER TABLE `user_profile`
   ADD PRIMARY KEY (`personID`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT für exportierte Tabellen
 --
 
 --
--- AUTO_INCREMENT for table `tbl_reservation`
+-- AUTO_INCREMENT für Tabelle `tbl_news`
+--
+ALTER TABLE `tbl_news`
+  MODIFY `id` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
+-- AUTO_INCREMENT für Tabelle `tbl_reservation`
 --
 ALTER TABLE `tbl_reservation`
   MODIFY `RESERVEID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_room`
+-- AUTO_INCREMENT für Tabelle `tbl_room`
 --
 ALTER TABLE `tbl_room`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `user_login`
+-- AUTO_INCREMENT für Tabelle `user_login`
 --
 ALTER TABLE `user_login`
-  MODIFY `ID` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `ID` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- Constraints for dumped tables
+-- Constraints der exportierten Tabellen
 --
 
 --
--- Constraints for table `tbl_reservation`
+-- Constraints der Tabelle `tbl_reservation`
 --
 ALTER TABLE `tbl_reservation`
   ADD CONSTRAINT `tbl_reservation_ibfk_1` FOREIGN KEY (`GUESTID`) REFERENCES `user_profile` (`personID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `user_profile`
+-- Constraints der Tabelle `user_profile`
 --
 ALTER TABLE `user_profile`
   ADD CONSTRAINT `d_ID_pers_user` FOREIGN KEY (`personID`) REFERENCES `user_login` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;

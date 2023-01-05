@@ -37,11 +37,12 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Buchungsübersicht</a>
+                    <a class="nav-link" href="userList.php">Userübersicht</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Userübersicht</a>
+                    <a class="nav-link" href="#">Buchungsübersicht</a>
                 </li>
+                
 
 
                 <!-- <li class="nav-item">
