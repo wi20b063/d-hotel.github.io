@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 05. Jan 2023 um 14:36
+-- Erstellungszeit: 05. Jan 2023 um 15:16
 -- Server-Version: 10.4.24-MariaDB
 -- PHP-Version: 8.1.6
 
@@ -103,6 +103,13 @@ CREATE TABLE `tbl_reservation` (
   `REMARK` text DEFAULT NULL,
   `GUESTID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Daten für Tabelle `tbl_reservation`
+--
+
+INSERT INTO `tbl_reservation` (`RESERVEID`, `CONFIRMCODE`, `ROOMID`, `PRICE`, `DATEARRIVAL`, `DATEDEPART`, `DATECREATE`, `DATELASTUP`, `STATUS`, `REMARK`, `GUESTID`) VALUES
+(1234, 'AB123', 15, 120, '2023-01-09 15:10:04', '2023-01-14 15:10:04', '2023-01-05 15:10:04', '2023-01-05 15:10:04', 'new', 'Text, text, text, text', 21);
 
 -- --------------------------------------------------------
 
@@ -241,7 +248,7 @@ ALTER TABLE `tbl_news`
 -- AUTO_INCREMENT für Tabelle `tbl_reservation`
 --
 ALTER TABLE `tbl_reservation`
-  MODIFY `RESERVEID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `RESERVEID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1235;
 
 --
 -- AUTO_INCREMENT für Tabelle `tbl_room`
