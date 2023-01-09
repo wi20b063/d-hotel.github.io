@@ -1,12 +1,12 @@
 <?php
     require (dirname(__FILE__,1) . "\components\session.php");
 
-    $error = [];
-    $error["username"] = false;
+    $error = []; //declaring an array to store the error messages
+    $error["username"] = false; //making sure the error message is not shown at the beginning (in case of a previous error - defensive programming)
     $error["current-password"] = false;
     $error["save"] = false;
     
-
+    //the following code is executed when the user clicks on the submit button
     if ((isset($_POST['submit'])) ) { //&& ($_SERVER["REQUEST_METHOD"] == "POST")
         if (empty($_POST["username"])) {
         $error["username"] = true;
@@ -20,7 +20,7 @@
     if ((!empty($_POST["username"])) && (!empty($_POST["current-password"]))) {
         $cookie_name = "username";
         $cookie_value = $_POST["username"];
-        setcookie($cookie_name, $cookie_value, time() + (86400 * 30)); // 86400 = 1 day / secure, httponly
+        setcookie($cookie_name, $cookie_value, time() + (86400 * 30)); // 86400 = 1 day / secure, http only
 
         // connect to database
         if (!$con) {
@@ -35,7 +35,7 @@
         $password = mysqli_real_escape_string($con, $_REQUEST['current-password']);
        
         
-         //run  the SQL query (in import)
+         //run  the SQL query (in import) but already hash the password
             query_UserData($username, md5($password));
          
             header('Refresh: 0; URL = index.php');
@@ -49,10 +49,15 @@
     }
 }
 
+//function to query the database for user data & write it into SESSION variables
 function query_UserData($username, $passwordhash)
 {
+
+    //global variables needed for DB access - they are defined already but we need to 
+    //declare them again as global variables to be able to use them in this function
     global $mysqli_tbl_login, $mysqli_tbl_u_profile, $con;
-    $query = "SELECT * FROM ($mysqli_tbl_login t  JOIN $mysqli_tbl_u_profile u ON t.id=u.personID)  WHERE username= '$username' and t.password='" . $passwordhash . "'";
+    $query = "SELECT * FROM ($mysqli_tbl_login t  JOIN $mysqli_tbl_u_profile u ON t.id=u.personID)  
+            WHERE username= '$username' AND password='" . $passwordhash . "'"; //building the string for the SQL query
 
     $result = mysqli_query($con, $query) or die(mysqli_error($con));
     $rows = mysqli_num_rows($result);
@@ -79,6 +84,7 @@ function query_UserData($username, $passwordhash)
         $_SESSION["transactFeedback"] = "";
     }
     else{
+        //the user login was not successful, the username was not found in the database or the password was wrong
         echo "<div class='row col-8'>
             <H2> Username/Password is incorrect.</H2>
             </div>";
@@ -90,6 +96,8 @@ function query_UserData($username, $passwordhash)
 <html lang="en">
 
 <head>
+    <!-- dirname(__FILE__,1) returns the path of the parent directory in case the relative path doesn't work 
+    properly-->
     <?php include (dirname(__FILE__,1) . "\components\head.php");?>
     <title>Distant Hotel | Login</title>
 </head>
@@ -111,6 +119,9 @@ function query_UserData($username, $passwordhash)
                             <input type="text" id="username" name="username" autocomplete="username" placeholder="Username"
                                 class="form-control">
                             <!--required-->
+                            <!--error message if username is empty after clicking on the submit-->
+                            <!--the text in the following echo is inserted into the html code rihgt after checking if 
+                        the username empty is true-->
                             <?php if ($error["username"]) echo "<div>Please enter Username!</div>"?>
                         </div>
 

@@ -65,7 +65,7 @@
                                 <tr>
                                     <th scope="col-sm-1">Buchungs-ID</th>
                                     <th scope="col-sm-1">Buchungscode</th>
-                                    <th scope="col-sm-1">Raum-ID</th>
+                                    <th scope="col-sm-1">Raum-kategorie</th>
                                     <th scope="col-sm-1">Preis</th>
                                     <th scope="col-sm-1">Ankunftsdatum</th>
                                     <th scope="col-sm-1">Abreisedatum</th>
@@ -88,7 +88,9 @@
                             while ($row = $result->fetch_assoc()) {
                                 $reservationID = $row["RESERVEID"];
                                 $reservationCode = $row["CONFIRMCODE"];
-                                $roomID = $row["ROOMID"];
+                                //$roomID = $row["ROOMID"];  ---------- was modified. reservation does not need room ID, but category for searching.
+                                //                                      the total number or rooms will be monitored, room assignment only at checkin...
+                                $roomCategory = $row["ROOMCAT"];                               
                                 $price = $row["PRICE"];
                                 $arrivalDate = $row["DATEARRIVAL"];
                                 $departureDate = $row["DATEDEPART"];
@@ -111,7 +113,7 @@
                                     <tr>
                                         <td scope="row"><?php echo $reservationID; ?></th>
                                         <td><?php echo $reservationCode; ?></th>
-                                        <td><?php echo $roomID; ?></th>
+                                        <td><?php echo $roomCategory; ?></th>
                                         <td><?php echo $price; ?></th>
                                         <td><?php echo $arrivalDate; ?></th>
                                         <td><?php echo $departureDate; ?></th>

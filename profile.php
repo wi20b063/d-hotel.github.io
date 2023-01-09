@@ -91,7 +91,7 @@ if (isset($_POST["edit_profile"]) && (!isset($_SESSION["update_profile"]))) {
 	$_SESSION["transactFeedback"] = "";
 }
 // ---------- delete Profile: -----------> 
-if (isset($_POST["delete_profile"])) {	// --- Step 1 button click
+if (isset($_POST["delete_profile"])) { // --- Step 1 button click
 	$profile_status = p_status::PROFILE_DELETE;
 }
 
@@ -100,6 +100,7 @@ if (isset($_POST["delete_account_confirm"])) { // --- Step 2 button click and ol
 
 	if (pwd_verify($_POST["current-password"], $oldPasswordErr) && delete_profile($_SESSION["personID"])) {
 		$_SESSION["transactFeedback"] = " << profile  DELETED. Please Log-out and goodbye! >>";
+		session_destroy();
 	} else {
 		$_SESSION["transactInfoType"] = "Error";
 		$_SESSION["transactFeedback"] = $_SESSION["transactFeedback"] . $oldPasswordErr . " +profile  NOT deleted";
@@ -110,11 +111,11 @@ if (isset($_POST["delete_account_confirm"])) { // --- Step 2 button click and ol
 if ($_SESSION["transactNotice"] == true) {
 	if ($_SESSION["transactInfoType"] == "Error") {
 		$_SESSION["transactFeedback"] = $_SESSION["transactFeedback"] . "+profile NOT updated+";
-	} else{ 
+	} else {
 		$_SESSION["transactFeedback"] = " << Records  updated >>";
-		session_destroy();
+
 	}
-		
+
 }
 
 
@@ -346,13 +347,13 @@ function update_pwd($newPassword, $idPerson)
 												<p><strong>Straße:</strong></p>
 												<p>
 													<?php
-                                                    if ($profile_status != p_status::PROFILE_MODIFY) {
-	                                                    echo $_SESSION["address"];
-                                                    } else { ?>
-													<input type="text" id="address" name="address" class="form-control"
-														autocomplete="address" value=<?php echo $_SESSION["address"]
-                                                        	?>>
-													<span style="color:red; font-size:small">
+													if ($profile_status != p_status::PROFILE_MODIFY) {
+														echo $_SESSION["address"];
+													} else { ?>
+														<input type="text" id="address" name="address" class="form-control"
+															autocomplete="address" value=<?php echo $_SESSION["address"]
+																?>>
+														<span style="color:red; font-size:small">
 														<?php } ?>
 												</p>
 											</div>
@@ -360,13 +361,13 @@ function update_pwd($newPassword, $idPerson)
 												<p><strong>Hausnummer/Stiege/Tür:</strong></p>
 												<p>
 													<?php
-                                                    if ($profile_status != p_status::PROFILE_MODIFY) {
-	                                                    echo $_SESSION["address2"];
-                                                    } else { ?>
-													<input type="text" id="address2" name="address2"
-														class="form-control" autocomplete="given-name" value=<?php echo
-	                                                    	$_SESSION["address2"] ?>>
-													<span style="color:red; font-size:small">
+													if ($profile_status != p_status::PROFILE_MODIFY) {
+														echo $_SESSION["address2"];
+													} else { ?>
+														<input type="text" id="address2" name="address2"
+															class="form-control" autocomplete="given-name" value=<?php echo
+																$_SESSION["address2"] ?>>
+														<span style="color:red; font-size:small">
 														<?php } ?>
 												</p>
 											</div>
@@ -374,13 +375,13 @@ function update_pwd($newPassword, $idPerson)
 												<p><strong>PLZ:</strong></p>
 												<p>
 													<?php
-                                                    if ($profile_status != p_status::PROFILE_MODIFY) {
-	                                                    echo $_SESSION["zipcode"];
-                                                    } else { ?>
-													<input type="text" id="zipcode" name="zipcode" class="form-control"
-														autocomplete="given-name" value=<?php echo $_SESSION["zipcode"]
-                                                        	?>>
-													<span style="color:red; font-size:small">
+													if ($profile_status != p_status::PROFILE_MODIFY) {
+														echo $_SESSION["zipcode"];
+													} else { ?>
+														<input type="text" id="zipcode" name="zipcode" class="form-control"
+															autocomplete="given-name" value=<?php echo $_SESSION["zipcode"]
+																?>>
+														<span style="color:red; font-size:small">
 														<?php } ?>
 												</p>
 											</div>
@@ -388,12 +389,12 @@ function update_pwd($newPassword, $idPerson)
 												<p><strong>Stadt:</strong></p>
 												<p>
 													<?php
-                                                    if ($profile_status != p_status::PROFILE_MODIFY) {
-	                                                    echo $_SESSION["city"];
-                                                    } else { ?>
-													<input type="text" id="city" name="city" class="form-control"
-														autocomplete="given-name" value=<?php echo $_SESSION["city"] ?>>
-													<span style="color:red; font-size:small">
+													if ($profile_status != p_status::PROFILE_MODIFY) {
+														echo $_SESSION["city"];
+													} else { ?>
+														<input type="text" id="city" name="city" class="form-control"
+															autocomplete="given-name" value=<?php echo $_SESSION["city"] ?>>
+														<span style="color:red; font-size:small">
 														<?php } ?>
 												</p>
 											</div>
@@ -402,12 +403,12 @@ function update_pwd($newPassword, $idPerson)
 												<p><strong>Telefonnummer:</strong></p>
 												<p>
 													<?php
-                                                    if ($profile_status != p_status::PROFILE_MODIFY) {
-	                                                    echo $_SESSION["tel"];
-                                                    } else { ?>
-													<input type="text" id="tel" name="tel" class="form-control"
-														autocomplete="given-name" value=<?php echo $_SESSION["tel"] ?>>
-													<span style="color:red; font-size:small">
+													if ($profile_status != p_status::PROFILE_MODIFY) {
+														echo $_SESSION["tel"];
+													} else { ?>
+														<input type="text" id="tel" name="tel" class="form-control"
+															autocomplete="given-name" value=<?php echo $_SESSION["tel"] ?>>
+														<span style="color:red; font-size:small">
 														<?php } ?>
 												</p>
 											</div>
@@ -416,23 +417,23 @@ function update_pwd($newPassword, $idPerson)
 												<p><strong>E-Mailadresse:</strong></p>
 												<p>
 													<?php
-                                                    if ($profile_status != p_status::PROFILE_MODIFY) {
-	                                                    echo $_SESSION["email"];
-                                                    } else { ?>
-													<input type="text" id="email" name="email" class="form-control"
-														autocomplete="given-name" value=<?php echo $_SESSION["email"]
-                                                        	?>>
-													<span style="color:red; font-size:small">
-														<?php echo $emailErr; ?>
+													if ($profile_status != p_status::PROFILE_MODIFY) {
+														echo $_SESSION["email"];
+													} else { ?>
+														<input type="text" id="email" name="email" class="form-control"
+															autocomplete="given-name" value=<?php echo $_SESSION["email"]
+																?>>
+														<span style="color:red; font-size:small">
+															<?php echo $emailErr; ?>
 														<?php } ?>
 												</p>
-												
+
 											</div>
 											<div class="text-center">
-											<?php
-                                                if ($profile_status == p_status::PROFILE_MODIFY) { ?>
-												<button type="submit" name="apply_profile"
-													class="btn btn-primary btn">Änderungen übernehmen</button>
+												<?php
+												if ($profile_status == p_status::PROFILE_MODIFY) { ?>
+													<button type="submit" name="apply_profile"
+														class="btn btn-primary btn">Änderungen übernehmen</button>
 												<?php } ?>
 											</div>
 
@@ -451,26 +452,26 @@ function update_pwd($newPassword, $idPerson)
 										<!-- Image upload -->
 										<div class="square position-relative display-2 mb-3">
 											<?php
-                                            // Check if the user has a profile picture
-                                            $dB_profileImg = $profile_target_dir . $_SESSION["target_file"];
-                                            if (is_file($dB_profileImg)) {
+											// Check if the user has a profile picture
+											$dB_profileImg = $profile_target_dir . $_SESSION["target_file"];
+											if (is_file($dB_profileImg)) {
 
-	                                            echo "<img src= '$dB_profileImg' class=\"img-fluid rounded-circle\" alt=\"Profilbild\" >";
-                                            } else {
-	                                            $dummy_profileImg = $profile_target_dir . "dummy-profile-picture.jpg";
-	                                            echo "<img src= '$dummy_profileImg' class=\"img-fluid rounded-circle\" alt=\"Profilbild\" >";
-                                            ?>
-											<p>
-												<span style="color:black; font-size:medium"> Du hast noch kein
-													Profilbild
-													hochgeladen </span>
-											</p>
+												echo "<img src= '$dB_profileImg' class=\"img-fluid rounded-circle\" alt=\"Profilbild\" >";
+											} else {
+												$dummy_profileImg = $profile_target_dir . "dummy-profile-picture.jpg";
+												echo "<img src= '$dummy_profileImg' class=\"img-fluid rounded-circle\" alt=\"Profilbild\" >";
+												?>
+												<p>
+													<span style="color:black; font-size:medium"> Du hast noch kein
+														Profilbild
+														hochgeladen </span>
+												</p>
 											<?php } ?>
 										</div>
 										<!-- Upload form -->
 										<?php
-                                        if ($profile_status == p_status::PROFILE_MODIFY) {
-	                                        echo '<form action="profile.php" method="post" enctype="multipart/form-data">
+										if ($profile_status == p_status::PROFILE_MODIFY) {
+											echo '<form action="profile.php" method="post" enctype="multipart/form-data">
 												<div class="mb-3">
 													<input type="file" name="file-input" id="file-input"
 														accept="image/*">
@@ -480,7 +481,7 @@ function update_pwd($newPassword, $idPerson)
 														class="btn">
 												</div>
 											</form>';
-                                        } ?>
+										} ?>
 									</div>
 								</div> <!-- Row END -->
 							</div>
@@ -492,102 +493,103 @@ function update_pwd($newPassword, $idPerson)
 					<span style="color:red; font-size:small">
 						<?php
 
-                        if (isset($_SESSION["transactNotice"]) && $_SESSION["transactNotice"] == true) {
+						if (isset($_SESSION["transactNotice"]) && $_SESSION["transactNotice"] == true) {
 
-	                        echo $_SESSION["transactInfoType"] . ": " . $_SESSION["transactFeedback"];
-                        }
-                        ?> </span>
+							echo $_SESSION["transactInfoType"] . ": " . $_SESSION["transactFeedback"];
+						}
+						?>
+					</span>
 					<?php
 
 
-                    if ($profile_status == p_status::PROFILE_MODIFY) { ?>
-					<div class="col-xxl-6">
-						<div class="bg-secondary-soft px-4 py-5 rounded">
-							<div class="row g-3">
-								<h4 class="my-4">Passwortänderung</h4>
-								<form action="profile.php" method="post" enctype="multipart/form-data">
-									<!-- Old password -->
-									<div class="col-md-6">
-										<label for="exampleInputPassword1" class="form-label">Altes
-											Passwort
-											*</label>
-										<input type="password" class="form-control" name="current-password"
-											id="exampleInputPassword1">
-									</div>
-									<!-- New password -->
-									<div class="col-md-6">
-										<label for="exampleInputPassword2" class="form-label">Neues Password
-											*</label>
-										<input type="password" class="form-control" id="new-password"
-											name="new-password">
-									</div>
-									<!-- Confirm password -->
-									<div class="col-md-6">
-										<label for="exampleInputPassword3" class="form-label">Passwort Bestätigen
-											*</label>
-										<input type="password" class="form-control" id="new-passwordRepeated"
-											name="new-passwordRepeated">
+					if ($profile_status == p_status::PROFILE_MODIFY) { ?>
+						<div class="col-xxl-6">
+							<div class="bg-secondary-soft px-4 py-5 rounded">
+								<div class="row g-3">
+									<h4 class="my-4">Passwortänderung</h4>
+									<form action="profile.php" method="post" enctype="multipart/form-data">
+										<!-- Old password -->
+										<div class="col-md-6">
+											<label for="exampleInputPassword1" class="form-label">Altes
+												Passwort
+												*</label>
+											<input type="password" class="form-control" name="current-password"
+												id="exampleInputPassword1">
+										</div>
+										<!-- New password -->
+										<div class="col-md-6">
+											<label for="exampleInputPassword2" class="form-label">Neues Password
+												*</label>
+											<input type="password" class="form-control" id="new-password"
+												name="new-password">
+										</div>
+										<!-- Confirm password -->
+										<div class="col-md-6">
+											<label for="exampleInputPassword3" class="form-label">Passwort Bestätigen
+												*</label>
+											<input type="password" class="form-control" id="new-passwordRepeated"
+												name="new-passwordRepeated">
 
-									</div>
+										</div>
 
-									<div class="col-md-6 text-center">
-										<p>
-											<button type="submit" name="update_password"
-												class="btn btn-primary">Password Ändern</button>
-										</p>
-									</div>
-								</form>
+										<div class="col-md-6 text-center">
+											<p>
+												<button type="submit" name="update_password"
+													class="btn btn-primary">Password Ändern</button>
+											</p>
+										</div>
+									</form>
+								</div>
 							</div>
 						</div>
-					</div>
 
 					<?php }
-                    if ($profile_status == p_status::PROFILE_DELETE) { ?>
-					<div class="col-xxl-6">
-						<div class="bg-secondary-soft px-4 py-5 rounded">
-							<div class="row g-3">
-								<h4 class="my-4">Profil Löschen</h4>
-								<form action="profile.php" method="post" enctype="multipart/form-data">
-									<!-- Old password -->
-									<div class="col-md-6">
-										<label for="exampleInputPassword1" class="form-label">Altes
-											Passwort zur Bestätigung der Account Löschung eingeben
-											*</label>
-										<input type="password" class="form-control" name="current-password"
-											id="exampleInputPassword1">
-									</div>
+					if ($profile_status == p_status::PROFILE_DELETE) { ?>
+						<div class="col-xxl-6">
+							<div class="bg-secondary-soft px-4 py-5 rounded">
+								<div class="row g-3">
+									<h4 class="my-4">Profil Löschen</h4>
+									<form action="profile.php" method="post" enctype="multipart/form-data">
+										<!-- Old password -->
+										<div class="col-md-6">
+											<label for="exampleInputPassword1" class="form-label">Altes
+												Passwort zur Bestätigung der Account Löschung eingeben
+												*</label>
+											<input type="password" class="form-control" name="current-password"
+												id="exampleInputPassword1">
+										</div>
 
-									<div class="col-md-6">
-										<p>
-											<button type="submit" name="delete_account_confirm"
-												class="btn btn-primary btn-lg">Profil jetzt löschen</button>
-										</p>
-									</div>
-								</form>
+										<div class="col-md-6">
+											<p>
+												<button type="submit" name="delete_account_confirm"
+													class="btn btn-primary btn-lg">Profil jetzt löschen</button>
+											</p>
+										</div>
+									</form>
+								</div>
 							</div>
 						</div>
-					</div>
 
 					<?php }
-                    ?>
+					?>
 				</div> <!-- Row END -->
 				<!-- button show for main view-->
 				<?php
-                if ($profile_status == p_status::PROFILE_SHOW) { ?>
-				<form action="profile.php" method="post" enctype="multipart/form-data">
-					<div class="gap-3 d-md-flex justify-content-md-end text-center">
+				if ($profile_status == p_status::PROFILE_SHOW) { ?>
+					<form action="profile.php" method="post" enctype="multipart/form-data">
+						<div class="gap-3 d-md-flex justify-content-md-end text-center">
 
-						<button type="submit" name="edit_profile" class="btn">Profil
-							bearbeiten</button>
+							<button type="submit" name="edit_profile" class="btn">Profil
+								bearbeiten</button>
 
-						<button type="submit" name="delete_profile" class="btn btn-danger">Profil
-							löschen</button>
-					</div>
-				</form>
-				<?php
-                }
+							<button type="submit" name="delete_profile" class="btn btn-danger">Profil
+								löschen</button>
+						</div>
+					</form>
+					<?php
+				}
 
-                ?>
+				?>
 			</div>
 		</div>
 		</div>

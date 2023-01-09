@@ -88,15 +88,15 @@ body {
 }
 
 .navbar-nav a:hover {
-    color: lightgrey;    
+    color: lightgrey;
 }
 
 .navbar-nav a:focus {
-    color: lightgrey;    
+    color: lightgrey;
 }
 
 .dropdown-menu a:hover {
-    color: black;    
+    color: black;
 }
 
 /*slogan*/
@@ -375,4 +375,31 @@ display: none;
 }
 
 /* END styling of booking form */
-    
+
+
+table,
+table-responsive {
+
+    margin: 0 auto;
+    border-collapse: collapse;
+    text-align: right;
+    vertical-align: middle;
+}
+
+th,
+td {
+    border: 1px solid grey;
+    padding: 5px;
+    text-align: right;
+    vertical-align: middle;
+}
+
+thead {
+    background-color: darkgray;
+    color: white;
+}
+
+.cell-highlight {
+    background-color: goldenrod;
+    font-weight: bold;
+}
