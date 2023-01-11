@@ -28,6 +28,7 @@ booking/rooms:
 - currently booking linked to rooms.php -> extract and move into booking.php and also link the buttons in rooms.
 - price calculation fix to inlcude duration*price 
 - design checks and minor fixes
+? brauchen wir bei tbl_reservation eine Spalte mit Personenanzahl?
 
 Other:
 - cleanup SQL: user prepared statement where possible (login, profile)
@@ -84,6 +85,10 @@ BUGS
 * profile: when changing some data in the profile, than click on e.g. Home --> User is logged out
 ---> fixed. session detroy moved to area where user account deleted only.
 * register: button "Zurücksetzen" is also named "submit"
+* Reservierung abgeschlossen: Bitte notieren sie den Bestätigungscode,
+    ihre Buchung können sie unter xxxxx jederzeit einsehen.
+* Wenn man Reservierung abgeschlossen hat und auf Seite "Zimmer buchen" ist
+    kann man den Punkt Profil in der Nav nicht anklicken.
 
 
 

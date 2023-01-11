@@ -11,11 +11,11 @@
 
     // Check if valid user is logged in
     if (!isset($_SESSION["username"])) {
-        $msg = "Bitte einloggen um die Übersicht der User zu sehen!";
+        $msg = "Bitte einloggen um die Übersicht der Buchungen zu sehen!";
         exit();}
     
     if ($_SESSION["role"] != "1") {
-        $msg = "Sie haben keine Berechtigung die Übersicht der User zu sehen!";
+        $msg = "Sie haben keine Berechtigung die Übersicht der Buchungen zu sehen!";
         exit();}
         
     // Check if session is expired.
@@ -80,8 +80,6 @@
 
                             <?php                                  
 
-                            // Link each uploaded file. Hint: keep in mind to use the correct path!
-
                             // Get all data from tbl_news
                             $sqlSelectReservations = "SELECT * FROM $mysqli_tbl_reservation";
                             $result = $con->query($sqlSelectReservations);
@@ -92,9 +90,9 @@
                                 //                                      the total number or rooms will be monitored, room assignment only at checkin...
                                 $roomCategory = $row["ROOMCAT"];                               
                                 $price = $row["PRICE"];
-                                $arrivalDate = $row["DATEARRIVAL"];
-                                $departureDate = $row["DATEDEPART"];
-                                $bookingDate = $row["DATECREATE"];
+                                $arrivalDate = date("d.m.Y", strtotime($row["DATEARRIVAL"]));
+                                $departureDate = date("d.m.Y", strtotime($row["DATEDEPART"]));
+                                $bookingDate = date("d.m.Y", strtotime($row["DATECREATE"]));
                                 $remark = $row["REMARK"];
                                 $status = $row["STATUS"];
                                 $guestID = $row["GUESTID"];
@@ -129,7 +127,7 @@
                                         <?php } ?>
 
                                         <td><a href="./#.php?personID=<?php echo $reservationID; ?>">Status ändern</a></th>
-                                        <td><a href="./#.php?personID=<?php echo $reservationID; ?>">Buchung löschen</a></th>
+                                        <td><a href="./#.php?RESERVEID=<?php echo $reservationID; ?>">Buchung löschen</a></th>
                                     </tr>
                                 </tbody>
                                 <?php } ?>

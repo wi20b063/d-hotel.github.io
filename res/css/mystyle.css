@@ -377,12 +377,14 @@ display: none;
 /* END styling of booking form */
 
 
+
+/* START styling of table */
+
+
 table,
 table-responsive {
-
     margin: 0 auto;
     border-collapse: collapse;
-    text-align: right;
     vertical-align: middle;
 }
 
@@ -390,16 +392,19 @@ th,
 td {
     border: 1px solid grey;
     padding: 5px;
-    text-align: right;
     vertical-align: middle;
+    text-align: center;
 }
 
 thead {
     background-color: darkgray;
     color: white;
+    text-align: center;
 }
 
 .cell-highlight {
     background-color: goldenrod;
     font-weight: bold;
 }
+
+/* END styling of table */

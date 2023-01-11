@@ -87,9 +87,6 @@
                                 <button type="button" class="btn" data-bs-toggle="modal"
                                     data-bs-target="#buchungModalToggle">Start</button>
                             <?php } ?>
-
-
-
                         </div>
                     </div>
                 </div>
