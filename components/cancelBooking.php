@@ -1,8 +1,8 @@
 <?php
 
-require(dirname(__FILE__, 1) . "\components\session.php");
-require(dirname(__FILE__, 1) . "\config\dbaccess.php");
-require(dirname(__FILE__, 1) . "\components\inputValidation.php");
+require("session.php");
+require(".\config\dbaccess.php");
+require("inputValidation.php");
 
 if (!$con) {
     die('Bei der Verbindung mit der Datenbank ist ein Fehler aufgetreten:  ' . mysqli_error($con));

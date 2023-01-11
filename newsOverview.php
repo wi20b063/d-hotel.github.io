@@ -62,9 +62,9 @@
                                     <th scope="col">Erstellt am</th>
                                     <th scope="col">Headline</th>
                                     <th scope="col">Text</th>
-                                    <th scope="col">Thumb Anzeige</th>
+                                    <!-- <th scope="col">Thumb Anzeige</th>
                                     <th scope="col">Thumb Download</th>
-                                    <th scope="col">Löschung</th>
+                                    <th scope="col">Löschung</th> -->
                                 </tr>
                             </thead>
 
@@ -92,7 +92,7 @@
                             <tbody>
                                 <tr>
                                     <td scope="row"><?php echo $newsID; ?></th>
-                                    <td><?php echo $firstname . $lastname; ?></th>
+                                    <td><?php echo $firstname . " " . $lastname; ?></th>
                                     <td><?php echo $date; ?></th>
                                     <td><?php echo $headline; ?></th>
                                     <td><?php echo $text; ?></th>

@@ -120,10 +120,14 @@
                                         <td><?php echo $lastname; ?></th>
                                         <td><?php echo $email; ?></th>
                                         <td><?php echo $tel; ?></th>
-                                        <?php if ($status == 1) { ?>
-                                            <td style="color:green">Bestätigt</th>
+                                        <?php if ($status == "reserved") { ?>
+                                            <td style="background-color:lightgreen">Bestätigt</th>
+                                        <?php } else if ($status == "new") { ?>
+                                            <td style="background-color:lightblue">Offen</th>
+                                        <?php } else if ($status == "cancelled") { ?>
+                                            <td style="background-color:lightred">Storniert</th>
                                         <?php } else { ?>
-                                            <td style="color:red">Offen</th>
+                                            <td>Fehler</th>
                                         <?php } ?>
 
                                         <td><a href="./#.php?personID=<?php echo $reservationID; ?>">Status ändern</a></th>

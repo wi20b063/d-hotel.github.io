@@ -124,7 +124,7 @@
                                         <td scope="row"><?php echo $reservationID; ?></th>
                                         <td><?php echo $reservationCode; ?></th>
                                         <td><?php echo $roomCategory; ?></th>
-                                        <td><?php echo $price; ?></th>
+                                        <td><?php echo $price . " EUR";  ?></th>
                                         <td><?php echo $arrivalDate; ?></th>
                                         <td><?php echo $departureDate; ?></th>
                                         <?php if ($remark == "") { ?>
@@ -134,16 +134,16 @@
                                         <?php } ?> 
                                         <!-- <td><?php echo $numberOfGuests; ?></th> -->
                                         <?php if ($status == "reserved") { ?>
-                                            <td style="color:green">Bestätigt</th>
+                                            <td style="background-color:lightgreen">Bestätigt</th>
                                         <?php } else if ($status == "new") { ?>
                                             <td>Offen</th>
                                         <?php } else if ($status == "cancelled") { ?>
-                                            <td style="color:red">Storniert</th>
+                                            <td style="background-color:lightred">Storniert</th>
                                         <?php } else { ?>
                                             <td style="color:blue">Fehler, bitte kontaktieren Sie das Hotel.</th>
                                         <?php } ?>                                  
                                         <!-- <td><a class="btn btn-warning" href="./cancelBooking.php?personID=<//?php echo $guestID; ?>&RESERVEID=<//?php echo reservationCode; ?>">Buchung stornieren</a></th> -->
-                                        <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cancelReserv_<?php echo $reservationID; ?>"">Buchung stornieren</button></td>
+                                        <td><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#cancelReserv_<?php echo $reservationID; ?>"">Buchung stornieren</button></td>
 
                                         <!-- Modal Cancel Booking -->
                                         <div class="container">
