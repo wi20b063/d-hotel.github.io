@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 09, 2023 at 09:11 PM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Erstellungszeit: 11. Jan 2023 um 19:55
+-- Server-Version: 10.4.24-MariaDB
+-- PHP-Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `webhotel`
+-- Datenbank: `webhotel`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `general_log`
+-- Tabellenstruktur für Tabelle `general_log`
 --
 
 CREATE TABLE `general_log` (
@@ -39,7 +39,7 @@ CREATE TABLE `general_log` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `slow_log`
+-- Tabellenstruktur für Tabelle `slow_log`
 --
 
 CREATE TABLE `slow_log` (
@@ -60,7 +60,7 @@ CREATE TABLE `slow_log` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_news`
+-- Tabellenstruktur für Tabelle `tbl_news`
 --
 
 CREATE TABLE `tbl_news` (
@@ -74,7 +74,7 @@ CREATE TABLE `tbl_news` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_news`
+-- Daten für Tabelle `tbl_news`
 --
 
 INSERT INTO `tbl_news` (`id`, `headline`, `text`, `personID`, `newsImgPath`, `newsImgThumbPath`, `publicationDate`) VALUES
@@ -87,7 +87,7 @@ INSERT INTO `tbl_news` (`id`, `headline`, `text`, `personID`, `newsImgPath`, `ne
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_reservation`
+-- Tabellenstruktur für Tabelle `tbl_reservation`
 --
 
 CREATE TABLE `tbl_reservation` (
@@ -105,19 +105,20 @@ CREATE TABLE `tbl_reservation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_reservation`
+-- Daten für Tabelle `tbl_reservation`
 --
 
 INSERT INTO `tbl_reservation` (`RESERVEID`, `CONFIRMCODE`, `ROOMCAT`, `PRICE`, `DATEARRIVAL`, `DATEDEPART`, `DATECREATE`, `DATELASTUP`, `STATUS`, `REMARK`, `GUESTID`) VALUES
 (1235, '262829', 'budget', 400, '2023-01-11 12:00:00', '2023-01-19 10:00:00', '2023-01-09 04:12:44', '2023-01-09 04:12:44', 'reserved', NULL, 15),
 (1236, '988826', 'budget', 640, '2023-01-11 12:00:00', '2023-01-27 10:00:00', '2023-01-09 04:22:41', '2023-01-09 04:22:41', 'reserved', NULL, 15),
 (1237, '791689', 'modern suite', 520, '2023-01-11 12:00:00', '2023-01-24 10:00:00', '2023-01-09 04:31:37', '2023-01-09 04:31:37', 'reserved', NULL, 15),
-(1242, '331396', 'premium', 290, '2023-01-18 12:00:00', '2023-01-24 10:00:00', '2023-01-09 15:26:02', '2023-01-09 15:26:02', 'reserved', NULL, 15);
+(1242, '331396', 'premium', 290, '2023-01-18 12:00:00', '2023-01-24 10:00:00', '2023-01-09 15:26:02', '2023-01-09 15:26:02', 'reserved', NULL, 15),
+(1244, '756366', 'budget', 210, '2023-03-01 12:00:00', '2023-03-05 10:00:00', '2023-01-11 13:18:05', '2023-01-11 13:18:05', 'new', NULL, 15);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_room`
+-- Tabellenstruktur für Tabelle `tbl_room`
 --
 
 CREATE TABLE `tbl_room` (
@@ -131,7 +132,7 @@ CREATE TABLE `tbl_room` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_room`
+-- Daten für Tabelle `tbl_room`
 --
 
 INSERT INTO `tbl_room` (`ID`, `ROOMNUM`, `ROOMNAME`, `PRICE`, `ROOMCAT`, `GuestsMax`, `IMAGE`) VALUES
@@ -150,7 +151,7 @@ INSERT INTO `tbl_room` (`ID`, `ROOMNUM`, `ROOMNAME`, `PRICE`, `ROOMCAT`, `Guests
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_login`
+-- Tabellenstruktur für Tabelle `user_login`
 --
 
 CREATE TABLE `user_login` (
@@ -161,7 +162,7 @@ CREATE TABLE `user_login` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user_login`
+-- Daten für Tabelle `user_login`
 --
 
 INSERT INTO `user_login` (`ID`, `username`, `password`, `active`) VALUES
@@ -173,7 +174,7 @@ INSERT INTO `user_login` (`ID`, `username`, `password`, `active`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_profile`
+-- Tabellenstruktur für Tabelle `user_profile`
 --
 
 CREATE TABLE `user_profile` (
@@ -192,7 +193,7 @@ CREATE TABLE `user_profile` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user_profile`
+-- Daten für Tabelle `user_profile`
 --
 
 INSERT INTO `user_profile` (`personID`, `role`, `firstName`, `lastName`, `email`, `zipcode`, `city`, `address`, `address2`, `tel`, `salutation`, `target_file`) VALUES
@@ -202,80 +203,80 @@ INSERT INTO `user_profile` (`personID`, `role`, `firstName`, `lastName`, `email`
 (21, 0, 'Anna', 'Maier', 'anna@google.com', '1010', 'Wien', 'Teststraße', '1/1/1', '12345678', 'female', NULL);
 
 --
--- Indexes for dumped tables
+-- Indizes der exportierten Tabellen
 --
 
 --
--- Indexes for table `tbl_news`
+-- Indizes für die Tabelle `tbl_news`
 --
 ALTER TABLE `tbl_news`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_reservation`
+-- Indizes für die Tabelle `tbl_reservation`
 --
 ALTER TABLE `tbl_reservation`
   ADD PRIMARY KEY (`RESERVEID`),
   ADD KEY `GUESTID` (`GUESTID`);
 
 --
--- Indexes for table `tbl_room`
+-- Indizes für die Tabelle `tbl_room`
 --
 ALTER TABLE `tbl_room`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `user_login`
+-- Indizes für die Tabelle `user_login`
 --
 ALTER TABLE `user_login`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `user_profile`
+-- Indizes für die Tabelle `user_profile`
 --
 ALTER TABLE `user_profile`
   ADD PRIMARY KEY (`personID`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT für exportierte Tabellen
 --
 
 --
--- AUTO_INCREMENT for table `tbl_news`
+-- AUTO_INCREMENT für Tabelle `tbl_news`
 --
 ALTER TABLE `tbl_news`
   MODIFY `id` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
--- AUTO_INCREMENT for table `tbl_reservation`
+-- AUTO_INCREMENT für Tabelle `tbl_reservation`
 --
 ALTER TABLE `tbl_reservation`
-  MODIFY `RESERVEID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1244;
+  MODIFY `RESERVEID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1245;
 
 --
--- AUTO_INCREMENT for table `tbl_room`
+-- AUTO_INCREMENT für Tabelle `tbl_room`
 --
 ALTER TABLE `tbl_room`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `user_login`
+-- AUTO_INCREMENT für Tabelle `user_login`
 --
 ALTER TABLE `user_login`
   MODIFY `ID` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- Constraints for dumped tables
+-- Constraints der exportierten Tabellen
 --
 
 --
--- Constraints for table `tbl_reservation`
+-- Constraints der Tabelle `tbl_reservation`
 --
 ALTER TABLE `tbl_reservation`
   ADD CONSTRAINT `tbl_reservation_ibfk_1` FOREIGN KEY (`GUESTID`) REFERENCES `user_profile` (`personID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `user_profile`
+-- Constraints der Tabelle `user_profile`
 --
 ALTER TABLE `user_profile`
   ADD CONSTRAINT `d_ID_pers_user` FOREIGN KEY (`personID`) REFERENCES `user_login` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
