@@ -158,7 +158,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Abbrechen</button>
-                                                    <a class="btn btn-danger" href="./cancelBooking.php?reservationID=<?php echo $reservationID; ?>">Buchung stornieren</a>
+                                                    <a class="btn btn-danger" href="./components/cancelBooking.php?reservationID=<?php echo $reservationID; ?>">Buchung stornieren</a>
                                                     <!-- <button type="button" name="cancel" id="cancel" class="btn btn-primary">Stornieren</button> -->
                                                 </div>
                                                 </div>

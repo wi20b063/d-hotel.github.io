@@ -37,11 +37,11 @@ if (isset($_POST['submit']) && ($_SERVER["REQUEST_METHOD"] == "POST")) {
         $status = "cancelled";
         $stmtReservStatus -> execute();         
         
-        $msg = "Buchung wurde erfolgreich storniert!";
-        header("Refresh: 5; url=.\bookingsMyList.php");
+        //$msg = "Buchung wurde erfolgreich storniert!";
+        header("Refresh: 5; url=./bookingsMyList.php");
 
     } else {
-        $msg = "Buchung konnte nicht storniert werden!";
+        //$msg = "Buchung konnte nicht storniert werden!";
     }
 
 
