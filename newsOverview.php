@@ -3,7 +3,7 @@
     require(dirname(__FILE__, 1) . "\config\dbaccess.php");
     require(dirname(__FILE__, 1) . "\components\inputValidation.php");
 
-    $msg = "";
+    $msg = $newsIDdelete = $newsIDdeleteErr = "";
 
     // Check if valid user is logged in
     if (!isset($_SESSION["username"])) {
@@ -22,11 +22,38 @@
         $msg = "Session ist abgelaufen. Bitte neu einloggen!";
         exit(); }
 
-    // If tbl_news is empty, display "No news articles yet." in red font
+    // If tbl_news is empty, display "No news articles yet."
     $sqlSelectNews = "SELECT * FROM $mysqli_tbl_news";
     $result = mysqli_query($con, $sqlSelectNews);
     if (mysqli_num_rows($result) == 0) {
-        $msg = "Keine News-Beiträge vorhanden."; }    
+        $msg = "Keine News-Beiträge vorhanden."; } 
+        
+    // delete news if delete button is pressed
+    $readyForSubmit = true;
+
+    if (isset($_POST['delete']) && ($_SERVER["REQUEST_METHOD"] == "POST")) {
+
+        // combined generic Validations (isempty, errorMsgs, open for expansion)
+        $readyForSubmit = $readyForSubmit & genericValidation($newsIDdeleteErr, $_POST["newsIDdelete"]);
+    
+        if ($readyForSubmit == true) {
+        // get the data from the form
+        $newsIDdelete = $_POST["newsIDdelete"];
+
+        // Submit to database SQL Statemnt for prepared statements
+        $sqlDeleteNews = "DELETE FROM $mysqli_tbl_news WHERE id = ?";
+        $stmtReservStatus = $con->prepare($sqlDeleteNews);
+        $stmtReservStatus -> bind_param("i", $newsIDdelete);
+        $stmtReservStatus -> execute();
+
+        $msg = "Newsbeitrag wurde erfolgreich gelöscht!";
+        header("Refresh: 3; url=newsOverview.php");
+        
+        } else {
+        $msg = "Fehler beim Löschen des Newsbeitrags!";
+        }
+    
+    }
 
 ?>
 
@@ -71,7 +98,7 @@
                             <?php                                  
 
                             // Get all data from tbl_news
-                            $sqlSelectNews = "SELECT * FROM $mysqli_tbl_news";
+                            $sqlSelectNews = "SELECT * FROM $mysqli_tbl_news ORDER BY publicationDate DESC";
                             $result = $con->query($sqlSelectNews);
                             while ($row = $result->fetch_assoc()) {
                                 $headline = $row["headline"];
@@ -91,15 +118,43 @@
 
                             <tbody>
                                 <tr>
-                                    <td scope="row"><?php echo $newsID; ?></th>
-                                    <td><?php echo $firstname . " " . $lastname; ?></th>
-                                    <td><?php echo $date; ?></th>
-                                    <td><?php echo $headline; ?></th>
-                                    <td><?php echo $text; ?></th>
-                                    <td><a href="<?php echo $newsImgThumbPath; ?>" target="_blank">Zeige Thumb</a></th>
-                                    <td><a href="<?php echo $newsImgThumbPath; ?>" download="<?php echo $newsImgThumbPath; ?>">Download Thumb</a></th>
+                                    <td scope="row"><?php echo $newsID; ?></td>
+                                    <td><?php echo $firstname . " " . $lastname; ?></td>
+                                    <td><?php echo $date; ?></td>
+                                    <td><?php echo $headline; ?></td>
+                                    <td><?php echo $text; ?></td>
+                                    <td><a href="<?php echo $newsImgThumbPath; ?>" target="_blank">Zeige Thumb</a></td>
+                                    <td><a href="<?php echo $newsImgThumbPath; ?>" download="<?php echo $newsImgThumbPath; ?>">Download Thumb</a></td>
                                     <!-- Delete news article TODO-->
-                                    <td><a href="news_delete.php?id=<?php echo $newsID; ?>">Löschen</a></th>
+                                    <td><button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#deletNews_<?php echo $newsID; ?>">
+                                            Löschen
+                                        </button>
+                                    </td>
+
+                                    <!-- Modal Delet News -->
+                                    <form action="" method="POST" enctype="multipart/form-data">
+                                            <div class="container">
+                                                <div class="modal fade" id="deletNews_<?php echo $newsID; ?>" tabindex="-1" role="dialog" aria-labelledby="bookingModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">Newsbeitrag löschen</h5>
+                                                            <input type="hidden" id="newsIDdelete" name="newsIDdelete" value="<?php echo $newsID; ?>">
+                                                        </div>
+                                                        <div class="modal-body">                            
+                                                            <p>Sind Sie sich sicher, dasss Sie den Newsbeitrag mit der ID <?php echo $newsID; ?> löschen möchten?</p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Abbrechen</button>
+                                                            <button type="submit" name="delete" id="delete" class="btn btn-danger">Löschen</button>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+
+
                                 </tr>
                             </tbody>
                             <?php } ?>

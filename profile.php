@@ -99,20 +99,20 @@ if (isset($_POST["delete_account_confirm"])) { // --- Step 2 button click and ol
 	$_SESSION["transactNotice"] = true;
 
 	if (pwd_verify($_POST["current-password"], $oldPasswordErr) && delete_profile($_SESSION["personID"])) {
-		$_SESSION["transactFeedback"] = " << profile  DELETED. Please Log-out and goodbye! >>";
+		$_SESSION["transactFeedback"] = " <<Profil GELÖSCHT!>>";
 		session_destroy();
 	} else {
 		$_SESSION["transactInfoType"] = "Error";
-		$_SESSION["transactFeedback"] = $_SESSION["transactFeedback"] . $oldPasswordErr . " +profile  NOT deleted";
+		$_SESSION["transactFeedback"] = $_SESSION["transactFeedback"] . $oldPasswordErr . " +Profil NICHT gelöscht+";
 	}
 }
 
 // ----------  generic result notice for all profile update or delete features
 if ($_SESSION["transactNotice"] == true) {
 	if ($_SESSION["transactInfoType"] == "Error") {
-		$_SESSION["transactFeedback"] = $_SESSION["transactFeedback"] . "+profile NOT updated+";
+		$_SESSION["transactFeedback"] = $_SESSION["transactFeedback"] . "+Profil NICHT aktualisiert+";
 	} else {
-		$_SESSION["transactFeedback"] = " << Records  updated >>";
+		$_SESSION["transactFeedback"] = " <<Profil aktualisiert!>>";
 
 	}
 
@@ -181,7 +181,7 @@ function upload_img($newTarget_file)
 	} else {
 		$_SESSION["transactNotice"] = true;
 		$_SESSION["transactInfoType"] = "Error";
-		$_SESSION["transactFeedback"] = $_SESSION["transactFeedback"] . " File upload failed";
+		$_SESSION["transactFeedback"] = $_SESSION["transactFeedback"] . " File upload nicht erfolgreich";
 	}
 	return false;
 }

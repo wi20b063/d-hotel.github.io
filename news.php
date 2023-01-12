@@ -48,8 +48,8 @@
                         <h3><?php echo "$headline"; ?></h3>
                         <p><?php echo "$text"; ?></p>
                     </div>
-                    <div class="col-sm-3 text-center">
-                        <img src="<?php echo $newsImgThumbPath; ?>" alt="Bild News Beitrag" class="news-img text-center">
+                    <div class="col-md-4 d-flex align-items-center" id="newsImgFrame">
+                        <img src="<?php echo $newsImgThumbPath; ?>" alt="Bild News Beitrag" class="news-img">
                     </div>
                     </div>
             <?php } ?>        

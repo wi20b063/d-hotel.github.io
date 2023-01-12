@@ -7,7 +7,7 @@
         die('Bei der Verbindung mit der Datenbank ist ein Fehler aufgetreten:  ' . mysqli_error($con));
     }
 
-    $msg = $reservationIDcancelErr = "";
+    $msg = "";
 
     // Check if valid user is logged in
     if (!isset($_SESSION["username"])) {
@@ -26,39 +26,25 @@
         $msg = "Session ist abgelaufen. Bitte neu einloggen!";
         exit();}        
         
-    // If tbl_reservation is empty, display "Keine Buchungen vorhanden"
+    // If tbl_reservation is empty, display "No news users yet." in red font
     $sqlSelectMyReservations = "SELECT * FROM $mysqli_tbl_reservation";
     $result = mysqli_query($con, $sqlSelectMyReservations);
     if (mysqli_num_rows($result) == 0) {
         $msg = "Keine Buchungen vorhanden."; }
 
     // cancel reservation if cancel button is pressed and reservation is not already cancelled
-    $readyForSubmit = true;
-
-    if (isset($_POST['cancel']) && ($_SERVER["REQUEST_METHOD"] == "POST")) {
-
-        // combined generic Validations (isempty, errorMsgs, open for expansion)
-        $readyForSubmit = $readyForSubmit & genericValidation($reservationIDcancelErr, $_POST["reservationIDcancel"]);
-    
-        if ($readyForSubmit == true) {
-        // get the data from the form
-        $cancelID = $_POST["reservationIDcancel"];
-
-        // Submit to database SQL Statemnt for prepared statements
-        $sqlCancelReserv = "UPDATE $mysqli_tbl_reservation SET STATUS = ? WHERE RESERVEID = ?";
-        $stmtReservStatus = $con->prepare($sqlCancelReserv);
-        $stmtReservStatus -> bind_param("si", $status, $cancelID);
-        $status = "cancelled";
-        $stmtReservStatus -> execute();
-
-        $msg = "Buchung wurde erfolgreich storniert!";
-        header("Refresh: 3; url=bookingsMyList.php");
-        
+    /* if (isset($_POST['cancel']) && ($_SERVER["REQUEST_METHOD"] == "POST")) {
+        $bookingID = $_POST['bookingID'];
+        $sql = "UPDATE booking SET status = 'cancelled' WHERE bookingID = '$bookingID'";
+        $result = mysqli_query($conn, $sql);
+        if ($result) {
+            $msg = "Ihre Buchung wurde erfolgreich storniert!";
         } else {
-        $msg = "Fehler beim Stornieren der Buchung!";
+            $msg = "Fehler beim Stornieren der Buchung!";
         }
-    
-    }
+    } else {
+        $msg = "Fehler beim Stornieren der Buchung!";
+    } ?> */
 
 ?>
 
@@ -146,23 +132,25 @@
                                         <?php } else { ?>
                                             <td><?php echo $remark; ?></th>
                                         <?php } ?> 
+                                        <!-- <td><?php echo $numberOfGuests; ?></th> -->
                                         <?php if ($status == "reserved") { ?>
                                             <td style="background-color:lightgreen">Bestätigt</th>
-                                        <?php } else if ($status == "cancelled") { ?>
-                                            <td style="color:red">Storniert</th>
                                         <?php } else if ($status == "new") { ?>
                                             <td>Offen</th>
+                                        <?php } else if ($status == "cancelled") { ?>
+                                            <td style="background-color:lightred">Storniert</th>
                                         <?php } else { ?>
                                             <td style="color:blue">Fehler, bitte kontaktieren Sie das Hotel.</th>
                                         <?php } ?>                                  
+                                        <!-- <td><a class="btn btn-warning" href="./cancelBooking.php?personID=<//?php echo $guestID; ?>&RESERVEID=<//?php echo reservationCode; ?>">Buchung stornieren</a></th> -->
                                         <td>
                                             <?php if ($status == "cancelled") { ?>
                                                 <button type="button" class="btn btn-danger disabled" data-bs-toggle="modal" data-bs-target="#cancelReserv_<?php echo $reservationID; ?>">
-                                                    Stornieren
+                                                    Buchung stornieren
                                                 </button>
                                             <?php } else { ?>
                                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#cancelReserv_<?php echo $reservationID; ?>">
-                                                    Stornieren
+                                                    Buchung stornieren
                                                 </button>
                                             <?php } ?>
                                         </td>
@@ -175,14 +163,14 @@
                                                         <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h5 class="modal-title">Buchung stornieren</h5>
-                                                            <input type="hidden" id="reservationIDcancel" name="reservationIDcancel" value="<?php echo $reservationID; ?>">
                                                         </div>
                                                         <div class="modal-body">                            
                                                             <p>Sind Sie sich sicher, dasss Sie die Buchung mit der Buchungs-ID <?php echo $reservationID; ?> stornieren möchten?</p>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Abbrechen</button>
-                                                            <button type="submit" name="cancel" id="cancel" class="btn btn-danger">Stornieren</button>
+                                                            <a class="btn btn-danger" href="./components/cancelBooking.php?reservationID=<?php echo $reservationID; ?>">Buchung stornieren</a>
+                                                            <!-- <button type="button" name="cancel" id="cancel" class="btn btn-primary">Stornieren</button> -->
                                                         </div>
                                                         </div>
                                                     </div>

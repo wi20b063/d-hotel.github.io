@@ -1,5 +1,5 @@
 <?php
-if (isset($_SESSION["role"]) && $_SESSION["role"] === "0") {
+if (isset($_SESSION["role"]) && $_SESSION["role"] === "2") {
 
     include "navUser.php";
 

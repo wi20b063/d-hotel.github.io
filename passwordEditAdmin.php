@@ -88,7 +88,7 @@
             $stmtPassword -> execute();            
             
             $msg = "Passwort wurde erfolgreich aktualisiert!";
-            header("Refresh: 5; url=userList.php");
+            header("Refresh: 3; url=userList.php");
 
         } else {
             $msg = "Passwort konnte nicht aktualisiert werden!";

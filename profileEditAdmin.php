@@ -113,7 +113,7 @@
             $stmtLogin->execute();
             
             $msg = "Eintrag wurde erfolgreich aktualisiert!";
-            header("Refresh: 5; url=userList.php");
+            header("Refresh: 3; url=userList.php");
 
         } else {
             $msg = "Eintrag konnte nicht aktualisiert werden!";
@@ -215,12 +215,12 @@
                                                 <span style="color:red; font-size:small"><?php echo $usernameErr; ?></span>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><label for="role" class="form-label"><strong>Userrolle: *</strong> <small>(1 = Admin, 0 = User)</small></label></p>
+                                                <p><label for="role" class="form-label"><strong>Userrolle: *</strong> <small>(1 = Admin, 2 = User)</small></label></p>
                                                 <p><input type="text" id="role" name="role" class="form-control" value=<?php echo $role; ?>></p>
                                                 <!-- <span style="color:red; font-size:small"><?php echo $roleErr; ?></span> -->
                                             </div>
                                             <div class="col-md-6">
-                                                <p><label for="status" class="form-label"><strong>Userstatus: *</strong> <small>(1 = aktiv, 0 = inaktiv)</small></label></p>
+                                                <p><label for="status" class="form-label"><strong>Userstatus: *</strong> <small>(1 = aktiv, 2 = inaktiv)</small></label></p>
                                                     <?php if ($status == 1) { ?>
                                                         <p><input type="text" id="status" name="status" class="form-control" value=<?php echo $status; ?> style="background-color:#7CFC0090"></p>
                                                     <?php } else { ?>

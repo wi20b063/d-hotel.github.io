@@ -135,8 +135,8 @@
                                             <?php } else { ?>
                                                 <td><span style="color:red">Inaktiv</span></th>
                                             <?php } ?>
-                                            <td><a href="./passwordEditAdmin.php?personID=<?php echo $personID; ?>">Neues Passwort</a></th>
-                                            <td><a href="./profileEditAdmin.php?personID=<?php echo $personID; ?>">Profil bearbeiten</a></th>
+                                            <td><a class="btn btn-danger" href="./passwordEditAdmin.php?personID=<?php echo $personID; ?>">Neues Passwort</a></th>
+                                            <td><a class="btn" href="./profileEditAdmin.php?personID=<?php echo $personID; ?>">Profil bearbeiten</a></th>
                                         </tr>
                                     </tbody>
                                 <?php } ?>

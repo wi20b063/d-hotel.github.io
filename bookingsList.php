@@ -7,7 +7,7 @@
         die('Bei der Verbindung mit der Datenbank ist ein Fehler aufgetreten:  ' . mysqli_error($con));
     }
 
-    $msg = "";
+    $msg = $resID = $resIDErr = $changeStatusSelectValue = $changeStatusSelectErr = "";
 
     // Check if valid user is logged in
     if (!isset($_SESSION["username"])) {
@@ -31,6 +31,37 @@
     $result = mysqli_query($con, $sqlSelectReservations);
     if (mysqli_num_rows($result) == 0) {
         $msg = "Keine Buchungen vorhanden."; }
+
+    // change status of reservation if status button is pressed
+    $readyForSubmit = true;
+
+    if (isset($_POST['changeStatus']) && ($_SERVER["REQUEST_METHOD"] == "POST")) {
+
+        // combined generic Validations (isempty, errorMsgs, open for expansion)
+        $readyForSubmit = $readyForSubmit & genericValidation($resIDErr, $_POST["reservationIDstatus"]);
+        $readyForSubmit = $readyForSubmit & genericValidation($changeStatusSelectErr, $_POST["changeStatusSelect"]);
+
+        if ($readyForSubmit == true) {
+        // get the data from the form
+        $resID = $_POST["reservationIDstatus"];
+        $changeStatusSelectValue = $_POST["changeStatusSelect"];
+
+        // Submit to database SQL Statemnt for prepared statements
+        $sqlChangeStatus = "UPDATE $mysqli_tbl_reservation SET STATUS = ? WHERE RESERVEID = ?";
+        $stmtReservStatus = $con->prepare($sqlChangeStatus);
+        $stmtReservStatus -> bind_param("si", $changeStatusSelectValue, $resID);
+        $stmtReservStatus -> execute();
+
+        $msg = "Status der Buchung $resID wurde erfolgreich geändert!";
+        header("Refresh: 3; url=bookingsList.php");
+        
+        } else {
+        $msg = "Fehler beim ändern des Status der Buchung $resID.";
+        }
+    
+    }
+
+
 
 ?>
 
@@ -125,13 +156,41 @@
                                         <?php } else if ($status == "new") { ?>
                                             <td style="background-color:lightblue">Offen</th>
                                         <?php } else if ($status == "cancelled") { ?>
-                                            <td style="background-color:lightred">Storniert</th>
+                                            <td style="color:red">Storniert</th>
                                         <?php } else { ?>
                                             <td>Fehler</th>
                                         <?php } ?>
 
-                                        <td><a href="./#.php?personID=<?php echo $reservationID; ?>">Status ändern</a></th>
-                                        <td><a href="./#.php?RESERVEID=<?php echo $reservationID; ?>">Buchung löschen</a></th>
+                                        <!-- Button trigger modal change status-->
+                                        <td><button type="button" class="btn" style="background-color:#ffcc00" data-bs-toggle="modal" data-bs-target="#changeStatus<?php echo $reservationID; ?>">Status ändern</button></td>
+                                    
+                                        <!-- Modal Change Status -->
+                                        <form action="" method="POST" enctype="multipart/form-data">
+                                            <div class="container">
+                                                <div class="modal fade" id="changeStatus<?php echo $reservationID; ?>" tabindex="-1" role="dialog" aria-labelledby="statusModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">Buchungsstatus ändern</h5>
+                                                            <input type="hidden" id="reservationIDstatus" name="reservationIDstatus" value="<?php echo $reservationID; ?>">
+                                                        </div>
+                                                        <div class="modal-body">                            
+                                                            <select class="form-select" aria-label="Default select example" id="changeStatusSelect" name="changeStatusSelect">
+                                                                <option selected>Status der Buchung mit der Buchungs-ID <?php echo $reservationID; ?> ändern.</option>
+                                                                <option value="new">Offen</option>
+                                                                <option value="reserved">Bestätigt</option>
+                                                                <option value="cancelled">Storniert</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Abbrechen</button>
+                                                            <button type="submit" name="changeStatus" id="changeStatus" class="btn btn-danger">Speichern</button>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>                                    
                                     </tr>
                                 </tbody>
                                 <?php } ?>

@@ -10,7 +10,7 @@
     <?php
     $isLoggedIn = false;
     if (isset($_SESSION["username"]) && isset($_SESSION["role"])) {
-        if ($_SESSION["role"] >= 0) {
+        if ($_SESSION["role"] >= 1) {
             $isLoggedIn = true;
         }
     }

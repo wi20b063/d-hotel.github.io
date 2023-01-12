@@ -18,10 +18,14 @@ body {
     margin: 30px 0 30px 0;
 }
 
+#newsImgFrame {
+    display: flex;
+    justify-content: center;
+}
+
 .news-img {
     width: 300px;
     height: 300px;
-    object-fit: cover;
 }
 
 /* styling cards for rooms page */
@@ -130,13 +134,15 @@ body {
 .btn-warning {
     color: white;
     background-color: #ffcc00;
-    margin-left: 30px;
+}
+
+.btnNav {
+    margin: 0 15px;
 }
 
 .btn-danger {
     color: white;
     background-color: #D42A04;
-    margin-left: 30px;
 }
 
 /* END styling of buttons */
