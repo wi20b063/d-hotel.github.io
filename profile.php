@@ -7,6 +7,7 @@ if (!isset($_SESSION["username"], $_SESSION["role"])) {
 	header('location:../index.php');
 	exit;
 }
+query_UserData($_SESSION["username"], $_SESSION["password"]);
 enum p_status
 { //Set states of profile
 	case PROFILE_SHOW;
@@ -186,25 +187,33 @@ function upload_img($newTarget_file)
 	return false;
 }
 
-function update_profile()
+function update_profile() //used for both, update of profile picture and profile info in DATABASE
+
 {
 	global $con;
 	global $mysqli_tbl_u_profile;
 
-	if (isset($_POST["submitImg"])) {
-		$target = mysqli_real_escape_string($con, $_SESSION["target_file"]);
-		$query = "UPDATE $mysqli_tbl_u_profile SET target_file = \"$_SESSION[target_file]\" WHERE personID = $_SESSION[personID]";
-	} else if (isset($_POST["apply_profile"])) {
+	if (isset($_POST["submitImg"])) { //only update profile picture
+		$target = mysqli_real_escape_string($con, $_SESSION["target_file"]); //probably not needed...
+		$SQLupdate = "UPDATE $mysqli_tbl_u_profile SET target_file = ? WHERE personID = ?";
+		$stmt = $con->prepare($SQLupdate);
+		$stmt->bind_param("si", $target, $_SESSION["personID"]);
+
+	} else if (isset($_POST["apply_profile"])) { //only update profile info
 		$email = test_input($_POST["email"]);
 		$address = test_input($_POST["address"]);
 		$PLZ = test_input($_POST["zipcode"]);
 		$address2 = test_input($_POST["address2"]);
 		$tel = test_input($_POST["tel"]);
 		$city = test_input($_POST["city"]);
-		$query = "UPDATE  $mysqli_tbl_u_profile SET  email = \"$email\", address=\"$address\", zipcode=\"$PLZ\", address2=\"$address2\", tel=\"$tel\", city=\"$city\" WHERE personID = $_SESSION[personID]";
+		$SQLupdate = "UPDATE  $mysqli_tbl_u_profile 
+		SET  email = ?, address= ?, zipcode= ?, address2=? , tel=? , city=? WHERE personID = ?";
+		$stmt = $con->prepare($SQLupdate);
+		$stmt->bind_param("ssssssi", $email, $address, $address2, $PLZ, $tel, $city, $_SESSION["personID"]);
 	}
 
-	$result = mysqli_query($con, $query) or die(mysqli_error($con));
+	$stmt->execute();
+	$result = mysqli_stmt_get_result($stmt);
 	return $result;
 }
 
@@ -213,29 +222,40 @@ function delete_profile($idPerson)
 	global $con;
 	global $mysqli_tbl_u_profile, $mysqli_tbl_login, $profile_target_dir;
 	// delete records in both, login and profile tables
-	$query1 = "DELETE FROM $mysqli_tbl_u_profile WHERE personID = \"$idPerson\" ";
-	$query2 = "DELETE FROM $mysqli_tbl_login WHERE ID = \"$idPerson\" ";
 
-	$result = mysqli_query($con, $query1) or die(mysqli_error($con));
-	if (!$result) {
-		$_SESSION["transactFeedback"] = $_SESSION["transactFeedback"] . " Profile data deletion failed.";
-		return false;
-	}
-	$result = mysqli_query($con, $query2) or die(mysqli_error($con));
-	if (!$result) {
+	// delete user profile 
+	$SQLquery1 = "DELETE FROM $mysqli_tbl_u_profile WHERE personID = ? ";
+	$stmt = $con->prepare($SQLquery1);
+	$stmt->bind_param("s", $_SESSION["personID"]);
+	$stmt->execute();
+	$result1 = mysqli_stmt_get_result($stmt);
+
+	if (!$result1) {
 		$_SESSION["transactFeedback"] = $_SESSION["transactFeedback"] . " User account  deletion failed.";
 		return false;
 	}
+	//delete user login
+	$SQLquery2 = "DELETE FROM $mysqli_tbl_login WHERE ID = ? ";
+	$stmt = $con->prepare($SQLquery2);
+	$stmt->bind_param("s", $_SESSION["personID"]);
+	$stmt->execute();
+	$result2 = mysqli_stmt_get_result($stmt);
+
+	if (!$result2) {
+		$_SESSION["transactFeedback"] = $_SESSION["transactFeedback"] . " Profile data deletion failed.";
+		return false;
+	}
+
 	// delete profile photo
 	$delete_target = $profile_target_dir . $_SESSION["target_file"];
 	delete_profile_image($delete_target);
-
 	return true;
 }
 
 function delete_profile_image($oldTargetFile)
 {
 	if (is_file($oldTargetFile)) { //there might not be a profile picture
+		//delete old image file
 		if (!unlink($oldTargetFile)) {
 			$_SESSION["transactInfoType"] = "Info";
 			$_SESSION["transactFeedback"] = " Profile image file deletion failed.";
@@ -246,11 +266,13 @@ function delete_profile_image($oldTargetFile)
 function query_UserData($username, $password)
 {
 	global $mysqli_tbl_login, $mysqli_tbl_u_profile, $con;
-	$query = "SELECT * FROM ($mysqli_tbl_login t  JOIN $mysqli_tbl_u_profile u ON t.id=u.personID)  WHERE username= '$username' and t.password='" . $password . "'";
-
-	$result = mysqli_query($con, $query) or die(mysqli_error($con));
-	$rows = mysqli_num_rows($result);
-	if ($rows == 1) { // if we have 1 row as result, the user login was successful
+	$SQLquery = "SELECT * FROM ($mysqli_tbl_login t  JOIN $mysqli_tbl_u_profile u ON t.id=u.personID)  WHERE username= ? and t.password= ?";
+	$stmt = $con->prepare($SQLquery);
+	$stmt->bind_param("ss", $_SESSION["username"], $_SESSION["password"]);
+	$stmt->execute();
+	$result = mysqli_stmt_get_result($stmt);
+	if ($result->num_rows == 1) {
+		// if we have 1 row as result, the user login was successful
 		// getting data into SESSION variable for later. 
 		$row = mysqli_fetch_array($result);
 		$_SESSION["role"] = $row["role"];
@@ -285,9 +307,16 @@ function test_input($data)
 function update_pwd($newPassword, $idPerson)
 {
 	global $mysqli_tbl_login, $con;
-	$query = "UPDATE $mysqli_tbl_login SET password = \"$newPassword\" WHERE ID = $idPerson";
-	$result = @mysqli_query($con, $query) or die(mysqli_error($con));
-	return $result;
+	$SQLquery = "UPDATE $mysqli_tbl_login SET password = ? WHERE ID = ?";
+	$stmt = $con->prepare($SQLquery);
+	$stmt->bind_param("ss", $newPassword, $idPerson);
+	$stmt->execute();
+
+	if ($stmt->affected_rows == 1) { // we want to make sure that exactly 1 row was affected(updated)
+		$_SESSION["password"] = $newPassword;
+		return true;
+	} else
+		return false;
 }
 ?>
 

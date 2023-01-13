@@ -83,7 +83,8 @@
             // Submit to database SQL Statemnt for prepared statements
             $sqlNewPassword = "UPDATE $mysqli_tbl_login SET password = ? WHERE ID = ?";
             $stmtPassword = $con->prepare($sqlNewPassword);
-            $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+            $passwordHash = md5($password); // changed to md5() as in DB, login and profile updatePW. its less secure than
+                                            //password_hash but should be sufficient.
             $stmtPassword -> bind_param("si", $passwordHash, $id);
             $stmtPassword -> execute();            
             

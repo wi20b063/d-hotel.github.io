@@ -52,7 +52,7 @@
         $city = $row["city"];
         $email = $row["email"];
         $phone = $row["tel"];
-        $role = $row["role"];
+        // $role = $row["role"]; moved in DB. Could also combine the 2 queries into 1 using same JOIN as in userList.php
         $profileImg = $row["target_file"];
     }
     
@@ -69,6 +69,7 @@
         $username = $row["username"];
         $password = $row["password"];
         $status = $row["active"];
+        $role = $row["role"];
     }
 
     // SETTING NEW DATA
@@ -102,14 +103,14 @@
 
 
             // Submit to database SQL Statemnt for prepared statements
-            $sqlUpdateProfile = "UPDATE $mysqli_tbl_u_profile SET firstName = ?, lastName = ?, address = ?, address2 = ?, zipcode = ?, city = ?, tel = ?, email = ?, role = ? WHERE personID = ?";
+            $sqlUpdateProfile = "UPDATE $mysqli_tbl_u_profile SET firstName = ?, lastName = ?, address = ?, address2 = ?, zipcode = ?, city = ?, tel = ?, email = ? WHERE personID = ?";
             $stmtProfile = $con->prepare($sqlUpdateProfile);
-            $stmtProfile->bind_param("sssssssssi", $firstName, $lastName, $street, $housenumber, $zipcode, $city, $phone, $email, $role, $id);
+            $stmtProfile->bind_param("ssssssssi", $firstName, $lastName, $street, $housenumber, $zipcode, $city, $phone, $email, $id);
             $stmtProfile->execute();
 
-            $sqlUpdateLogin = "UPDATE $mysqli_tbl_login SET username = ?, active = ? WHERE ID = ?";
+            $sqlUpdateLogin = "UPDATE $mysqli_tbl_login SET username = ?, active = ? , role = ? WHERE ID = ?";
             $stmtLogin = $con->prepare($sqlUpdateLogin);
-            $stmtLogin->bind_param("sii", $username, $status, $id);
+            $stmtLogin->bind_param("siii", $username, $status,  $role, $id);
             $stmtLogin->execute();
             
             $msg = "Eintrag wurde erfolgreich aktualisiert!";

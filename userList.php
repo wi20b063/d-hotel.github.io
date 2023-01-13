@@ -86,7 +86,8 @@
                             // Link each uploaded file. Hint: keep in mind to use the correct path!
 
                             // Get all data from tbl_news
-                            $sqlSelectUser = "SELECT * FROM $mysqli_tbl_u_profile";
+                            $sqlSelectUser = "SELECT * FROM $mysqli_tbl_u_profile JOIN $mysqli_tbl_login ON
+                            ID = personID"; //because DB changed. now we only need this query.
                             $result = $con->query($sqlSelectUser);
                             while ($row = $result->fetch_assoc()) {
                                 $personID = $row["personID"];
@@ -101,11 +102,12 @@
                                 $tel = $row["tel"];
                                 $role = $row["role"];
                                 // Get status from tbl_login
-                                $sqlSelectPerson = "SELECT * FROM $mysqli_tbl_login WHERE ID = $personID";
+                                /* $sqlSelectPerson = "SELECT * FROM $mysqli_tbl_login WHERE ID = $personID";
                                 $resultPerson = $con->query($sqlSelectPerson);
                                 while ($rowPerson = $resultPerson->fetch_assoc()) {
                                     $status = $rowPerson["active"];
-                                }
+                                } */
+                                $status = $row["active"];
                                 $profileImg = $row["target_file"];?>
 
                                     <tbody>

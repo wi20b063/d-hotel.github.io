@@ -11,7 +11,6 @@ register.php
 profile php: 
 + image must be less than 3MB, png/jpg/jpeg, filnam must not yet exist in destination, 
 + unique filename for picture upload 
-
 + display improved error and feedback on profile changes ($_SESSION["transactE..."])
 + hide buttons that are not required in each step
 + display size of profile picture: set reasonable
@@ -25,13 +24,45 @@ profile php:
 
 booking/rooms:
 + Booking though roms.php. 
-- currently booking linked to rooms.php -> extract and move into booking.php and also link the buttons in rooms.
-- price calculation fix to inlcude duration*price 
-- design checks and minor fixes
-? brauchen wir bei tbl_reservation eine Spalte mit Personenanzahl?
++ currently booking linked to rooms.php -> extract and move into booking.php and also link the buttons in rooms.
 
 Other:
-- cleanup SQL: user prepared statement where possible (login, profile)
+Database update (tables need to be re-imported again)
++ Role musste in user_login (damit auch 2, 3 Änderungen mit den Abfragen wo diese benötigt wird. Änderungen nun in der gepushten version schon drinnen. Auch die nicht genützen logging tables weggmacht, 
++ Role wie von dir benötigt: user = 2, admin 1,. Datenbank default value  auf 2 geändert bzw navbar angepasst..
++ Habe meine SQLs aufgeräumt und auch mit prepared statements gemacht. 
++ feedback für login bzw buchung erstellt (1Zeilen Jscript mit php
++ price calculation gefixed (Parking , Breakfast, ...), available rooms passen jetzt auch
+
+- offen: 
+	 - Benutzer löschen-> dummy ID "deleted user" in DB und alle buchungen von dem user damit ersetzen. sonst geht alles
+	 - DB abfrage aufraeumen loadAvailableRooms.php bzw prepared Statement daraus noch machen
+	 - nicht benutzte files loeschen?
+
+deine letzten pushes und meine offline changes dazwischen ge-merged), 
+1x schnell alles durchgetestet:
+
+
+was könnten wir noch machen: eventuell alle SQL queries in eine separate php Datei outsourcen und in components geben.
+(maybe using responsive table class in css for this table (scrolling) -> for booking list and usersList
+
+________________________________________________________________________________________________________________
+							code merge:	 quick test(ok)				comments:								
+components/booking form: 		+ 			+
+bookingList.php					+			+
+Booking.php						+			+			finished
+reserveRoom.php								+
+bookingMyList.php				+			+
+components/navuser				+ 			+		2 commented for testing. remove?
+components/navbar				+			+
+news.php						+			+
+newsOverview.php				+			+
+passwortEditAdmin.php			+ 			+		changed hashing algorithm to same as in DB and login,
+profileEditAdmin.php 			+			+		change in query since role went to tbl_user_login.
+profile.php						+ 			+
+mystyle.css						+ 					
+userList.php					+ 			+		change in query since role went to tbl_user_login.  							
+									
 
 
 
@@ -86,9 +117,9 @@ BUGS
 ---> fixed. session detroy moved to area where user account deleted only.
 * register: button "Zurücksetzen" is also named "submit"
 * Reservierung abgeschlossen: Bitte notieren sie den Bestätigungscode,
-    ihre Buchung können sie unter xxxxx jederzeit einsehen.
+    ihre Buchung können sie unter xxxxx jederzeit einsehen. ---> fixed
 * Wenn man Reservierung abgeschlossen hat und auf Seite "Zimmer buchen" ist
-    kann man den Punkt Profil in der Nav nicht anklicken.
+    kann man den Punkt Profil in der Nav nicht anklicken. --> fixed. weiss nicht wie, aber klappt jetz.
 
 
 
@@ -107,3 +138,6 @@ Role: 0
 Username: admin
 PW: Aaa12345
 Role: 1
+
+Username: kim
+PW: Qqq12345

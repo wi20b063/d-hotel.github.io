@@ -11,11 +11,11 @@
 
     // Check if valid user is logged in
     if (!isset($_SESSION["username"])) {
-        $msg = "Bitte einloggen um die Übersicht der Buchungen zu sehen!";
+        $msg = "Bitte einloggen um die Übersicht der User zu sehen!";
         exit();}
     
     if ($_SESSION["role"] != "1") {
-        $msg = "Sie haben keine Berechtigung die Übersicht der Buchungen zu sehen!";
+        $msg = "Sie haben keine Berechtigung die Übersicht der User zu sehen!";
         exit();}
         
     // Check if session is expired.
@@ -32,7 +32,7 @@
     if (mysqli_num_rows($result) == 0) {
         $msg = "Keine Buchungen vorhanden."; }
 
-    // change status of reservation if status button is pressed
+        // change status of reservation if status button is pressed
     $readyForSubmit = true;
 
     if (isset($_POST['changeStatus']) && ($_SERVER["REQUEST_METHOD"] == "POST")) {
@@ -60,9 +60,6 @@
         }
     
     }
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -111,6 +108,8 @@
 
                             <?php                                  
 
+                            // Link each uploaded file. Hint: keep in mind to use the correct path!
+
                             // Get all data from tbl_news
                             $sqlSelectReservations = "SELECT * FROM $mysqli_tbl_reservation";
                             $result = $con->query($sqlSelectReservations);
@@ -121,9 +120,9 @@
                                 //                                      the total number or rooms will be monitored, room assignment only at checkin...
                                 $roomCategory = $row["ROOMCAT"];                               
                                 $price = $row["PRICE"];
-                                $arrivalDate = date("d.m.Y", strtotime($row["DATEARRIVAL"]));
-                                $departureDate = date("d.m.Y", strtotime($row["DATEDEPART"]));
-                                $bookingDate = date("d.m.Y", strtotime($row["DATECREATE"]));
+                                $arrivalDate = $row["DATEARRIVAL"];
+                                $departureDate = $row["DATEDEPART"];
+                                $bookingDate = $row["DATECREATE"];
                                 $remark = $row["REMARK"];
                                 $status = $row["STATUS"];
                                 $guestID = $row["GUESTID"];
@@ -161,11 +160,10 @@
                                             <td>Fehler</th>
                                         <?php } ?>
 
-                                        <!-- Button trigger modal change status-->
-                                        <td><button type="button" class="btn" style="background-color:#ffcc00" data-bs-toggle="modal" data-bs-target="#changeStatus<?php echo $reservationID; ?>">Status ändern</button></td>
-                                    
-                                        <!-- Modal Change Status -->
-                                        <form action="" method="POST" enctype="multipart/form-data">
+                                         <!-- Button trigger modal change status-->
+                                         <td><button type="button" class="btn" style="background-color:#ffcc00" data-bs-toggle="modal" data-bs-target="#changeStatus<?php echo $reservationID; ?>">Status ändern</button></td>
+                                    <!-- Modal Change Status -->
+                                    <form action="" method="POST" enctype="multipart/form-data">
                                             <div class="container">
                                                 <div class="modal fade" id="changeStatus<?php echo $reservationID; ?>" tabindex="-1" role="dialog" aria-labelledby="statusModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
@@ -190,7 +188,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </form>                                    
+                                        </form>             
                                     </tr>
                                 </tbody>
                                 <?php } ?>

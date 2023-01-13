@@ -5,6 +5,9 @@ if (!isset($_GET['arrivalDate']) && !isset($_GET['departureDate']) && !isset($_G
     exit();
 }
 
+
+
+// checking if form selction  is valid
 $fromDat = new DateTime($_GET['arrivalDate']);
 $toDat = new DateTime($_GET['departureDate']);
 $numGuest = $_GET['guestsNo'];
@@ -29,26 +32,30 @@ if (isset($fromDat) && isset($toDat) && isset($numGuest)) {
     3) union the two counts per category and SUM up the total (minus) booked during the period in question
     4) outer join room Name, Price, Image for usage in HTML table. Could not make it simpler...*/
 
-    $query = "SELECT B.ROOMNAME AS Zimmer, B.ROOMCAT as CAT, A.XFrei AS Frei, ROUND(B.PRICE,2) AS Preis, B.GuestsMax AS Max, B.IMAGE AS Ansicht 
+    //Prepared Statement did not work here...
+
+    $query= "SELECT B.ROOMNAME AS Zimmer, B.ROOMCAT as CAT, A.XFrei AS Frei, ROUND(P.PRICE,2) AS Preis, B.GuestsMax AS Max, B.IMAGE AS Ansicht 
     FROM(
     SELECT result.ROOMCAT, SUM(result.frei) AS XFrei FROM 
         (SELECT ro.ROOMCAT, COUNT(ro.ROOMCAT) AS frei
-         FROM tbl_room ro
+         FROM $mysqli_tbl_room ro
          GROUP BY ro.ROOMCAT
          UNION ALL
          SELECT res.ROOMCAT, -COUNT(res.ROOMCAT) AS frei 
-         FROM tbl_reservation res 
+         FROM $mysqli_tbl_reservation res 
          WHERE ('$SQLfromDat' BETWEEN res.DATEARRIVAL  AND res.DATEDEPART 
                 OR '$SQLtoDat' BETWEEN res.DATEARRIVAL  AND res.DATEDEPART ) AND (res.status='reserved' OR res.status='new')
         GROUP BY res.ROOMCAT) result
     GROUP BY result.ROOMCAT
     ORDER BY result.ROOMCAT) AS A
-    LEFT JOIN (SELECT t.ROOMCAT, t.ROOMNAME, t.Guestsmax, t.PRICE, t.IMAGE
-               FROM tbl_room t
+    LEFT JOIN (SELECT t.ROOMCAT, t.ROOMNAME, t.Guestsmax, t.IMAGE
+               FROM $mysqli_tbl_room t
                GROUP BY ROOMCAT) As B
                ON A.ROOMCAT=B.ROOMCAT
+               LEFT JOIN $mysqli_tbl_price P
+               ON B.ROOMCAT = P.PRICECAT
     WHERE B.Guestsmax>='$numGuest'
-    ORDER BY B.PRICE ASC";
+    ORDER BY Preis ASC";
 
 }
 $result = mysqli_query($con, $query) or die(mysqli_error($con));

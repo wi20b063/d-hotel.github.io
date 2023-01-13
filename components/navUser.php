@@ -26,21 +26,21 @@
                 </li>
                 <li>
 
-                    <a class="nav-link btn btn-warning btnNav" href="rooms.php"> Zimmer Info</a>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-warning" href="rooms.php"> Zimmer Info</a>
+                    <!-- <a class="nav-link" href="rooms.php">Zimmer Info</a> -->
                 </li>
-                <li>
+                <li class="nav-item">
                     <a class="nav-link btn btn-warning btnNav" href="booking.php"> Zimmer buchen</a>
+                    <!-- <a class="nav-link" href="booking.php">Zimmer buchen</a> -->
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </li> -->
             </ul>
 
             <!--Für eingeloggten Zustand-->
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <span class="navbar-text d-flex align-items-center">
-                         <?php echo "Willkommen " . $_SESSION["firstName"] . "!  "; ?>
+                        <?php echo "Willkommen " . $_SESSION["username"] . "!  "; ?>
                     </span>
                 </li>
                 <li class="nav-item dropdown">
@@ -51,7 +51,7 @@
                     <ul class="dropdown-menu dropdown-menu-end" id="navbar-dropdown-menu"
                         aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href=".\profile.php">Profil</a></li>
-                        <li><a class="dropdown-item" href=".\bookingsMyList.php">Buchungen</a></li>
+                        <li><a class="dropdown-item" href="bookingsMyList.php">Buchungen</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>

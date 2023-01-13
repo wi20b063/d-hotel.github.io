@@ -12,16 +12,16 @@ $readyForSubmit = true;
 
 if (isset($_POST['submit']) && ($_SERVER["REQUEST_METHOD"] == "POST")) {
 
-    // combined generic Validations (isempty, errorMsgs, open for expansion)
-    $readyForSubmit = $readyForSubmit & genericValidation($usernameErr,$_POST["username"]);
-    $readyForSubmit = $readyForSubmit & genericValidation($salutationErr,$_POST["salutation"]);
-    $readyForSubmit = $readyForSubmit & genericValidation($firstNameErr,$_POST["firstName"]);
-    $readyForSubmit = $readyForSubmit & genericValidation($lastNameErr,$_POST["lastName"]);
-    $readyForSubmit = $readyForSubmit & genericValidation($emailErr,$_POST["mail"]);
-    $readyForSubmit = $readyForSubmit & genericValidation($newPasswordErr,$_POST["new-password"]);
-    $readyForSubmit = $readyForSubmit & genericValidation($newPasswordRepeatedErr,$_POST["new-passwordRepeated"]);
+    // combined generic Validations (isempty, errorMsgs, open for expansion...)
+    $readyForSubmit = $readyForSubmit & genericValidation($usernameErr, $_POST["username"]);
+    $readyForSubmit = $readyForSubmit & genericValidation($salutationErr, $_POST["salutation"]);
+    $readyForSubmit = $readyForSubmit & genericValidation($firstNameErr, $_POST["firstName"]);
+    $readyForSubmit = $readyForSubmit & genericValidation($lastNameErr, $_POST["lastName"]);
+    $readyForSubmit = $readyForSubmit & genericValidation($emailErr, $_POST["mail"]);
+    $readyForSubmit = $readyForSubmit & genericValidation($newPasswordErr, $_POST["new-password"]);
+    $readyForSubmit = $readyForSubmit & genericValidation($newPasswordRepeatedErr, $_POST["new-passwordRepeated"]);
 
-    if($readyForSubmit){
+    if ($readyForSubmit) {
         $username = test_input($_POST["username"]);
         $newPassword = test_input($_POST["new-password"]);
         $salutation = test_input($_POST["salutation"]);
@@ -32,7 +32,7 @@ if (isset($_POST['submit']) && ($_SERVER["REQUEST_METHOD"] == "POST")) {
 
     //Additional validation: Passwords equal, Username needs to be unique (check if it already exists in database)
     $readyForSubmit = $readyForSubmit & pwd_equalValidation($_POST["new-password"], $_POST["new-passwordRepeated"], $newPasswordRepeatedErr);
-    
+
     if ($readyForSubmit == true) {
         // submit finally to DB... (and call Profile??)
 
@@ -46,48 +46,53 @@ if (isset($_POST['submit']) && ($_SERVER["REQUEST_METHOD"] == "POST")) {
         $newPassword = mysqli_real_escape_string($con, $newPassword);
         $email = mysqli_real_escape_string($con, $email);
 
+        //build the SQL query. first check if userName exists already. 
+        $sqlQ = "SELECT * FROM $mysqli_tbl_login   WHERE username= ? ";
+        $stmtCheck = $con->prepare($sqlQ);
+        $stmtCheck->bind_param("s", $username);
+        $stmtCheck->execute();
+        $stmtCheck->store_result(); //after select needed. otherwise we dont get the number of rows returned in the next line ...
+        $res = mysqli_stmt_affected_rows($stmtCheck);
+        if (mysqli_stmt_affected_rows($stmtCheck) == 0) { // we should have 0 results, otherwise username exists already
+            $pwdHash = md5($newPassword); // we store only the md5 hash
+            // we are allowed to add user
+            $sqlIns = "INSERT INTO $mysqli_tbl_login (username, password) VALUES (?,?)";
+            $stmtIns = $con->prepare($sqlIns);
+            $stmtIns->bind_param("ss", $username, $pwdHash);
 
-        //build the SQL query. first check if userName exists already
-        $query = "SELECT * FROM $mysqli_tbl_login   WHERE username= '$username' ";
-        $result = mysqli_query($con, $query) or die(mysqli_error($con));
+            $stmtIns->execute();
+            $result = mysqli_stmt_affected_rows($stmtIns);
+            if ($result == 1) { // insert into user_login_table was successful, now we  add the remaining info 
+                //user info into user_profile table, including the foreign key of the  user_login_table 
+                $lastID = mysqli_insert_id($con); //gets the ID of the above(last) insert statement
+                $sqlIns = "INSERT INTO $mysqli_tbl_u_profile (firstName, lastName, email, salutation, personID) 
+                                    VALUES (?,?,?,?,?)";
+                $stmtIns = $con->prepare($sqlIns);
+                $stmtIns->bind_param("ssssi", $firstName, $lastName, $email, $salutation, $lastID);
 
-        $rows = mysqli_num_rows($result);
-        if ($rows == 0) {
-            $query = "INSERT INTO $mysqli_tbl_login (username, password) VALUES ('$username', '" . md5($newPassword) . "')";
-            $result = mysqli_query($con, $query) or die(mysqli_error($con));
-            if ($result >0) { // insert into user_login_table was successful, now we need to add the remaining info into user_profile table, 
-                //including the foreign key of the  user_login_table PK getting it via $lastID...
-                $lastID = mysqli_insert_id($con);
-                $query = "INSERT INTO $mysqli_tbl_u_profile (firstName, lastName, email, salutation, personID) VALUES 
-                ('$firstName', '$lastName', '$email', '$salutation', '$lastID')";
-                $result = mysqli_query($con, $query) or die(mysqli_error($con));
-                if ($result >0) {
+                $stmtIns->execute();
+                $result = mysqli_stmt_affected_rows($stmtIns);
+                if ($result == 1) {
                     //success
-                    header('Refresh: 3; URL = login.php');
-                    echo "<div class='row col-8'>
-                    <H2> Successfully created profile, please log in...</H2>
-                    </div>";
-                    
+                    echo "<script>alert('Acount created, please log in');</script>";
+                    header('Refresh: 1; URL = login.php');
+
                 } else {
-                    echo "<div class='row col-8'>
-                    <H2> Something went terribly wrong while creating your Profile...</H2>
-                    </div>";
+                    echo "<script>alert('Error  please try again');</script>";
+                    header('Refresh: 1; URL = register.php');
                 }
             }
+        } else {
+            // user exists already, cancel
+            echo "<script>alert('Account name taken already, please try again');</script>";
+            header('Refresh: 1; URL = register.php');
         }
-
-
-    } else {
-        // user exists already, cancel
     }
+    //cleaning out unwanted whitespaces or newlines in case someone copies and pastes
 }
-
 function test_input($data)
 {
     $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    //$data = mysqli_real_escape_string($conn, $data);
     return $data;
 }
 ?>

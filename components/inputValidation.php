@@ -6,7 +6,6 @@ function genericValidation(&$genericErr, &$genericPostField)
         $genericErr = "Input ist erforderlich";
         return false;
     } else {
-        //$username = test_input($_POST["username"]);
         return true;
     }
 }
@@ -33,7 +32,7 @@ function pwd_verify($pwd, &$oldPasswordErr)
     return false;
 }
 
-//validate the complexity for passwords
+//validate the complexity for passwords: can be extended if necessary 
 function pwd_verifyNewPwd($currPwd, $newPwd, &$newPasswordErr)
 {
     $validPwd = true;

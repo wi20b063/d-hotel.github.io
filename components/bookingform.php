@@ -2,14 +2,27 @@
 <html lang="en">
 
 <head>
-    <?php include "components/head.php"; ?>
-    <title>Distant Hotel | Über uns</title>
 
     <?php
     $isLoggedIn = false;
     if (isset($_SESSION["username"]) && isset($_SESSION["role"])) {
-        if ($_SESSION["role"] >= 1) {
+        if ($_SESSION["role"] >= 0) {
             $isLoggedIn = true;
+        }
+    }
+
+    /*first getting  price info 
+    Insert reservation to Database
+    Query price table from DB*/
+    $sqlQuery = "Select * FROM  $mysqli_tbl_price";
+    $result = mysqli_query($con, $sqlQuery) or die(mysqli_error($con));
+    $rows = mysqli_num_rows($result);
+
+    // get all prices possibly required for this booking and keep in SESSION VAR, we need it also in reserveRoom: 
+    $_SESSION["PriceArray"] = array();
+    while ($rows = mysqli_fetch_array($result)) {
+        if ($rows["PRICECAT"] && $rows["PRICE"]) { //if columns not NULL
+            $_SESSION["PriceArray"][$rows["PRICECAT"]] = $rows["PRICE"]; //pricearray gets each name and value 
         }
     }
     ?>
@@ -54,9 +67,9 @@
                     "arrivalDate": $('#arrivalDate').val(),
                     "departureDate": $('#departureDate').val(),
                     "roomCat": $('#roomSelection').val(),
-                    "isBreakfast": $('#isBreakfast').val(),
-                    "isParking": $('#isParking').val(),
-                    "isPets": $('#isPets').val()
+                    "isBreakfast": $('#isBreakfast:checked').val(),
+                    "isParking": $('#isParking:checked').val(),
+                    "isPets": $('#isPets:checked').val()
                 },
                 success: function (html) {
                     // url reserveRoom.php will be displayed in DIV roomBookDic3 without the entire page relaod
@@ -69,13 +82,9 @@
 </head>
 
 <body>
-
-
     <main>
-
         <div class="container">
             <h1 class="headline">Zimmer buchen</h1>
-
             <div class="row">
                 <div class="col-sm-6">
                     <div class="card">
@@ -106,7 +115,6 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-
                         <div class="row mb-3">
                             <div class="form-group col-md-6">
                                 <label for="arrivalDate">Anreisedatum:</label>
@@ -156,16 +164,17 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-
                         <p> <strong>Verfügbare Zimmer für Ihren geplanten Aufenthalt</strong></p>
-
                         <div id="roomBookDiv">
                         </div>
                         <!--  --------------       This is where we put the result of the query for available rooms:  #arrivalDate
                             identified by DIV ID "roomBookDiv AJAX will fill the php output Table here---------------  -->
 
                         <div class="form-group mb-3">
-                            <p>Möchten Sie Frühstück für 25€/Tag dazubuchen?</p>
+                            <p>Möchten Sie Frühstück für <strong>
+                                    <?php echo $_SESSION["PriceArray"]["BREAKFAST"]; ?>
+                                </strong>€/Tag
+                                dazubuchen?</p>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="isBreakfast" id="isBreakfast"
                                     value="yes" checked="checked">
@@ -178,7 +187,9 @@
                             </div>
                         </div>
                         <div class="form-group mb-3">
-                            <p>Möchten Sie eine Parkplatz für 15€/Tag dazubuchen?</p>
+                            <p>Möchten Sie eine Parkplatz für <strong>
+                                    <?php echo $_SESSION["PriceArray"]["PARKING"]; ?></strong>€/Tag
+                                dazubuchen?</p>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="isParking" id="isParking"
                                     value="yes">
@@ -191,7 +202,10 @@
                             </div>
                         </div>
                         <div class="form-group mb-3">
-                            <p>Möchten Sie Haustiere (nur Hunde und Katzen erlaubt) mitnehmen (Reinigungspauschale 50€)?
+                            <p>Möchten Sie Haustiere (nur Hunde und Katzen erlaubt) mitnehmen (Reinigungspauschale
+                                <strong>
+                                    <?php echo $_SESSION["PriceArray"]["PET"]; ?>€
+                                </strong>)?
                             </p>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="isPets" id="isPets" value="yes">
@@ -223,23 +237,17 @@
             <div class="modal-dialog modal-xl modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="buchungModalToggleLabel3">Schritt 3: Reservierung abgeschlossen
+                        <h5 class="modal-title" id="buchungModalToggleLabel3">Schritt 3: Reservierung wird abgeschlossen
                         </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-
-                        <p> <strong>Die Folgende Reservierung wurde abgeschlossen. </strong></p>
-                        <p> Bitte notieren sie den Bestätigungscode, ihre Buchung können sie unter xxxxx jederzeit
-                            einsehen. </p>
-
+                        <!--- Here inserted is the Result of the booking, reserveRoom.php, using Ajax InnerHTML function -->
                         <div id="roomBookDiv3">
                         </div>
 
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-primary" data-bs-target="#buchungModalToggle" data-bs-toggle="modal"
-                            data-bs-dismiss="modal">Datum ändern</button>
                         <button class="btn btn-warning" data-bs-toggle="modal" data-bs-dismiss="modal" id="end"
                             name="end">Verlassen</button>
                     </div>
