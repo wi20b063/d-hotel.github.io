@@ -42,16 +42,18 @@ require(dirname(__FILE__, 1) . "\components\inputValidation.php");
                         $firstname = $rowPerson["firstName"];
                         $lastname = $rowPerson["lastName"];
                     } ?>
-                    <div class="my-2 mr-4 border border-1 shadow-sm p-3 mb-5 bg-body rounded">
+                    <div class="row my-2 border border-1 shadow-sm p-3 mb-5 bg-body rounded">
+                        <div class="col-md-9 mr-4">
                             <p>Verfasser:in: <?php echo "$firstname $lastname"; ?> | Datum: <?php echo $date ?> </p>
                             <h3>
                                 <?php echo "$headline"; ?>
                             </h3>
-                            <div id="newsImgFrame">
-                                <p><img src="<?php echo $newsImgThumbPath; ?>" alt="Bild News Beitrag" id="news-img" class="img-fluid float-end" style="padding: 10px;">
-                                <?php echo "$text"; ?></p>
-                            </div>
+                            <p><?php echo "$text"; ?></p>
+                        </div>
+                        <div class="col-md-3 d-flex align-items-center" id="newsImgFrame">
+                            <img src="<?php echo $newsImgThumbPath; ?>" alt="Bild News Beitrag" class="img-fluid" id="news-img">
                     </div>
+                </div>
             <?php } ?>
 
 

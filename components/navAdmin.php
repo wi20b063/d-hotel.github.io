@@ -24,7 +24,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="faq.php">FAQ</a>
                 </li>
-                <div class="vr bg-dark"></div>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><div class="vl"></div></a>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -65,7 +67,6 @@
                     <ul class="dropdown-menu dropdown-menu-end" id="navbar-dropdown-menu"
                         aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="profile.php">Profil</a></li>
-                        <li><a class="dropdown-item" href="#">Buchungen</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>

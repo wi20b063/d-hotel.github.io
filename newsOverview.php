@@ -80,7 +80,7 @@
                         <div class="col-md-6 mb-4" style="background-color:lightgrey"><?php echo $msg; ?></div>
                     </div>                    
 
-                    <div class="table-responsive-md">
+                    <div class="table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>

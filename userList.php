@@ -55,15 +55,18 @@
                 
                 <form method="POST" enctype="multipart/form-data">
 
-                    <div class="row g-3">
-                        <div class="col-md-6 mb-4" style="background-color:lightgrey"><?php echo $msg; ?></div>
-                    </div>
+                    <?php if ($msg != "") { ?>
+                        <div class="row g-3">
+                            <div class="col-md-6 mb-4" style="background-color:lightgrey"><?php echo $msg; ?></div>
+                        </div>
+                    <?php } ?>
 
-                    <div class="table-responsive-md">
+                    <div class="table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th scope="col-sm-1">Person-ID</th>
+                                    <th scope="col-sm-1">Username</th>
                                     <th scope="col-sm-1">Anrede</th>
                                     <th scope="col-sm-1">Vorname</th>
                                     <th scope="col-sm-1">Nachname</th>
@@ -76,8 +79,6 @@
                                     <th scope="col-sm-1">Rolle</th>
                                     <th scope="col-sm-1">Profilbild</th>
                                     <th scope="col-sm-1">Status</th>
-                                    <th scope="col-sm-1">Passwort</th>
-                                    <th scope="col-sm-1">Profil</th>
                                 </tr>
                             </thead>
 
@@ -91,6 +92,7 @@
                             $result = $con->query($sqlSelectUser);
                             while ($row = $result->fetch_assoc()) {
                                 $personID = $row["personID"];
+                                $username = $row["username"];
                                 $salutation = $row["salutation"];
                                 $firstname = $row["firstName"];
                                 $lastname = $row["lastName"];
@@ -112,33 +114,34 @@
 
                                     <tbody>
                                         <tr>
-                                            <td scope="row"><?php echo $personID; ?></th>
-                                            <td><?php echo $salutation; ?></th>
-                                            <td><?php echo $firstname; ?></th>
-                                            <td><?php echo $lastname; ?></th>
-                                            <td><?php echo $street; ?></th>
-                                            <td><?php echo $housenumber; ?></th>
-                                            <td><?php echo $zip; ?></th>
-                                            <td><?php echo $city; ?></th>
-                                            <td><?php echo $email; ?></th>
-                                            <td><?php echo $tel; ?></th>
+                                            <td scope="row"><?php echo $personID; ?></td>
+                                            <td><?php echo $username; ?></td>
+                                            <td><?php echo $salutation; ?></td>
+                                            <td><?php echo $firstname; ?></td>
+                                            <td><?php echo $lastname; ?></td>
+                                            <td><?php echo $street; ?></td>
+                                            <td><?php echo $housenumber; ?></td>
+                                            <td><?php echo $zip; ?></td>
+                                            <td><?php echo $city; ?></td>
+                                            <td><?php echo $email; ?></td>
+                                            <td><?php echo $tel; ?></td>
                                             <?php if ($role == 1) { ?>
-                                                <td>Admin</th>
+                                                <td>Admin</td>
                                             <?php } else { ?>
-                                                <td>User</th>
+                                                <td>User</td>
                                             <?php } ?>
                                             <?php if ($profileImg == "") { ?>
-                                                <td><a style="color:lightgrey">Profilbild anzeigen</a></th>
+                                                <td><a style="color:lightgrey">Profilbild anzeigen</a></td>
                                             <?php } else { ?>
-                                                <td><a href="./res/img/img profile/<?php echo $profileImg; ?>" target="_blank">Profilbild anzeigen</a></th>
+                                                <td><a href="./res/img/img profile/<?php echo $profileImg; ?>" target="_blank">Profilbild anzeigen</a></td>
                                             <?php } ?>
                                             <?php if ($status == 1) { ?>
-                                                <td><span style="color:green">Aktiv</span></th>
+                                                <td><span style="color:green">Aktiv</span></td>
                                             <?php } else { ?>
-                                                <td><span style="color:red">Inaktiv</span></th>
+                                                <td><span style="color:red">Inaktiv</span></td>
                                             <?php } ?>
-                                            <td><a class="btn btn-danger" href="./passwordEditAdmin.php?personID=<?php echo $personID; ?>">Neues Passwort</a></th>
-                                            <td><a class="btn" href="./profileEditAdmin.php?personID=<?php echo $personID; ?>">Profil bearbeiten</a></th>
+                                            <td><a class="btn btn-danger" href="./passwordEditAdmin.php?personID=<?php echo $personID; ?>">Neues Passwort</a></td>
+                                            <td><a class="btn" href="./profileEditAdmin.php?personID=<?php echo $personID; ?>">Profil bearbeiten</a></td>
                                         </tr>
                                     </tbody>
                                 <?php } ?>

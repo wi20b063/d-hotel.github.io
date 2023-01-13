@@ -23,9 +23,11 @@ body {
     justify-content: center;
 }
 
-.news-img {
-    width: 300px;
-    height: 300px;
+#news-img {
+    width: 100%;
+    max-width: fit-content;
+    height: auto;
+    margin: 0 15px;
 }
 
 /* styling cards for rooms page */
@@ -54,6 +56,11 @@ body {
     color: white;
     background-color: white;
 }
+
+.vl {
+    border-left: 1px solid white;
+    height:25px;
+  }
 
 /*adding a background image to the home-jumbotron*/
 /* #jumbotron-home {
@@ -400,6 +407,11 @@ td {
     padding: 5px;
     vertical-align: middle;
     text-align: center;
+    font-size: 14px;
+}
+
+td .btn {
+    font-size: 14px;
 }
 
 thead {

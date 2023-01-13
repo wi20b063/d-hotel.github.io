@@ -17,9 +17,8 @@
         <div class="content">
             <div class="container">
                 <h1 class="headline">Über uns</h1>
-                <div class="row">
-                    <div class="col-9">
-
+                <div class="row" style="display:flex; justify-content:center;">
+                    <div class="col-lg-8">
                         <h3>Lorem ipsum dolor sit amet</h3>
                         <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
                             illum
@@ -72,6 +71,9 @@
                             sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
                             erat.
                         </p>
+                    </div>
+                    <div class="col-lg-4 align-items-center" id="newsImgFrame">
+                        <img src="./res/img/hotel view inside.jpg" alt="Hotel Innenansicht" class="img-fluid" id="news-img">
                     </div>
                 </div>
             </div>

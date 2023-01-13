@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 11. Jan 2023 um 19:55
--- Server-Version: 10.4.24-MariaDB
--- PHP-Version: 8.1.6
+-- Generation Time: Jan 13, 2023 at 02:38 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,49 +18,39 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Datenbank: `webhotel`
+-- Database: `webhotel`
 --
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `general_log`
+-- Table structure for table `tbl_currentprice`
 --
 
-CREATE TABLE `general_log` (
-  `event_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `user_host` mediumtext NOT NULL,
-  `thread_id` bigint(21) UNSIGNED NOT NULL,
-  `server_id` int(10) UNSIGNED NOT NULL,
-  `command_type` varchar(64) NOT NULL,
-  `argument` mediumtext NOT NULL
-) ENGINE=CSV DEFAULT CHARSET=utf8 COMMENT='General log';
+CREATE TABLE `tbl_currentprice` (
+  `ID` int(11) NOT NULL,
+  `PRICECAT` enum('BUDGET','STANDARD','PREMIUM','MODSUITE','LUXSUITE','PARKING','BREAKFAST','PET') NOT NULL,
+  `PRICE` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_currentprice`
+--
+
+INSERT INTO `tbl_currentprice` (`ID`, `PRICECAT`, `PRICE`) VALUES
+(1, 'BUDGET', 79),
+(2, 'STANDARD', 89),
+(3, 'PREMIUM', 148),
+(4, 'MODSUITE', 175),
+(5, 'LUXSUITE', 250),
+(6, 'PARKING', 15),
+(13, 'BREAKFAST', 25),
+(14, 'PET', 50);
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `slow_log`
---
-
-CREATE TABLE `slow_log` (
-  `start_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `user_host` mediumtext NOT NULL,
-  `query_time` time NOT NULL,
-  `lock_time` time NOT NULL,
-  `rows_sent` int(11) NOT NULL,
-  `rows_examined` int(11) NOT NULL,
-  `db` varchar(512) NOT NULL,
-  `last_insert_id` int(11) NOT NULL,
-  `insert_id` int(11) NOT NULL,
-  `server_id` int(10) UNSIGNED NOT NULL,
-  `sql_text` mediumtext NOT NULL,
-  `thread_id` bigint(21) UNSIGNED NOT NULL
-) ENGINE=CSV DEFAULT CHARSET=utf8 COMMENT='Slow log';
-
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `tbl_news`
+-- Table structure for table `tbl_news`
 --
 
 CREATE TABLE `tbl_news` (
@@ -74,7 +64,7 @@ CREATE TABLE `tbl_news` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `tbl_news`
+-- Dumping data for table `tbl_news`
 --
 
 INSERT INTO `tbl_news` (`id`, `headline`, `text`, `personID`, `newsImgPath`, `newsImgThumbPath`, `publicationDate`) VALUES
@@ -87,13 +77,13 @@ INSERT INTO `tbl_news` (`id`, `headline`, `text`, `personID`, `newsImgPath`, `ne
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `tbl_reservation`
+-- Table structure for table `tbl_reservation`
 --
 
 CREATE TABLE `tbl_reservation` (
   `RESERVEID` int(11) NOT NULL,
   `CONFIRMCODE` varchar(24) NOT NULL,
-  `ROOMCAT` enum('budget','standard','premium','modern suite','luxury suite') NOT NULL,
+  `ROOMCAT` enum('BUDGET','STANDARD','PREMIUM','MODSUITE','LUXSUITE') NOT NULL,
   `PRICE` double NOT NULL,
   `DATEARRIVAL` datetime NOT NULL,
   `DATEDEPART` datetime NOT NULL,
@@ -101,85 +91,96 @@ CREATE TABLE `tbl_reservation` (
   `DATELASTUP` datetime NOT NULL,
   `STATUS` enum('new','reserved','cancelled') NOT NULL,
   `REMARK` text DEFAULT NULL,
-  `GUESTID` int(11) NOT NULL
+  `GUESTID` int(11) NOT NULL,
+  `BREAKF` tinyint(1) DEFAULT NULL,
+  `PARKING` tinyint(1) DEFAULT NULL,
+  `PET` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `tbl_reservation`
+-- Dumping data for table `tbl_reservation`
 --
 
-INSERT INTO `tbl_reservation` (`RESERVEID`, `CONFIRMCODE`, `ROOMCAT`, `PRICE`, `DATEARRIVAL`, `DATEDEPART`, `DATECREATE`, `DATELASTUP`, `STATUS`, `REMARK`, `GUESTID`) VALUES
-(1235, '262829', 'budget', 400, '2023-01-11 12:00:00', '2023-01-19 10:00:00', '2023-01-09 04:12:44', '2023-01-09 04:12:44', 'reserved', NULL, 15),
-(1236, '988826', 'budget', 640, '2023-01-11 12:00:00', '2023-01-27 10:00:00', '2023-01-09 04:22:41', '2023-01-09 04:22:41', 'reserved', NULL, 15),
-(1237, '791689', 'modern suite', 520, '2023-01-11 12:00:00', '2023-01-24 10:00:00', '2023-01-09 04:31:37', '2023-01-09 04:31:37', 'reserved', NULL, 15),
-(1242, '331396', 'premium', 290, '2023-01-18 12:00:00', '2023-01-24 10:00:00', '2023-01-09 15:26:02', '2023-01-09 15:26:02', 'reserved', NULL, 15),
-(1244, '756366', 'budget', 210, '2023-03-01 12:00:00', '2023-03-05 10:00:00', '2023-01-11 13:18:05', '2023-01-11 13:18:05', 'new', NULL, 15);
+INSERT INTO `tbl_reservation` (`RESERVEID`, `CONFIRMCODE`, `ROOMCAT`, `PRICE`, `DATEARRIVAL`, `DATEDEPART`, `DATECREATE`, `DATELASTUP`, `STATUS`, `REMARK`, `GUESTID`, `BREAKF`, `PARKING`, `PET`) VALUES
+(1255, '847497', 'STANDARD', 179, '2023-01-11 12:00:00', '2023-01-12 10:00:00', '2023-01-11 12:25:56', '2023-01-11 12:25:56', 'new', NULL, 14, 1, 1, 1),
+(1256, '523413', 'BUDGET', 169, '2023-01-18 12:00:00', '2023-01-19 10:00:00', '2023-01-11 12:29:59', '2023-01-11 12:29:59', 'new', NULL, 15, 1, 1, 1),
+(1257, '196839', 'BUDGET', 169, '2023-01-11 12:00:00', '2023-01-12 10:00:00', '2023-01-11 12:50:38', '2023-01-11 12:50:38', 'cancelled', NULL, 15, 1, 1, 1),
+(1258, '611251', 'BUDGET', 169, '2023-01-12 12:00:00', '2023-01-13 10:00:00', '2023-01-12 17:43:00', '2023-01-12 17:43:00', 'new', NULL, 23, 1, 1, 1),
+(1259, '939171', 'BUDGET', 169, '2023-01-12 12:00:00', '2023-01-13 10:00:00', '2023-01-12 18:02:59', '2023-01-12 18:02:59', 'new', NULL, 23, 1, 1, 1),
+(1260, '478743', 'BUDGET', 169, '2023-01-12 12:00:00', '2023-01-13 10:00:00', '2023-01-12 18:04:55', '2023-01-12 18:04:55', 'new', NULL, 23, 1, 1, 1),
+(1261, '733161', 'STANDARD', 179, '2023-01-12 12:00:00', '2023-01-13 10:00:00', '2023-01-12 18:17:16', '2023-01-12 18:17:16', 'reserved', NULL, 23, 1, 1, 1),
+(1262, '697935', 'STANDARD', 179, '2023-01-12 12:00:00', '2023-01-13 10:00:00', '2023-01-12 18:51:27', '2023-01-12 18:51:27', 'new', NULL, 23, 0, 0, 1),
+(1263, '452175', 'STANDARD', 139, '2023-01-12 12:00:00', '2023-01-13 10:00:00', '2023-01-12 19:01:35', '2023-01-12 19:01:35', 'new', NULL, 23, 0, 0, 1),
+(1264, '659496', 'BUDGET', 129, '2023-01-13 12:00:00', '2023-01-14 10:00:00', '2023-01-13 01:24:08', '2023-01-13 01:24:08', 'new', NULL, 15, 0, 0, 1),
+(1265, '457463', 'BUDGET', 94, '2023-01-13 12:00:00', '2023-01-14 10:00:00', '2023-01-13 02:17:18', '2023-01-13 02:17:18', 'new', NULL, 15, 0, 1, 0);
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `tbl_room`
+-- Table structure for table `tbl_room`
 --
 
 CREATE TABLE `tbl_room` (
   `ID` int(11) NOT NULL,
   `ROOMNUM` int(11) NOT NULL,
   `ROOMNAME` varchar(24) DEFAULT NULL,
-  `PRICE` float NOT NULL,
-  `ROOMCAT` enum('budget','standard','premium','modern suite','luxury suite') NOT NULL DEFAULT 'budget',
+  `ROOMCAT` enum('BUDGET','STANDARD','PREMIUM','MODSUITE','LUXSUITE') NOT NULL DEFAULT 'BUDGET',
   `GuestsMax` int(11) NOT NULL DEFAULT 2,
   `IMAGE` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `tbl_room`
+-- Dumping data for table `tbl_room`
 --
 
-INSERT INTO `tbl_room` (`ID`, `ROOMNUM`, `ROOMNAME`, `PRICE`, `ROOMCAT`, `GuestsMax`, `IMAGE`) VALUES
-(1, 101, 'Budget Zimmer', 79, 'budget', 2, 'budget room.png'),
-(2, 102, 'Budget Zimmer', 79, 'budget', 2, 'budget room.png'),
-(3, 103, 'Budget Zimmer', 79, 'budget', 2, 'budget room.png'),
-(4, 201, 'Standard Zimmer', 89, 'standard', 2, 'standard room.png'),
-(5, 202, 'Standard Zimmer', 89, 'standard', 2, 'standard room.png'),
-(6, 203, 'Standard Zimmer', 89, 'standard', 2, 'standard room.png'),
-(7, 301, 'Premium Zimmer', 148, 'premium', 3, 'premium room.png'),
-(8, 302, 'Premium Zimmer', 148, 'premium', 3, 'premium room.png'),
-(9, 401, 'Modern Suite', 175, 'modern suite', 4, 'modern suite.png'),
-(10, 402, 'Modern Suite', 175, 'modern suite', 4, 'modern suite.png'),
-(11, 501, 'Royal Suite', 250, 'luxury suite', 5, 'luxury suite.png');
+INSERT INTO `tbl_room` (`ID`, `ROOMNUM`, `ROOMNAME`, `ROOMCAT`, `GuestsMax`, `IMAGE`) VALUES
+(1, 101, 'Budget Zimmer', 'BUDGET', 2, 'budget room.png'),
+(2, 102, 'Budget Zimmer', 'BUDGET', 2, 'budget room.png'),
+(3, 103, 'Budget Zimmer', 'BUDGET', 2, 'budget room.png'),
+(4, 201, 'Standard Zimmer', 'STANDARD', 2, 'standard room.png'),
+(5, 202, 'Standard Zimmer', 'STANDARD', 2, 'standard room.png'),
+(6, 203, 'Standard Zimmer', 'STANDARD', 2, 'standard room.png'),
+(7, 301, 'Premium Zimmer', 'PREMIUM', 3, 'premium room.png'),
+(8, 302, 'Premium Zimmer', 'PREMIUM', 3, 'premium room.png'),
+(9, 401, 'Modern Suite', 'MODSUITE', 4, 'modern suite.png'),
+(10, 402, 'Modern Suite', 'MODSUITE', 4, 'modern suite.png'),
+(11, 501, 'Royal Suite', 'LUXSUITE', 5, 'luxury suite.png');
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `user_login`
+-- Table structure for table `user_login`
 --
 
 CREATE TABLE `user_login` (
   `ID` int(16) NOT NULL,
   `username` varchar(32) NOT NULL,
   `password` varchar(64) NOT NULL,
+  `role` int(11) DEFAULT 2,
   `active` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `user_login`
+-- Dumping data for table `user_login`
 --
 
-INSERT INTO `user_login` (`ID`, `username`, `password`, `active`) VALUES
-(14, 'max', '$2y$10$Ix8uDAtnSULH6VLDxDAEGu7KARk.X53ewMQemAARLwbJ1cY22/9za', 1),
-(15, 'saras', '265a9b497722342d9c3506671e429215', 1),
-(20, 'admin', '265a9b497722342d9c3506671e429215', 1),
-(21, 'AnnaM', '$2y$10$NwZ7OapOSahLHpbLrQvz.ufNssIcZeiZf38IUcfh8676xQOkSK.ni', 1);
+INSERT INTO `user_login` (`ID`, `username`, `password`, `role`, `active`) VALUES
+(14, 'max', '265a9b497722342d9c3506671e429215', 2, 1),
+(15, 'saras', '265a9b497722342d9c3506671e429215', 2, 1),
+(20, 'admin', '265a9b497722342d9c3506671e429215', 1, 1),
+(21, 'AnnaM', '265a9b497722342d9c3506671e429215', 2, 1),
+(22, 'mario', '265a9b497722342d9c3506671e429215', 2, 1),
+(23, 'kim', 'fffdbe096056ccd42e77aa917f600079', 2, 1),
+(24, 'last', 'fffdbe096056ccd42e77aa917f600079', 2, 1);
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `user_profile`
+-- Table structure for table `user_profile`
 --
 
 CREATE TABLE `user_profile` (
   `personID` int(16) NOT NULL,
-  `role` int(10) UNSIGNED NOT NULL DEFAULT 0,
   `firstName` varchar(24) DEFAULT NULL,
   `lastName` varchar(24) DEFAULT NULL,
   `email` varchar(24) DEFAULT NULL,
@@ -193,90 +194,105 @@ CREATE TABLE `user_profile` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Daten für Tabelle `user_profile`
+-- Dumping data for table `user_profile`
 --
 
-INSERT INTO `user_profile` (`personID`, `role`, `firstName`, `lastName`, `email`, `zipcode`, `city`, `address`, `address2`, `tel`, `salutation`, `target_file`) VALUES
-(14, 0, 'Max', 'Mara', 'maram@dd.at', '1110', 'Wien', 'Test2', '4466', '', 'male', '63af39182401e.jpg'),
-(15, 0, 'Sara', 'Seey', 'saras@sey.com', '1190', 'Wien', 'Test', '22', '123557', 'female', '63bb427221a02.png'),
-(20, 1, 'Admin', 'Test', 'admin@a1.at', '1200', 'Wien', 'Admin-Weg', '111', '0664123457855', 'neutral', NULL),
-(21, 0, 'Anna', 'Maier', 'anna@google.com', '1010', 'Wien', 'Teststraße', '1/1/1', '12345678', 'female', NULL);
+INSERT INTO `user_profile` (`personID`, `firstName`, `lastName`, `email`, `zipcode`, `city`, `address`, `address2`, `tel`, `salutation`, `target_file`) VALUES
+(14, 'Max', 'Mara', 'maram@dd.at', '111', 'Wien', 'Test', '4466', '', 'male', '63af39182401e.jpg'),
+(15, 'Sara', 'Seey', 'saras1@sey.com', '1190', 'Wien', 'Test', '22', '123557', 'female', '63bef9889eb5b.jpg'),
+(20, 'Admin', 'Test', 'admin@a1.at', '1200', 'Wien', 'Admin-Weg', '111', '0664123457855', 'neutral', NULL),
+(21, 'Anna', 'Maier', 'anna@google.com', '1010', 'Wien', 'Teststraße', '1/1/1', '12345678', 'female', NULL),
+(22, 'Mario', 'Bros', 'mario@bbbros.com', '122451', 'Kendall1', 'Nintendo1', '1441', '+1209333888441', 'male', '63bf2d726cf8f.jpg'),
+(23, 'Kim', 'Kardi', 'kim@kardi.bb', '1', 'Los Angeles BH', 'Sunset Blv', '20133', '222222444', 'neutral', '63c03836930d9.png'),
+(24, 'Last', 'Test', 'last@test.te', NULL, NULL, NULL, NULL, NULL, 'neutral', NULL);
 
 --
--- Indizes der exportierten Tabellen
+-- Indexes for dumped tables
 --
 
 --
--- Indizes für die Tabelle `tbl_news`
+-- Indexes for table `tbl_currentprice`
+--
+ALTER TABLE `tbl_currentprice`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `tbl_news`
 --
 ALTER TABLE `tbl_news`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indizes für die Tabelle `tbl_reservation`
+-- Indexes for table `tbl_reservation`
 --
 ALTER TABLE `tbl_reservation`
   ADD PRIMARY KEY (`RESERVEID`),
   ADD KEY `GUESTID` (`GUESTID`);
 
 --
--- Indizes für die Tabelle `tbl_room`
+-- Indexes for table `tbl_room`
 --
 ALTER TABLE `tbl_room`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indizes für die Tabelle `user_login`
+-- Indexes for table `user_login`
 --
 ALTER TABLE `user_login`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indizes für die Tabelle `user_profile`
+-- Indexes for table `user_profile`
 --
 ALTER TABLE `user_profile`
   ADD PRIMARY KEY (`personID`);
 
 --
--- AUTO_INCREMENT für exportierte Tabellen
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT für Tabelle `tbl_news`
+-- AUTO_INCREMENT for table `tbl_currentprice`
+--
+ALTER TABLE `tbl_currentprice`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `tbl_news`
 --
 ALTER TABLE `tbl_news`
   MODIFY `id` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
--- AUTO_INCREMENT für Tabelle `tbl_reservation`
+-- AUTO_INCREMENT for table `tbl_reservation`
 --
 ALTER TABLE `tbl_reservation`
-  MODIFY `RESERVEID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1245;
+  MODIFY `RESERVEID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1266;
 
 --
--- AUTO_INCREMENT für Tabelle `tbl_room`
+-- AUTO_INCREMENT for table `tbl_room`
 --
 ALTER TABLE `tbl_room`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT für Tabelle `user_login`
+-- AUTO_INCREMENT for table `user_login`
 --
 ALTER TABLE `user_login`
-  MODIFY `ID` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `ID` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- Constraints der exportierten Tabellen
+-- Constraints for dumped tables
 --
 
 --
--- Constraints der Tabelle `tbl_reservation`
+-- Constraints for table `tbl_reservation`
 --
 ALTER TABLE `tbl_reservation`
   ADD CONSTRAINT `tbl_reservation_ibfk_1` FOREIGN KEY (`GUESTID`) REFERENCES `user_profile` (`personID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints der Tabelle `user_profile`
+-- Constraints for table `user_profile`
 --
 ALTER TABLE `user_profile`
   ADD CONSTRAINT `d_ID_pers_user` FOREIGN KEY (`personID`) REFERENCES `user_login` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;

@@ -45,6 +45,7 @@ deine letzten pushes und meine offline changes dazwischen ge-merged),
 
 was könnten wir noch machen: eventuell alle SQL queries in eine separate php Datei outsourcen und in components geben.
 (maybe using responsive table class in css for this table (scrolling) -> for booking list and usersList
+    --> responsive tables erledigt
 
 ________________________________________________________________________________________________________________
 							code merge:	 quick test(ok)				comments:								
@@ -67,9 +68,9 @@ userList.php					+ 			+		change in query since role went to tbl_user_login.
 
 
 NEWS:
-- images in News-Beiträge ...
-    - need to be responsive
-    - need to be centered in col-3
++ images in News-Beiträge ...
+    + need to be responsive
+    + need to be centered in col-3
 + creating news articles inkl. picture upload
     + newest news arcticles on top (descending order)
     + check if user is admin
@@ -87,7 +88,7 @@ NEWS:
     + articles are loaded from the DB and displayed
     + path to the related pictrue needs to be saved with the according articles
     + each article need to include the date of the publication
-- OPTIONAL: deleting news articles
++ OPTIONAL: deleting news articles
 + Article overview:
     + formatting table
     + links to thumbs do not work
@@ -99,7 +100,7 @@ USER LIST:
 + possibility to change profile data of all users
 + possibility to change passwords of all users
 + changing user status --> aktiv / inactive
-    - inactive users can not log in anymore, but data in db is still available
+    - !!! inactive users can not log in anymore, but data in db is still available
 
 
 

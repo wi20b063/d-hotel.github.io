@@ -87,16 +87,17 @@
                         <div class="col-md-6 mb-4" style="background-color:lightgrey"><?php echo $msg; ?></div>
                     </div>
 
-                    <div class="table-responsive-md">
+                    <div class="table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col-sm-1">Buchungs-ID</th>
-                                    <th scope="col-sm-1">Buchungscode</th>
-                                    <th scope="col-sm-1">Raum-kategorie</th>
+                                    <th scope="col-sm-1">Nr.</th>
+                                    <th scope="col-sm-1">Code</th>
+                                    <th scope="col-sm-1">Buchungsdatum</th>
+                                    <th scope="col-sm-1">Kategorie</th>
                                     <th scope="col-sm-1">Preis</th>
-                                    <th scope="col-sm-1">Ankunftsdatum</th>
-                                    <th scope="col-sm-1">Abreisedatum</th>
+                                    <th scope="col-sm-1">Anreise</th>
+                                    <th scope="col-sm-1">Abreise</th>
                                     <th scope="col-sm-1">Anmerkungen</th>
                                     <th scope="col-sm-1">Vorname</th>
                                     <th scope="col-sm-1">Nachname</th>
@@ -120,9 +121,9 @@
                                 //                                      the total number or rooms will be monitored, room assignment only at checkin...
                                 $roomCategory = $row["ROOMCAT"];                               
                                 $price = $row["PRICE"];
-                                $arrivalDate = $row["DATEARRIVAL"];
-                                $departureDate = $row["DATEDEPART"];
-                                $bookingDate = $row["DATECREATE"];
+                                $arrivalDate = date("d.m.Y", strtotime($row["DATEARRIVAL"]));
+                                $departureDate = date("d.m.Y", strtotime($row["DATEDEPART"]));
+                                $bookingDate = date("d.m.Y", strtotime($row["DATECREATE"]));
                                 $remark = $row["REMARK"];
                                 $status = $row["STATUS"];
                                 $guestID = $row["GUESTID"];
@@ -141,8 +142,9 @@
                                     <tr>
                                         <td scope="row"><?php echo $reservationID; ?></th>
                                         <td><?php echo $reservationCode; ?></th>
+                                        <td><?php echo $bookingDate; ?></th>
                                         <td><?php echo $roomCategory; ?></th>
-                                        <td><?php echo $price; ?></th>
+                                        <td><?php echo "€ " . $price; ?></th>
                                         <td><?php echo $arrivalDate; ?></th>
                                         <td><?php echo $departureDate; ?></th>
                                         <td><?php echo $remark; ?></th>

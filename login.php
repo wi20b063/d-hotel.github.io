@@ -6,6 +6,8 @@ $error["username"] = false; //making sure the error message is not shown at the 
 $error["current-password"] = false;
 $error["save"] = false;
 
+$msg = "";
+
 //the following code is executed when the user clicks on the submit button
 if ((isset($_POST['submit']))) { //&& ($_SERVER["REQUEST_METHOD"] == "POST")
     if (empty($_POST["username"])) {
@@ -30,7 +32,6 @@ if ((isset($_POST['submit']))) { //&& ($_SERVER["REQUEST_METHOD"] == "POST")
         //first strip and clean the user input (maybe not needed with perpared statement)
         $username = mysqli_real_escape_string($con, $_REQUEST['username']);
         $password = mysqli_real_escape_string($con, $_REQUEST['current-password']);
-
 
         //run  the SQL query (in import) but already hash the password
         query_UserData($username, md5($password));
@@ -60,7 +61,13 @@ function query_UserData($username, $passwordhash)
     $stmt->execute();
 
     $result = mysqli_stmt_get_result($stmt); // returns a result-Set
-
+    
+    //check if the user is active or not --> inactiv users can not login
+    if ($row["active"] == "2") {
+        $msg = "Ihr Account wurde gesperrt. Bitte wenden Sie sich an den Administrator.";
+        exit();
+    }
+    
     if ($result->num_rows == 1) { // if we have 1 row as result, the user login was successful
         // getting data into SESSION variable for later. 
         $row = mysqli_fetch_assoc($result);
@@ -96,8 +103,14 @@ function query_UserData($username, $passwordhash)
         <div class="content">
             <div class="container">
                 <h1 class="headline">Login</h1>
-                <div class="row col-8">
+                <div class="row col-md-6">
                     <form class="data-form" action="login.php" method="post" autocomplete="on">
+
+                        <?php if ($msg != "") { ?>
+                            <div class="row g-3">
+                                <div class="col-md-6 mb-4" style="background-color:lightgrey"><?php echo $msg; ?></div>
+                            </div>
+                        <?php } ?>
 
                         <div class="mb-3">
                             <label for="username" class="form-label">Username:</label>

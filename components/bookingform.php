@@ -85,9 +85,9 @@
     <main>
         <div class="container">
             <h1 class="headline">Zimmer buchen</h1>
-            <div class="row">
+            <div class="row pb-5">
                 <div class="col-sm-6">
-                    <div class="card">
+                    <div class="card h-100">
                         <img src="res\img\img rooms\budget room.png" class="card-img-top" alt="Budget Zimmer">
                         <div class="card-body">
                             <h5 class="card-title">Los gehts</h5>
