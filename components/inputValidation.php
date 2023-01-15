@@ -2,7 +2,7 @@
 
 function genericValidation(&$genericErr, &$genericPostField)
 {
-    if (empty($genericPostField)) {
+    if (empty($genericPostField) && strlen($genericPostField) < 1) {
         $genericErr = "Input ist erforderlich";
         return false;
     } else {

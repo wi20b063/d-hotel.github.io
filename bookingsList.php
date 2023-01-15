@@ -123,7 +123,7 @@
                                 $price = $row["PRICE"];
                                 $arrivalDate = date("d.m.Y", strtotime($row["DATEARRIVAL"]));
                                 $departureDate = date("d.m.Y", strtotime($row["DATEDEPART"]));
-                                $bookingDate = date("d.m.Y  h:s", strtotime($row["DATECREATE"]));
+                                $bookingDate = date("d.m.Y  H:i", strtotime($row["DATECREATE"]));
                                 $remark = $row["REMARK"];
                                 $status = $row["STATUS"];
                                 $guestID = $row["GUESTID"];

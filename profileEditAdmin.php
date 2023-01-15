@@ -221,8 +221,8 @@
                                                 <!-- <span style="color:red; font-size:small"><?php echo $roleErr; ?></span> -->
                                             </div>
                                             <div class="col-md-6">
-                                                <p><label for="status" class="form-label"><strong>Userstatus: *</strong> <small>(1 = aktiv, 2 = inaktiv)</small></label></p>
-                                                    <?php if ($status == 1) { ?>
+                                                <p><label for="status" class="form-label"><strong>Userstatus: *</strong> <small>(1 = aktiv, 0 = inaktiv)</small></label></p>
+                                                    <?php if ($status == "1") { ?>
                                                         <p><input type="text" id="status" name="status" class="form-control" value=<?php echo $status; ?> style="background-color:#7CFC0090"></p>
                                                     <?php } else { ?>
                                                     <p><input type="text" id="status" name="status" class="form-control" value=<?php echo $status; ?> style="background-color:#D42A0490"></p>

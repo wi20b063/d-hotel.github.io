@@ -12,7 +12,6 @@ enum p_status
 { //Set states of profile
 	case PROFILE_SHOW;
 	case PROFILE_MODIFY;
-	case PROFILE_DELETE;
 }
 $profile_status = p_status::PROFILE_SHOW;
 $salutationErr = $firstNameErr = $lastNameErr = $emailErr = $usernameErr = $oldPasswordErr = $newPasswordErr = $newPasswordRepeatedErr = "";
@@ -43,7 +42,7 @@ if (isset($_POST["edit_profile"]) && (!isset($_SESSION["update_profile"]))) {
 			//DB update not ok. nothing else to do. Feedback and err values set in function and displayed on reload.
 		}
 	}
-	// ---------- change profile STEP-2 -----------> contact data
+	// ---------- change profile STEP-2 -----------> contact data change
 } elseif (isset($_POST["apply_profile"])) {
 	$readyForSubmit = true;
 	$_SESSION["transactNotice"] = true;
@@ -91,24 +90,8 @@ if (isset($_POST["edit_profile"]) && (!isset($_SESSION["update_profile"]))) {
 	$_SESSION["transactInfoType"] = "";
 	$_SESSION["transactFeedback"] = "";
 }
-// ---------- delete Profile: -----------> 
-if (isset($_POST["delete_profile"])) { // --- Step 1 button click
-	$profile_status = p_status::PROFILE_DELETE;
-}
 
-if (isset($_POST["delete_account_confirm"])) { // --- Step 2 button click and old password should have been provided
-	$_SESSION["transactNotice"] = true;
-
-	if (pwd_verify($_POST["current-password"], $oldPasswordErr) && delete_profile($_SESSION["personID"])) {
-		$_SESSION["transactFeedback"] = " <<Profil GELÖSCHT!>>";
-		session_destroy();
-	} else {
-		$_SESSION["transactInfoType"] = "Error";
-		$_SESSION["transactFeedback"] = $_SESSION["transactFeedback"] . $oldPasswordErr . " +Profil NICHT gelöscht+";
-	}
-}
-
-// ----------  generic result notice for all profile update or delete features
+// ----------  generic result notice for all profile update  features
 if ($_SESSION["transactNotice"] == true) {
 	if ($_SESSION["transactInfoType"] == "Error") {
 		$_SESSION["transactFeedback"] = $_SESSION["transactFeedback"] . "+Profil NICHT aktualisiert+";
@@ -217,40 +200,6 @@ function update_profile() //used for both, update of profile picture and profile
 	return $result;
 }
 
-function delete_profile($idPerson)
-{
-	global $con;
-	global $mysqli_tbl_u_profile, $mysqli_tbl_login, $profile_target_dir;
-	// delete records in both, login and profile tables
-
-	// delete user profile 
-	$SQLquery1 = "DELETE FROM $mysqli_tbl_u_profile WHERE personID = ? ";
-	$stmt = $con->prepare($SQLquery1);
-	$stmt->bind_param("s", $_SESSION["personID"]);
-	$stmt->execute();
-	$result1 = mysqli_stmt_get_result($stmt);
-
-	if (!$result1) {
-		$_SESSION["transactFeedback"] = $_SESSION["transactFeedback"] . " User account  deletion failed.";
-		return false;
-	}
-	//delete user login
-	$SQLquery2 = "DELETE FROM $mysqli_tbl_login WHERE ID = ? ";
-	$stmt = $con->prepare($SQLquery2);
-	$stmt->bind_param("s", $_SESSION["personID"]);
-	$stmt->execute();
-	$result2 = mysqli_stmt_get_result($stmt);
-
-	if (!$result2) {
-		$_SESSION["transactFeedback"] = $_SESSION["transactFeedback"] . " Profile data deletion failed.";
-		return false;
-	}
-
-	// delete profile photo
-	$delete_target = $profile_target_dir . $_SESSION["target_file"];
-	delete_profile_image($delete_target);
-	return true;
-}
 
 function delete_profile_image($oldTargetFile)
 {
@@ -463,6 +412,7 @@ function update_pwd($newPassword, $idPerson)
 												if ($profile_status == p_status::PROFILE_MODIFY) { ?>
 													<button type="submit" name="apply_profile"
 														class="btn btn-primary btn">Änderungen übernehmen</button>
+													<button type="submit" name="back" class="btn">zurück</button>
 												<?php } ?>
 											</div>
 
@@ -573,33 +523,7 @@ function update_pwd($newPassword, $idPerson)
 						</div>
 
 					<?php }
-					if ($profile_status == p_status::PROFILE_DELETE) { ?>
-						<div class="col-xxl-6">
-							<div class="bg-secondary-soft px-4 py-5 rounded">
-								<div class="row g-3">
-									<h4 class="my-4">Profil Löschen</h4>
-									<form action="profile.php" method="post" enctype="multipart/form-data">
-										<!-- Old password -->
-										<div class="col-md-6">
-											<label for="exampleInputPassword1" class="form-label">Altes
-												Passwort zur Bestätigung der Account Löschung eingeben
-												*</label>
-											<input type="password" class="form-control" name="current-password"
-												id="exampleInputPassword1">
-										</div>
 
-										<div class="col-md-6">
-											<p>
-												<button type="submit" name="delete_account_confirm"
-													class="btn btn-primary btn-lg">Profil jetzt löschen</button>
-											</p>
-										</div>
-									</form>
-								</div>
-							</div>
-						</div>
-
-					<?php }
 					?>
 				</div> <!-- Row END -->
 				<!-- button show for main view-->
@@ -608,11 +532,10 @@ function update_pwd($newPassword, $idPerson)
 					<form action="profile.php" method="post" enctype="multipart/form-data">
 						<div class="gap-3 d-md-flex justify-content-md-end text-center">
 
-							<button type="submit" name="edit_profile" class="btn">Profil
+							<button type="submit" name="edit_profile" class="btn btn-danger">Profil
 								bearbeiten</button>
 
-							<button type="submit" name="delete_profile" class="btn btn-danger">Profil
-								löschen</button>
+
 						</div>
 					</form>
 					<?php

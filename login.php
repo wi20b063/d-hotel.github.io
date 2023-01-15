@@ -61,25 +61,25 @@ function query_UserData($username, $passwordhash)
     $stmt->execute();
 
     $result = mysqli_stmt_get_result($stmt); // returns a result-Set
-    
-    //check if the user is active or not --> inactiv users can not login
-    if ($row["active"] == "2") {
-        $msg = "Ihr Account wurde gesperrt. Bitte wenden Sie sich an den Administrator.";
-        exit();
-    }
-    
+
+
+
     if ($result->num_rows == 1) { // if we have 1 row as result, the user login was successful
         // getting data into SESSION variable for later. 
         $row = mysqli_fetch_assoc($result);
-        $_SESSION["role"] = $row["role"];
-        $_SESSION["username"] = $row["username"];
-        $_SESSION["password"] = $row["password"];
-        $_SESSION["personID"] = $row["ID"];
+        //check if the user is active or not --> inactiv users can not login
+        if ($row["active"] != "1") {
+            echo "<script>alert('Ihr Account wurde gesperrt. Bitte wenden Sie sich an den Administrator');</script>";
+        } else {
+            $_SESSION["role"] = $row["role"];
+            $_SESSION["username"] = $row["username"];
+            $_SESSION["password"] = $row["password"];
+            $_SESSION["personID"] = $row["ID"];
+        }
+
     } else {
         //the user login was not successful, the username was not found in the database or the password was wrong
-        echo "<div class='row col-8'>
-            <H2> Username/Password is incorrect.</H2>
-            </div>";
+        echo "<script>alert('Username oder Password ungültig');</script>";
     }
 }
 ?>

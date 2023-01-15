@@ -2,67 +2,42 @@
 + DONE
 --------------------------------------------------------------------------
 LAST WORKDED ON:
-RoomBooking, Fixes in other areas.
-minor DB change (tbl_room, tbl_reservation )-> code all updated where affected.
+Change: Deaaktivierter user jetzt kein access und popup meldung. Keine DB änderung notwendig. 
+       + Habe den generic VAlidation angepasst dass er auch 0 kapiert. (isempty() ist laut manual auch bei "0" als input TRUE...)
+       + Delet Account rausgenommen uas profile.php und die dazugeörigen function. Dafür gibt es ohnehin keine Extra punkte...
+
+Change: Admin Time (fixed): 
+       +    Du hattest minuten und Sekunden im format vertauscht, daher waren die Zeiten falsch,
+            bzw Zeitformat war bei dir 12h aber ohne AM/PM jetzt auch 24h format wie in DB: also "H:i" statt "h:s"
+
+Change: 
+        +   DB macht das den Timestamp für DATELASTUPD. (Feature gefuden das das macht: ON UPDATE CURRENT_TIMESTAMP() :-)
+            Also nochmals die DB importieren...
+
+
+?? OPen:
+    - Buchungen ansehen (user und7oder admin) Nur zukünftige (und keine äteren)?
+
 --------------------------------------------------------------------------
-register.php 
-+ feedback msg after sucessful register (before forwarding to login page), get rid of half hidden msg
-
-profile php: 
-+ image must be less than 3MB, png/jpg/jpeg, filnam must not yet exist in destination, 
-+ unique filename for picture upload 
-+ display improved error and feedback on profile changes ($_SESSION["transactE..."])
-+ hide buttons that are not required in each step
-+ display size of profile picture: set reasonable
-- user delete-> 
-    and deactivate: shift to Admin page. update bookings table: delete bookings in future. set UID to generic "deleted user"...
-    + delete old profile picture after new profile picture has been uploaded by user (reuse funciton from profile delete?)
-+ logout/session destroy after delete profice successful
-- Reservation Table after user account delete: Delete bookings if a users delete their profiles??? -> cancle bookings and overwrite previous bookings with dummy entry ("deleted user")
-- add labels to input fields in p_status::PROFILE_MODIFY to ensure accessability
 
 
-booking/rooms:
-+ Booking though roms.php. 
-+ currently booking linked to rooms.php -> extract and move into booking.php and also link the buttons in rooms.
-
-Other:
-Database update (tables need to be re-imported again)
-+ Role musste in user_login (damit auch 2, 3 Änderungen mit den Abfragen wo diese benötigt wird. Änderungen nun in der gepushten version schon drinnen. Auch die nicht genützen logging tables weggmacht, 
-+ Role wie von dir benötigt: user = 2, admin 1,. Datenbank default value  auf 2 geändert bzw navbar angepasst..
-+ Habe meine SQLs aufgeräumt und auch mit prepared statements gemacht. 
-+ feedback für login bzw buchung erstellt (1Zeilen Jscript mit php
-+ price calculation gefixed (Parking , Breakfast, ...), available rooms passen jetzt auch
-
-- offen: 
-	 - Benutzer löschen-> dummy ID "deleted user" in DB und alle buchungen von dem user damit ersetzen. sonst geht alles
-	 - DB abfrage aufraeumen loadAvailableRooms.php bzw prepared Statement daraus noch machen
-	 - nicht benutzte files loeschen?
-
-deine letzten pushes und meine offline changes dazwischen ge-merged), 
-1x schnell alles durchgetestet:
-
-
-was könnten wir noch machen: eventuell alle SQL queries in eine separate php Datei outsourcen und in components geben.
-(maybe using responsive table class in css for this table (scrolling) -> for booking list and usersList
-    --> responsive tables erledigt
 
 ________________________________________________________________________________________________________________
 							code merge:	 quick test(ok)				comments:								
 components/booking form: 		+ 			+
 bookingList.php					+			+
-Booking.php						+			+			finished
+Booking.php						+			+		            
 reserveRoom.php								+
 bookingMyList.php				+			+
-components/navuser				+ 			+		2 commented for testing. remove?
+components/navuser				+ 			+		
 components/navbar				+			+
 news.php						+			+
 newsOverview.php				+			+
-passwortEditAdmin.php			+ 			+		changed hashing algorithm to same as in DB and login,
-profileEditAdmin.php 			+			+		change in query since role went to tbl_user_login.
+passwortEditAdmin.php			+ 			+		
+profileEditAdmin.php 			+			+		
 profile.php						+ 			+
 mystyle.css						+ 					
-userList.php					+ 			+		change in query since role went to tbl_user_login.  							
+userList.php					+ 			+		  							
 									
 
 
@@ -142,3 +117,9 @@ Role: 1
 
 Username: kim
 PW: Qqq12345
+Role: 0
+
+Username: last
+PW: Qqq12345
+Role: 0
+Status: 0 (DEACTIVATED)

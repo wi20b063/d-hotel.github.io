@@ -66,7 +66,7 @@
                     // prepare $GET var with values from form input fields 
                     "arrivalDate": $('#arrivalDate').val(),
                     "departureDate": $('#departureDate').val(),
-                    "roomCat": $('#roomSelection').val(),
+                    "roomCat": $('#roomSelection:checked').val(),
                     "isBreakfast": $('#isBreakfast:checked').val(),
                     "isParking": $('#isParking:checked').val(),
                     "isPets": $('#isPets:checked').val()
