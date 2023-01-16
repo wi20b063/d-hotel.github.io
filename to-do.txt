@@ -88,6 +88,12 @@ NAV:
 
 - Create file with all functions in it
 
+ACCESSIBILITY:
++ landmarks like <header>, <footer>, <main>, etc.
++ images do have an alt Text
+- Contrast of colors
+    - make font on yellow buttons (and when hover) black or darkgrey
+
 
 --------------------------------------------------------------------------
 BUGS

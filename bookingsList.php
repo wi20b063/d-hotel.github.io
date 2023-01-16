@@ -32,6 +32,10 @@
     if (mysqli_num_rows($result) == 0) {
         $msg = "Keine Buchungen vorhanden."; }
 
+    
+    // change status of reservation if status button is pressed
+
+    $readyForSubmit = true;
 
     if (isset($_POST['changeStatus']) && ($_SERVER["REQUEST_METHOD"] == "POST")) {
 
@@ -108,26 +112,29 @@
     <div class="content">
             <div class="container">
                 <h1 class="headline">Übersicht aller Buchungen</h1>
+
+                <div class="row g-3">
+                        <div class="col-md-6 mb-4" style="background-color:lightgrey"><?php echo $msg; ?></div>
+                </div>
                 
                 <form method="POST" enctype="multipart/form-data">
 
-                <div calss="row g-3">
+                <div class="row g-3">
                     <label for="bookingListFilter">Filter wählen:</label>
-                    <select di="bookingListFilter" name="bookingListFilter" class="form-select" aria-label="Select filter">
-                        <option selected></option>
-                        <option value="all">Alle</option>
-                        <option value="new">Offen</option>
-                        <option value="reserved">Bestätigt</option>
-                        <option value="cancelled">Storniert</option>
-                    </select>
-                    <button type="submit" name="filter" class="btn">Bestätigen</button>                                       
-                </div>
-
-                    <div class="row g-3">
-                        <div class="col-md-6 mb-4" style="background-color:lightgrey"><?php echo $msg; ?></div>
+                    <div class="col-md-3">                        
+                        <select id="bookingListFilter" name="bookingListFilter" class="form-select" aria-label="Select filter">
+                            <option selected></option>
+                            <option value="all">Alle</option>
+                            <option value="new">Neu</option>
+                            <option value="reserved">Bestätigt</option>
+                            <option value="cancelled">Storniert</option>
+                        </select>
                     </div>
-
-                    <div class="table-responsive">
+                    <div class="col-md-2">
+                        <button type="submit" name="filter" class="btn">Bestätigen</button>
+                    </div>                                       
+                </div>
+                    <div class="mt-4 table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
@@ -147,8 +154,11 @@
                             $sqlSelectReservations = "";
                             if (isset($_POST['filter']) && ($_SERVER["REQUEST_METHOD"] == "POST")) {
                                 $bookingListFilter = $_POST["bookingListFilter"];
-                                $sqlSelectReservations = "SELECT * FROM $mysqli_tbl_reservation WHERE STATUS = $bookingListFilter";}
-                            else {
+                                if ($bookingListFilter == "all") {
+                                    $sqlSelectReservations = "SELECT * FROM $mysqli_tbl_reservation";
+                                } else {
+                                $sqlSelectReservations = "SELECT * FROM $mysqli_tbl_reservation WHERE STATUS = '$bookingListFilter'";}
+                            } else {
                             $sqlSelectReservations = "SELECT * FROM $mysqli_tbl_reservation";}
 
                             $result = $con->query($sqlSelectReservations);
@@ -186,7 +196,7 @@
                                         <?php if ($status == "reserved") { ?>
                                             <td style="background-color:lightgreen">Bestätigt</th>
                                         <?php } else if ($status == "new") { ?>
-                                            <td style="background-color:lightblue">Offen</th>
+                                            <td style="background-color:lightblue">Neu</th>
                                         <?php } else if ($status == "cancelled") { ?>
                                             <td style="background-color:lightpink">Storniert</th>
                                         <?php } else { ?>

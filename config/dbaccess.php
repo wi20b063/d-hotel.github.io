@@ -13,5 +13,10 @@ $mysqli_tbl_room = "tbl_room";
 $profile_target_dir = "res\img\img profile\\";
 $rooms_target_dir = "res\img\img rooms\\";
 
+//phpMyAdmin user and password
+// username: web
+// password: web
+// grant access to database "webhotel"
+
 
 ?>

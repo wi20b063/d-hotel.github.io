@@ -73,7 +73,6 @@ body {
 /* START styling of navbar */
 .navbar {
     background-color: #1a5276;
-    color: white;
 }
 
 #logo-nav {
@@ -119,11 +118,6 @@ body {
     font-family: "Passions Conflict", sans-serif;
 }
 
-.btn {
-    color: white;
-    background-color: #677279;
-}
-
 .fixed-top {
     position: fixed;
     top: 0;
@@ -138,13 +132,22 @@ body {
 
 /* START styling of buttons */
 
-.btn-warning {
+.btn {
     color: white;
+    background-color: #677279;
+}
+
+.btn-warning {
+    color: black;
     background-color: #ffcc00;
 }
 
 .btnNav {
     margin: 0 15px;
+}
+
+.btnNav a:hover {
+    color: black;
 }
 
 .btn-danger {

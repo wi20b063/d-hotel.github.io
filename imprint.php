@@ -23,7 +23,7 @@
                         <strong>
                             Distant Hotel Gmbh
                             <br>
-                            <img src="res/img/distant-logo.PNG" style="width : 200px" height="90px">
+                            <img src="res/img/distant-logo.PNG" style="width : 200px" height="90px" alt="Distant Hotel Logo">
                             <br>
                         </strong>
                         <br>
@@ -58,19 +58,19 @@
                     <div class="col-6" style="padding-left: 300px;">
                         <p>
                             <strong>
-                                Carrie Haynes
+                                Sandra Gradwohl-Prem
                             </strong>
                         </p>
-                        <img src="res/img/myAvatar-san.png" style="width : 200px" height="200px">
+                        <img src="res/img/myAvatar-san.png" style="width : 200px" height="200px" alt="Profilbild Sandra">
                     </div>
 
                     <div class="col-6" style="padding-right: 300px;">
                         <p>
                             <strong>
-                                Georgia Salazar
+                                Sara Seyedmirzaei
                             </strong>
                         </p>
-                        <img src="res/img/myAvatar-sar.png" style="width : 200px" height="200px">
+                        <img src="res/img/myAvatar-sar.png" style="width : 200px" height="200px" alt="Profilbild Sara">
                     </div>
                 </div>
 

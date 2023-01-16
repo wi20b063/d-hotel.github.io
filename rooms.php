@@ -47,7 +47,7 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="card h-100">
-                        <img src="res\img\img rooms\standard room.png" class="card-img-top" alt="...">
+                        <img src="res\img\img rooms\standard room.png" class="card-img-top" alt="Standard Zimmer">
                         <div class="card-body">
                             <h5 class="card-title">Standard Zimmer</h5>
                             <p class="card-text">Das Budget Zimmer ist ein hochwertiges Zimmer zu einem günsteren Preis.
@@ -63,7 +63,7 @@
             <div class="row pb-5">
                 <div class="col-6">
                     <div class="card h-100">
-                        <img src="res\img\img rooms\premium room.png" class="card-img-top" alt="Budget Zimmer">
+                        <img src="res\img\img rooms\premium room.png" class="card-img-top" alt="Premium Zimmer">
                         <div class="card-body">
                             <h5 class="card-title">Premium Zimmer</h5>
                             <p class="card-text">Das Premium Zimmer ist ein großes und einladendes Zimmer, dass viel
@@ -77,7 +77,7 @@
                 </div>
                 <div class="col-6">
                     <div class="card h-100">
-                        <img src="res\img\img rooms\modern suite.png" class="card-img-top" alt="...">
+                        <img src="res\img\img rooms\modern suite.png" class="card-img-top" alt="Moderne Suite">
                         <div class="card-body">
                             <h5 class="card-title">Moderne Suite</h5>
                             <p class="card-text">Die moderne Suite ist eine weitläufige Suite im modernen Design mit
@@ -94,7 +94,7 @@
             <div class="row pb-5">
                 <div class="col-6">
                     <div class="card h-100">
-                        <img src="res\img\img rooms\luxury suite.png" class="card-img-top" alt="Budget Zimmer">
+                        <img src="res\img\img rooms\luxury suite.png" class="card-img-top" alt="Luxuriöse Suite">
                         <div class="card-body">
                             <h5 class="card-title">Luzoriöse Suite</h5>
                             <p class="card-text">Die luxuriöse Suite ist eine weitläufige Suite im emperialen Design mit

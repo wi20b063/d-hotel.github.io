@@ -27,10 +27,10 @@
                 <li>
 
                 <li class="nav-item">
-                    <a class="nav-link btn btn-warning btnNav" href="rooms.php"> Zimmer Info</a>
+                    <a class="nav-link btn btn-warning btnNav" href="rooms.php">Zimmer Info</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn btn-warning btnNav" href="booking.php"> Zimmer buchen</a>
+                    <a class="nav-link btn btn-warning btnNav" href="booking.php">Zimmer buchen</a>
                 </li>
             </ul>
 
