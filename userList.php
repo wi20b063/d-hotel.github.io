@@ -65,13 +65,13 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col-sm-1">Person-ID</th>
+                                    <th scope="col-sm-1">ID</th>
                                     <th scope="col-sm-1">Username</th>
                                     <th scope="col-sm-1">Anrede</th>
                                     <th scope="col-sm-1">Vorname</th>
                                     <th scope="col-sm-1">Nachname</th>
                                     <th scope="col-sm-1">Straße</th>
-                                    <th scope="col-sm-1">Hausnummer</th>
+                                    <th scope="col-sm-1">Nr.</th>
                                     <th scope="col-sm-1">PLZ</th>
                                     <th scope="col-sm-1">Ort</th>
                                     <th scope="col-sm-1">E-Mail</th>
@@ -136,9 +136,9 @@
                                                 <td><a href="./res/img/img profile/<?php echo $profileImg; ?>" target="_blank">Profilbild anzeigen</a></td>
                                             <?php } ?>
                                             <?php if ($status == 1) { ?>
-                                                <td><span style="color:green">Aktiv</span></td>
+                                                <td style="background-color:lightgreen">Aktiv</td>
                                             <?php } else { ?>
-                                                <td><span style="color:red">Inaktiv</span></td>
+                                                <td style="background-color:lightpink">Inaktiv</td>
                                             <?php } ?>
                                             <td><a class="btn btn-danger" href="./passwordEditAdmin.php?personID=<?php echo $personID; ?>">Neues Passwort</a></td>
                                             <td><a class="btn" href="./profileEditAdmin.php?personID=<?php echo $personID; ?>">Profil bearbeiten</a></td>
