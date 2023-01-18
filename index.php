@@ -14,9 +14,8 @@
     </nav>
 
     <main>
-
+        <!--Carousel-->
         <div id="carouselHomepage" class="carousel slide" data-bs-ride="carousel">
-
             <!-- Indicators -->
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselHomepage" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -28,29 +27,29 @@
             <div class="carousel-inner">                
                 <div class="carousel-item active">
                     <img src="res\img\hotel-view.png" class="d-block w-100" alt="Hotel View">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h1>Willkomen im Distant Hotel!</h1>
-                        <h2>Your HOME Away From HOME</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium sit repellat excepturi,
+                    <div class="carousel-caption d-none d-md-block" style="background-color:#51545590">
+                        <h1 style="font-weight:900">Willkomen im Distant Hotel!</h1>
+                        <h2 style="font-weight:700">Your HOME Away From HOME</h2>
+                        <p style="font-weight:600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium sit repellat excepturi,
                             beatae delectus soluta et modi incidunt aliquam.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="res\img\hotel-rooms.png" class="d-block w-100" alt="Hotel Rooms">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h1>Die wundervollen Hotel-Zimmer</h1>
-                        <h2>Jedes Zimmer ist eine Insel der Erholung!</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium sit repellat excepturi,
+                    <div class="carousel-caption d-none d-md-block" style="background-color:#51545590">
+                        <h1 style="font-weight:900">Die wundervollen Hotel-Zimmer</h1>
+                        <h2 style="font-weight:700">Jedes Zimmer ist eine Insel der Erholung!</h2>
+                        <p style="font-weight:600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium sit repellat excepturi,
                             beatae
                             delectus soluta et modi incidunt aliquam.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="res\img\hotel-pool.png" class="d-block w-100" alt="Hotel Infinity-Pool">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h1>Der Distant-Pool</h1>
-                        <h2>Ein Infinty-Pool zum Seele baumeln lassen!</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium sit repellat excepturi,
+                    <div class="carousel-caption d-none d-md-block" style="background-color:#51545590">
+                        <h1 style="font-weight:900">Der Distant-Pool</h1>
+                        <h2 style="font-weight:700">Ein Infinty-Pool zum Seele baumeln lassen!</h2>
+                        <p style="font-weight:600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium sit repellat excepturi,
                             beatae
                             delectus soluta et modi incidunt aliquam.</p>
                     </div>

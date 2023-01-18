@@ -98,15 +98,27 @@ body {
 }
 
 .navbar-nav a:hover {
-    color: lightgrey;
+    color: rgb(230, 228, 228);
+}
+
+.navbar-nav .nav-link-yellow {
+    margin-left: 20px;
+    background-color: #ffcc00;
+    color: #143e58;
+    border-radius: 3px;
+}
+
+.navbar-nav .nav-link-yellow:hover {
+    background-color: #ffd940;
+    color: #143e58;
 }
 
 .navbar-nav a:focus {
-    color: lightgrey;
+    color: rgb(230, 228, 228);
 }
 
 .dropdown-menu a:hover {
-    color: black;
+    color: #143e58;
 }
 
 /*slogan*/
@@ -147,21 +159,13 @@ body {
 }
 
 .btn-yellow {
-    color: black;
+    color: #143e58;
     background-color: #ffcc00;
 }
 
 .btn-yellow:hover {
-    color: black;
-    background-color: #ffd738;
-}
-
-.btnNav {
-    margin: 0 15px;
-}
-
-.btnNav a:hover {
-    color: black;
+    color: #143e58;
+    background-color: #ffd940;
 }
 
 .btn-red {
@@ -191,7 +195,7 @@ body {
 /* START styling of footer */
 
 footer {
-    background: #677279;
+    background: #515455;
     color: #fff;
     font-size: 14px;
     margin-top: auto;
@@ -250,7 +254,7 @@ footer .footer-menus ul a {
 
 footer .footer-menus ul a:hover {
     background: #1a5276;
-    color: black;
+    color: rgb(230, 228, 228);
 }
 
 footer .newsletter form {
@@ -280,14 +284,14 @@ footer .newsletter form input[type="submit"] {
     bottom: -1px;
     border: 0;
     font-size: 16px;
-    background: #7b7f82;
+    background: #515455;
     color: #fff;
     border-bottom-right-radius: 50px;
     border-top-right-radius: 50px;
 }
 
 footer .newsletter form input[type="submit"]:hover {
-    background: #7e8689;
+    background: #7b7f82;
 }
 
 footer .social-links a {
@@ -345,7 +349,7 @@ footer .footer-bottom a {
 
 .accordion-link {
     font-size: 1.1rem;
-    color: rgba(255, 255, 255, .8);
+    color: rgba(255, 255, 255, .9);
     text-decoration: none;
     background-color: #283042;
     width: 100%;
@@ -372,7 +376,7 @@ display: none;
     overflow: hidden;
     position: relative;
     background-color: #212838;
-    color: rgba(255, 255, 255, .6);
+    color: rgba(255, 255, 255, .8);
     transition: max-height 650ms;
 }
 
@@ -389,7 +393,7 @@ display: none;
 
 .answer p {
     font-size: 1rem;
-    color: rgba(255, 255, 255, .6);
+    color: rgba(255, 255, 255, .8);
     padding: 1rem 2rem;
 }
 

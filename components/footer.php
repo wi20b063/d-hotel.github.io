@@ -30,16 +30,14 @@ stick to the bottom regardless of the lenght of the content -->
                 </div>
             </div>
 
-            <div class="col-lg-2 col-sm-6 footer-menus">
-                <h4></h4>
+            <div class="col-lg-2 col-sm-6 footer-menus mt-4">
                 <ul>
                     <li> <a href="aboutus.php">ÜBER UNS</a></li>
 
                 </ul>
             </div>
 
-            <div class="col-lg-3 col-sm-6 footer-menus">
-                <h4></h4>
+            <div class="col-lg-3 col-sm-6 footer-menus mt-4">
                 <ul>
                     <li>
                         <a href="https://www.oesterreich.gv.at/themen/dokumente_und_recht/datenschutz.html" target="_blank">DATENSCHUTZ</a>
@@ -52,8 +50,10 @@ stick to the bottom regardless of the lenght of the content -->
 
             <div class="col-lg-3 col-sm-6 newsletter">
                 <h4>NEWSLETTER</h4>
-                <form action="" method="post"><input type="email" name="email" /><input type="submit"
-                        value="FOLGE UNS!"></form>
+                <form action="" method="post">
+                    <input type="email" name="email">
+                    <input type="submit" value="FOLGE UNS!" style="font-size:14px; font-weight:500;">
+                </form>
                 <br>
                 <div class="social-links mt-3">
                     <a href="https://www.instagram.com" class="btn btn-social-icon btn-instagram" target="_blank"><i

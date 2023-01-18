@@ -24,13 +24,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="faq.php">FAQ</a>
                 </li>
-                <li>
-
                 <li class="nav-item">
-                    <a class="nav-link btn btn-yellow btnNav" href="rooms.php">Zimmer Info</a>
+                    <a class="nav-link" href="#"><div class="vl"></div></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn btn-yellow btnNav" href="booking.php">Zimmer buchen</a>
+                    <a class="nav-link nav-link-yellow" href="rooms.php">Zimmer Info</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-yellow" href="booking.php">Zimmer buchen</a>
                 </li>
             </ul>
 
@@ -43,16 +44,12 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Profil
-                    </a>
+                        data-bs-toggle="dropdown" aria-expanded="false">Profil</a>
                     <ul class="dropdown-menu dropdown-menu-end" id="navbar-dropdown-menu"
                         aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href=".\profile.php">Profil</a></li>
                         <li><a class="dropdown-item" href="bookingsMyList.php">Buchungen</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
+                        <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="components\logout.php">Logout</a></li>
                     </ul>
                 </li>
