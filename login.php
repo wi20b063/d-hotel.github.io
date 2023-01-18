@@ -140,7 +140,7 @@ function query_UserData($username, $passwordhash)
                                 echo "<div>Error</div>" ?>
                             </div>
 
-                            <button type="submit" name="submit" class="btn">Bestätigen</button>
+                            <button type="submit" name="submit" class="btn btn-blue">Bestätigen</button>
                         </form>
                     </div>
                 </div>

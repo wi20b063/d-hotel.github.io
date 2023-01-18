@@ -93,7 +93,7 @@
                             <h5 class="card-title">Los gehts</h5>
                             <p class="card-text">In drei Schritten zur Zimmer Auswahl und Reservierung:</p>
                             <?php if ($isLoggedIn) { ?>
-                                <button type="button" class="btn" data-bs-toggle="modal"
+                                <button type="button" class="btn btn-blue" data-bs-toggle="modal"
                                     data-bs-target="#buchungModalToggle">Start</button>
                             <?php } ?>
                         </div>
@@ -145,7 +145,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-primary" data-bs-target="#buchungModalToggle2" data-bs-toggle="modal"
+                        <button class="btn btn-blue" data-bs-target="#buchungModalToggle2" data-bs-toggle="modal"
                             id="buchungModalToggle2Btn" data-bs-dismiss="modal" type="submit">Zimmer finden</button>
                     </div>
                 </div>
@@ -219,9 +219,9 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-primary" data-bs-target="#buchungModalToggle" data-bs-toggle="modal"
+                        <button class="btn btn-yellow" data-bs-target="#buchungModalToggle" data-bs-toggle="modal"
                             data-bs-dismiss="modal">Datum ändern</button>
-                        <button class="btn btn-warning" data-bs-target="#buchungModalToggle3" data-bs-toggle="modal"
+                        <button class="btn btn-blue" data-bs-target="#buchungModalToggle3" data-bs-toggle="modal"
                             data-bs-dismiss="modal" id="book" name="book">Buchung senden</button>
                         <!----- calling php for updating the reservation table of DB  -->
 

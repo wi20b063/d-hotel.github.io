@@ -410,9 +410,8 @@ function update_pwd($newPassword, $idPerson)
 											<div class="text-center">
 												<?php
 												if ($profile_status == p_status::PROFILE_MODIFY) { ?>
-													<button type="submit" name="apply_profile"
-														class="btn btn-primary btn">Änderungen übernehmen</button>
-													<button type="submit" name="back" class="btn">zurück</button>
+													<button type="submit" name="apply_profile" class="btn btn-blue">Speichern</button>
+													<button type="submit" name="back" class="btn btn-grey">Abbrechen</button>
 												<?php } ?>
 											</div>
 
@@ -457,7 +456,7 @@ function update_pwd($newPassword, $idPerson)
 												</div>
 												<div class="mb-3">
 													<input type="submit" value="Bild hochladen" name="submitImg"
-														class="btn">
+														class="btn btn-blue">
 												</div>
 											</form>';
 										} ?>
@@ -485,38 +484,39 @@ function update_pwd($newPassword, $idPerson)
 						<div class="col-xxl-6">
 							<div class="bg-secondary-soft px-4 py-5 rounded">
 								<div class="row g-3">
-									<h4 class="my-4">Passwortänderung</h4>
+									<h4 class="my-4">Passwort ändern:</h4>
 									<form action="profile.php" method="post" enctype="multipart/form-data">
-										<!-- Old password -->
-										<div class="col-md-6">
-											<label for="exampleInputPassword1" class="form-label">Altes
-												Passwort
-												*</label>
-											<input type="password" class="form-control" name="current-password"
-												id="exampleInputPassword1">
+
+										<div class="row">										
+											<!-- Old password -->
+											<div class="col-md-6 mb-4">
+												<label for="exampleInputPassword1" class="form-label">Altes Passwort *</label>
+												<input type="password" class="form-control" name="current-password" id="exampleInputPassword1">
+											</div>
 										</div>
-										<!-- New password -->
-										<div class="col-md-6">
-											<label for="exampleInputPassword2" class="form-label">Neues Password
-												*</label>
-											<input type="password" class="form-control" id="new-password"
-												name="new-password">
-										</div>
-										<!-- Confirm password -->
-										<div class="col-md-6">
-											<label for="exampleInputPassword3" class="form-label">Passwort Bestätigen
-												*</label>
-											<input type="password" class="form-control" id="new-passwordRepeated"
-												name="new-passwordRepeated">
+
+										<div class="row">
+											<!-- New password -->
+											<div class="col-md-6 mb-4">
+												<label for="exampleInputPassword2" class="form-label">Neues Passwort *</label>
+												<input type="password" class="form-control" id="new-password" name="new-password">
+											</div>									
+
+											<!-- Confirm password -->
+											<div class="col-md-6 mb-4">
+												<label for="exampleInputPassword3" class="form-label">Neues Passwort bestätigen *</label>
+												<input type="password" class="form-control" id="new-passwordRepeated" name="new-passwordRepeated">
+											</div>
 
 										</div>
 
-										<div class="col-md-6 text-center">
-											<p>
-												<button type="submit" name="update_password"
-													class="btn btn-primary">Password Ändern</button>
-											</p>
+										<div class="row">
+											<div class="text-center">
+												<button type="submit" name="update_password" class="btn btn-blue">Speichern</button>
+												<button type="submit" name="back" class="btn btn-grey">Abbrechen</button>
+											</div>										
 										</div>
+
 									</form>
 								</div>
 							</div>
@@ -526,16 +526,13 @@ function update_pwd($newPassword, $idPerson)
 
 					?>
 				</div> <!-- Row END -->
+				
 				<!-- button show for main view-->
 				<?php
 				if ($profile_status == p_status::PROFILE_SHOW) { ?>
 					<form action="profile.php" method="post" enctype="multipart/form-data">
 						<div class="gap-3 d-md-flex justify-content-md-end text-center">
-
-							<button type="submit" name="edit_profile" class="btn btn-danger">Profil
-								bearbeiten</button>
-
-
+							<button type="submit" name="edit_profile" class="btn btn-red">Profil bearbeiten</button>
 						</div>
 					</form>
 					<?php

@@ -157,11 +157,11 @@
                                         <?php } ?>                                  
                                         <td>
                                             <?php if ($status == "cancelled") { ?>
-                                                <button type="button" class="btn btn-danger disabled" data-bs-toggle="modal" data-bs-target="#cancelReserv_<?php echo $reservationID; ?>">
+                                                <button type="button" class="btn btn-red disabled" data-bs-toggle="modal" data-bs-target="#cancelReserv_<?php echo $reservationID; ?>">
                                                     Stornieren
                                                 </button>
                                             <?php } else { ?>
-                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#cancelReserv_<?php echo $reservationID; ?>">
+                                                <button type="button" class="btn btn-red" data-bs-toggle="modal" data-bs-target="#cancelReserv_<?php echo $reservationID; ?>">
                                                     Stornieren
                                                 </button>
                                             <?php } ?>
@@ -181,8 +181,8 @@
                                                             <p>Sind Sie sich sicher, dasss Sie die Buchung mit der Buchungs-ID <?php echo $reservationID; ?> stornieren möchten?</p>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Abbrechen</button>
-                                                            <button type="submit" name="cancel" id="cancel" class="btn btn-danger">Stornieren</button>
+                                                            <button type="button" class="btn btn-grey" data-bs-dismiss="modal">Abbrechen</button>
+                                                            <button type="submit" name="cancel" id="cancel" class="btn btn-red">Stornieren</button>
                                                         </div>
                                                         </div>
                                                     </div>

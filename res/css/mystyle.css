@@ -126,20 +126,34 @@ body {
     z-index: 1030;
 }
 
+.navbar-text {
+    color: white;
+}
+
 /* END styling of navbar */
 
 
 
 /* START styling of buttons */
 
-.btn {
-    color: white;
-    background-color: #677279;
+
+.btn-grey {
+    color: black;
+    background-color: #bfcad1;
 }
 
-.btn-warning {
+.btn-grey:hover {
+    background-color: #d2dde4;
+}
+
+.btn-yellow {
     color: black;
     background-color: #ffcc00;
+}
+
+.btn-yellow:hover {
+    color: black;
+    background-color: #ffd738;
 }
 
 .btnNav {
@@ -150,9 +164,24 @@ body {
     color: black;
 }
 
-.btn-danger {
+.btn-red {
     color: white;
     background-color: #D42A04;
+}
+
+.btn-red:hover {
+    color: white;
+    background-color: #a52104;
+}
+
+.btn-blue {
+    color: white;
+    background-color: #1a5276;
+}
+
+.btn-blue:hover {
+    color: white;
+    background-color: #143e58;
 }
 
 /* END styling of buttons */

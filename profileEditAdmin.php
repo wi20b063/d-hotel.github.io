@@ -232,9 +232,8 @@
 
                                             <!-- Buttons -->
                                             <div class="text-center">
-                                                <button type="submit" name="submit" class="btn btn-primary">Speichern</button>
-                                                <a href="./userList.php" class="btn btn-primary">Abbrechen</a>
-                                                <!-- <button type="reset" name="reset" class="btn btn-primary">Abbrechen</button> --?>
+                                                <button type="submit" name="submit" class="btn btn-blue">Speichern</button>
+                                                <a href="./userList.php" class="btn btn-grey">Abbrechen</a>
                                             </div>
 
                                         </form>

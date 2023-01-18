@@ -140,8 +140,8 @@
                                             <?php } else { ?>
                                                 <td style="background-color:lightpink">Inaktiv</td>
                                             <?php } ?>
-                                            <td><a class="btn btn-danger" href="./passwordEditAdmin.php?personID=<?php echo $personID; ?>">Neues Passwort</a></td>
-                                            <td><a class="btn" href="./profileEditAdmin.php?personID=<?php echo $personID; ?>">Profil bearbeiten</a></td>
+                                            <td><a class="btn btn-red" href="./passwordEditAdmin.php?personID=<?php echo $personID; ?>">Neues Passwort</a></td>
+                                            <td><a class="btn btn-blue" href="./profileEditAdmin.php?personID=<?php echo $personID; ?>">Profil bearbeiten</a></td>
                                         </tr>
                                     </tbody>
                                 <?php } ?>

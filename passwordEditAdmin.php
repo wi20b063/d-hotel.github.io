@@ -164,8 +164,8 @@
                                         <div  class="row g-3">
                                             <!-- Buttons -->
                                             <div class="col-md-6">
-                                                <button type="submit" name="submit" class="btn btn-primary">Speichern</button>
-                                                <a href="./userList.php" class="btn btn-primary">Abbrechen</a>
+                                                <button type="submit" name="submit" class="btn btn-blue">Speichern</button>
+                                                <a href="./userList.php" class="btn btn-grey">Abbrechen</a>
                                                 <!-- <button type="reset" name="reset" class="btn btn-primary">Abbrechen</button> -->
                                             </div>
                                         </div>

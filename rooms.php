@@ -39,7 +39,7 @@
                                 ist als Einzel- oder Doppelzimmer buchbar und befindet sich im 1. Stock. Inkludiert sind
                                 TV und gratis WLAN.</p>
                             <?php if ($isLoggedIn) { ?>
-                                <a href="booking.php" button type="button" class="btn">Buchen</a>
+                                <a href="booking.php" button type="button" class="btn btn-blue">Buchen</a>
                             <?php } ?>
 
                         </div>
@@ -54,7 +54,7 @@
                                 Das Zimmer ist als Einzel- oder Doppelzimmer buchbar und befindet sich im 1. Stock.
                                 Inkludiert sind TV und gratis WLAN.</p>
                             <?php if ($isLoggedIn) { ?>
-                                <a href="booking.php" button type="button" class="btn">Buchen</a>
+                                <a href="booking.php" button type="button" class="btn btn-blue">Buchen</a>
                             <?php } ?>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                                 Komfort bietet. Das Zimmer ist als Einzel- oder Doppelzimmer buchbar und befindet sich
                                 im 2. Stock. Inkludiert sind TV sowie gratis WLAN und Morgenzeitung.</p>
                             <?php if ($isLoggedIn) { ?>
-                                <a href="booking.php" button type="button" class="btn">Buchen</a>
+                                <a href="booking.php" button type="button" class="btn btn-blue">Buchen</a>
                             <?php } ?>
                         </div>
                     </div>
@@ -85,7 +85,7 @@
                                 im 2. Stock. Inkludiert sind TV sowie gratis WLAN, Morgenzeitung und überdachter
                                 Parkplatz.</p>
                             <?php if ($isLoggedIn) { ?>
-                                <a href="booking.php" button type="button" class="btn">Buchen</a>
+                                <a href="booking.php" button type="button" class="btn btn-blue">Buchen</a>
                             <?php } ?>
                         </div>
                     </div>
@@ -102,7 +102,7 @@
                                 im Dachgeschoß. Inkludiert sind TV sowie gratis WLAN, Morgenzeitung und überdachter
                                 Parkplatz.</p>
                             <?php if ($isLoggedIn) { ?>
-                                <a href="booking.php" button type="button" class="btn">Buchen</a>
+                                <a href="booking.php" button type="button" class="btn btn-blue">Buchen</a>
                             <?php } ?>
                         </div>
                     </div>

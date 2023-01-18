@@ -192,8 +192,9 @@ function makeThumb($src, $dest, $desired_width, $desired_height) {
 
                             <p style="font-size:small; margin-top:20px;">* Pflichtfelder</p>
 
-                            <button type="reset" name="reset" class="btn">Zurücksetzen</button>
-                            <button type="submit" name="submit" class="btn">Veröffentlichen</button>
+                            <button type="submit" name="submit" class="btn btn-blue">Veröffentlichen</button>
+                            <button type="reset" name="reset" class="btn btn-grey">Abbrechen</button>
+                        
 
                         </form>
                 </div>

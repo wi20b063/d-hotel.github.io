@@ -29,7 +29,7 @@
                 <div class="carousel-item active">
                     <img src="res\img\hotel-view.png" class="d-block w-100" alt="Hotel View">
                     <div class="carousel-caption d-none d-md-block">
-                    <h1>Willkomen im Distant Hotel!</h1>
+                        <h1>Willkomen im Distant Hotel!</h1>
                         <h2>Your HOME Away From HOME</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium sit repellat excepturi,
                             beatae delectus soluta et modi incidunt aliquam.</p>
@@ -38,7 +38,7 @@
                 <div class="carousel-item">
                     <img src="res\img\hotel-rooms.png" class="d-block w-100" alt="Hotel Rooms">
                     <div class="carousel-caption d-none d-md-block">
-                    <h1>Die wundervollen Hotel-Zimmer</h1>
+                        <h1>Die wundervollen Hotel-Zimmer</h1>
                         <h2>Jedes Zimmer ist eine Insel der Erholung!</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium sit repellat excepturi,
                             beatae
@@ -88,10 +88,20 @@
                     pariatur
                     delectus. Pariatur magnam et quasi repellat totam in!
                 </p>
+                <h1>Pariatur magnam et quasi</h1>
+                <p>
+                Lorem ipsum dolor sit amet. Eos dolorem dolore ut perspiciatis labore et tenetur ipsum aut ullam numquam 
+                sit aliquid quia. Et esse deserunt eos consequatur error nam adipisci vero ut natus adipisci non neque 
+                debitis. Ut sapiente molestias aut quisquam esse non obcaecati vitae aut minima assumenda! Est rerum 
+                deserunt ut sint rerum et deleniti porro in omnis dolor ut repellendus autem aut repellendus voluptas! 
+                Sit rerum placeat eos ullam atque id optio fugiat sed sint quibusdam aut vitae placeat ut nemo obcaecati 
+                est fugit quia. Ab iusto libero id provident quae ut similique beatae ut maiores eius. A veritatis aliquid 
+                est harum voluptas vel explicabo officiis sed consequatur quia sed minima illum aut tempora quas. Quo quia 
+                odio quo deleniti cupiditate quo laborum neque et saepe galisum aut mollitia quis qui omnis alias. Non 
+                voluptatem blanditiis ab natus esse aut voluptates illo et unde reiciendis.
+                </p>
             </div>
         </div>
-
-
 
     </main>
 

@@ -41,10 +41,11 @@ stick to the bottom regardless of the lenght of the content -->
             <div class="col-lg-3 col-sm-6 footer-menus">
                 <h4></h4>
                 <ul>
-                    <li><a
-                            href="https://www.oesterreich.gv.at/themen/dokumente_und_recht/datenschutz.html">DATENSCHUTZ</a>
+                    <li>
+                        <a href="https://www.oesterreich.gv.at/themen/dokumente_und_recht/datenschutz.html" target="_blank">DATENSCHUTZ</a>
                     </li>
-                    <li><a href="imprint.php">IMPRESSUM</a>
+                    <li>
+                        <a href="imprint.php">IMPRESSUM</a>
                     </li>
                 </ul>
             </div>
@@ -74,7 +75,7 @@ stick to the bottom regardless of the lenght of the content -->
 
 <div class="footer-bottom">
     <div class="row">
-        <p class="text-center mb-2">&copy; Copyright <strong>2022 Distant Hotel GmbH</strong></p>
+        <p class="text-center mb-2">&copy; Copyright <strong>2023 Distant Hotel GmbH</strong></p>
     </div>
 </div>
 </div>

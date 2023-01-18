@@ -126,7 +126,7 @@
                                     <td><a href="<?php echo $newsImgThumbPath; ?>" target="_blank">Zeige Thumb</a></td>
                                     <td><a href="<?php echo $newsImgThumbPath; ?>" download="<?php echo $newsImgThumbPath; ?>">Download Thumb</a></td>
                                     <!-- Delete news article TODO-->
-                                    <td><button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#deletNews_<?php echo $newsID; ?>">
+                                    <td><button type="button" class="btn btn-red " data-bs-toggle="modal" data-bs-target="#deletNews_<?php echo $newsID; ?>">
                                             Löschen
                                         </button>
                                     </td>
@@ -145,8 +145,8 @@
                                                             <p>Sind Sie sich sicher, dasss Sie den Newsbeitrag mit der ID <?php echo $newsID; ?> löschen möchten?</p>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Abbrechen</button>
-                                                            <button type="submit" name="delete" id="delete" class="btn btn-danger">Löschen</button>
+                                                            <button type="submit" name="delete" id="delete" class="btn btn-red">Löschen</button>
+                                                            <button type="button" class="btn btn-grey" data-bs-dismiss="modal">Abbrechen</button>
                                                         </div>
                                                         </div>
                                                     </div>

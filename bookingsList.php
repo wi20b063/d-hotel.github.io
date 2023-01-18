@@ -120,7 +120,7 @@
                 <form method="POST" enctype="multipart/form-data">
 
                 <div class="row g-3">
-                    <label for="bookingListFilter">Filter wählen:</label>
+                    <label for="bookingListFilter"><strong>Filter wählen:</strong></label>
                     <div class="col-md-3">                        
                         <select id="bookingListFilter" name="bookingListFilter" class="form-select" aria-label="Select filter">
                             <option selected></option>
@@ -131,7 +131,7 @@
                         </select>
                     </div>
                     <div class="col-md-2">
-                        <button type="submit" name="filter" class="btn">Bestätigen</button>
+                        <button type="submit" name="filter" class="btn btn-blue">Bestätigen</button>
                     </div>                                       
                 </div>
                     <div class="mt-4 table-responsive">
@@ -204,10 +204,10 @@
                                         <?php } ?>
 
                                         <!-- Button trigger modal show details-->
-                                        <div><button type="button" class="btn" style="font-size:10px" data-bs-toggle="modal" data-bs-target="#changeStatus<?php echo $reservationID; ?>">Status ändern</button></div>
+                                        <div><button type="button" class="btn btn-blue" style="font-size:10px" data-bs-toggle="modal" data-bs-target="#changeStatus<?php echo $reservationID; ?>">Status ändern</button></div>
 
                                          <!-- Button trigger modal change status-->
-                                         <td><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#showDetails<?php echo $reservationID; ?>">Details</button></td>
+                                         <td><button type="button" class="btn btn-blue" data-bs-toggle="modal" data-bs-target="#showDetails<?php echo $reservationID; ?>">Details</button></td>
                                     
                                         
                                         <!-- Modal See Details -->
