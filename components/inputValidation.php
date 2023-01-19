@@ -32,48 +32,57 @@ function pwd_verify($pwd, &$oldPasswordErr)
     return false;
 }
 
+// giving $emailvalidation as optional parameter (and reference) to allow using without this parameter
+
+function emailValidation($email, &$emailErr = NULL)
+{ // regex for valid email . this one should do 
+    $emailRegNum = "/^[^@]+@[^@]+\.[a-z]{2,3}$/i";
+    if (!preg_match($emailRegNum, $email)) {
+        if ($emailErr != NULL) {
+            $emailErr = "Email Format ungültig";
+            return false;
+        }
+
+    } else {
+        return true;
+    }
+}
+
+
 //validate the complexity for passwords: can be extended if necessary 
 function pwd_verifyNewPwd($currPwd, $newPwd, &$newPasswordErr)
 {
     $validPwd = true;
     $pwdLeng = 6;
+
     $pwdRegNum = "#[0-9]+#";
     $pwdRegUpp = "#[A-Z]+#";
     $pwdRegLow = "#[a-z]+#";
     $temp = md5($currPwd);
     if (!pwd_verify($currPwd, $oldPasswordErr)) {
-        $validPwd = false;
+        $validPwd &= false;
     }
     if (strlen($newPwd) < $pwdLeng) {
         $newPasswordErr = $newPasswordErr . "Passwort muss mindestens $pwdLeng Zeichen lang sein. ";
-        $validPwd = false;
+        $validPwd &= false;
     }
     if (!preg_match($pwdRegLow, $newPwd)) {
         $newPasswordErr = $newPasswordErr . "Passwort benötigt mindestens einen Kleinbuchstaben. ";
-        $validPwd = false;
+        $validPwd &= false;
     }
     if (!preg_match($pwdRegUpp, $newPwd)) {
         $newPasswordErr = $newPasswordErr . "Passwort benötigt mindestens einen Grossbuchstaben. ";
-        $validPwd = false;
+        $validPwd &= false;
     }
     if (!preg_match($pwdRegNum, $newPwd)) {
         $newPasswordErr = $newPasswordErr . "Passwort benötigt mindestens eine Ziffer. ";
-        $validPwd = false;
-    } else {
-        return true;
+        $validPwd &= false;
     }
-    return false;
+    return $validPwd;
 }
 
-/* function emailValidation($emailErr){
-if (empty($_POST["mail"])) {
-$emailErr = "Email ist erforderlich";
-return false;
-} else {
-// $email = test_input($_POST["mail"]);
-return true;
-}
-}
+
+/*}
 function userValidation($usernameErr){
 if (empty($_POST["mail"])) {
 $usernameErr = "Username ist erforderlich";

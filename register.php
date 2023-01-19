@@ -32,7 +32,7 @@ if (isset($_POST['submit']) && ($_SERVER["REQUEST_METHOD"] == "POST")) {
 
     //Additional validation: Passwords equal, Username needs to be unique (check if it already exists in database)
     $readyForSubmit = $readyForSubmit & pwd_equalValidation($_POST["new-password"], $_POST["new-passwordRepeated"], $newPasswordRepeatedErr);
-
+    $readyForSubmit = $readyForSubmit & emailValidation($email, $emailErr);
     if ($readyForSubmit == true) {
         // submit finally to DB... (and call Profile??)
 
@@ -88,7 +88,7 @@ if (isset($_POST['submit']) && ($_SERVER["REQUEST_METHOD"] == "POST")) {
             header('Refresh: 1; URL = register.php');
         }
     }
-    //cleaning out unwanted whitespaces or newlines in case someone copies and pastes
+
 }
 function test_input($data)
 {
@@ -213,7 +213,7 @@ function test_input($data)
 
                             <button type="submit" name="submit" class="btn btn-blue">Absenden</button>
                             <button type="reset" name="reset" class="btn btn-grey">Zurücksetzen</button>
-                            
+
 
                         </form>
                 </div>
