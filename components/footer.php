@@ -1,21 +1,21 @@
 <?php
 @session_start();
-require(dirname(__FILE__, 2) . "\config\dbaccess.php");
-require(dirname(__FILE__, 1) . "\inputValidation.php");
+require_once(dirname(__FILE__, 2) . "\config\dbaccess.php");
+require_once(dirname(__FILE__, 1) . "\inputValidation.php");
 
 $error["email"] = false;
 $newsletterSubscribeMsg = "";
 
-if (isset($_POST["email"])) {
-    if (empty($_POST["email"])) {
-        $error["email"] = true;
+if (isset($_POST["emailNewsLetter"])) {
+    if (empty($_POST["emailNewsLetter"])) {
+        $error["emailNewsLetter"] = true;
         $newsletterSubscribeMsg = "Keine email Adresse angegeben";
     } else {
-        if (emailValidation($_POST["email"])) {
+        if (emailValidation($_POST["emailNewsLetter"])) {
             // valid email. now try to insert address to DB
             $sqlIns = "INSERT INTO tbl_newsletter_address (email) VALUES (?)";
             $stmtIns = $con->prepare($sqlIns);
-            $stmtIns->bind_param("s", $_POST["email"]);
+            $stmtIns->bind_param("s", $_POST["emailNewsLetter"]);
 
             $stmtIns->execute();
             $result = mysqli_stmt_affected_rows($stmtIns);
@@ -91,7 +91,7 @@ stick to the bottom regardless of the lenght of the content -->
                     <h4>NEWSLETTER</h4>
                     <form action="" method="post">
                         <label for="email"></label>
-                        <input type="email" name="email" id=email">
+                        <input type="email" name="emailNewsLetter" id="email">
                         <input type="submit" value="FOLGE UNS!" style="font-size:14px; font-weight:500;">
                     </form>
                     <br>
