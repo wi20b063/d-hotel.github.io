@@ -274,7 +274,7 @@ function update_pwd($newPassword, $idPerson)
 
 <head>
 	<?php include "components/head.php"; ?>
-	<title>Distant Hotel | Profile</title>
+	<title>Distant Hotel in Kreta | Ihr Profil beim Hotel direkt am Meer</title>
 </head>
 
 <body>
@@ -438,10 +438,10 @@ function update_pwd($newPassword, $idPerson)
 											$dB_profileImg = $profile_target_dir . $_SESSION["target_file"];
 											if (is_file($dB_profileImg)) {
 
-												echo "<img src= '$dB_profileImg' class=\"img-fluid rounded-circle\" alt=\"Profilbild\" >";
+												echo "<img src= '$dB_profileImg' class=\"img-fluid rounded-circle\" alt=\"Mein Profilbild\" >";
 											} else {
 												$dummy_profileImg = $profile_target_dir . "dummy-profile-picture.jpg";
-												echo "<img src= '$dummy_profileImg' class=\"img-fluid rounded-circle\" alt=\"Profilbild\" >";
+												echo "<img src= '$dummy_profileImg' class=\"img-fluid rounded-circle\" alt=\"Mein Profilbild\" >";
 												?>
 												<p>
 													<span style="color:black; font-size:medium"> Du hast noch kein

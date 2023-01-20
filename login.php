@@ -91,7 +91,7 @@ function query_UserData($username, $passwordhash)
     <!-- dirname(__FILE__,1) returns the path of the parent directory in case the relative path doesn't work 
     properly-->
     <?php include(dirname(__FILE__, 1) . "\components\head.php"); ?>
-    <title>Distant Hotel | Login</title>
+    <title>Distant Hotel in Kreta | Login beim Hotel direkt am Meer</title>
 </head>
 
 <body>

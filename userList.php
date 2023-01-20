@@ -39,7 +39,7 @@
 
 <head>
     <?php include "components/head.php";?>
-    <title>Distant Hotel | News Erstellung</title>
+    <title>Distant Hotel | User Liste</title>
 </head>
 
 <body>

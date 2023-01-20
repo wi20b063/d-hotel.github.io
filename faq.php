@@ -5,7 +5,7 @@
 
 <head>
     <?php include "components/head.php";?>
-    <title>Distant Hotel | FAQ</title>
+    <title>Distant Hotel in Kreta | FAQ vom Hotel direkt am Meer</title>
 </head>
 
 <body>

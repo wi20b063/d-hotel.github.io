@@ -5,7 +5,7 @@
 
 <head>
     <?php include "components/head.php";?>
-    <title>Distant Hotel | Impressum</title>
+    <title>Distant Hotel in Kreta | Impressum vom Hotel direkt am Meer</title>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
                         <strong>
                             Distant Hotel Gmbh
                             <br>
-                            <img src="res/img/distant-logo.PNG" style="width : 200px" height="90px" alt="Distant Hotel Logo">
+                            <img src="res/img/distant-logo.PNG" style="width : 200px" height="90px" alt="Das Logo vom Distant Hotel in Kreta">
                             <br>
                         </strong>
                         <br>
@@ -61,7 +61,7 @@
                                 Sandra Gradwohl-Prem
                             </strong>
                         </p>
-                        <img src="res/img/myAvatar-san.png" style="width : 200px" height="200px" alt="Profilbild Sandra">
+                        <img src="res/img/myAvatar-san.png" style="width : 200px" height="200px" alt="Das Foto der Geschäftsführerin des Distant Hotel Sandra Gradwohl-Prem">
                     </div>
 
                     <div class="col-6" style="padding-right: 300px;">
@@ -70,7 +70,7 @@
                                 Sara Seyedmirzaei
                             </strong>
                         </p>
-                        <img src="res/img/myAvatar-sar.png" style="width : 200px" height="200px" alt="Profilbild Sara">
+                        <img src="res/img/myAvatar-sar.png" style="width : 200px" height="200px" alt="Das Foto der Geschäftsführerin des Distant Hotel Sara Seyedmirzaei">
                     </div>
                 </div>
 

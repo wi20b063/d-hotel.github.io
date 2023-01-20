@@ -5,7 +5,7 @@
 
 <head>
     <?php include "components/head.php";?>
-    <title>Distant Hotel | Home</title>
+    <title>Distant Hotel in Kreta | Home - Das Hotel direkt am Meer</title>
 </head>
 
 <body>
@@ -26,7 +26,7 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">                
                 <div class="carousel-item active">
-                    <img src="res\img\hotel-view.png" class="d-block w-100" alt="Hotel View">
+                    <img src="res\img\hotel-view.png" class="d-block w-100" alt="Die Aussicht von der Terasse des Distant Hotels auf die Stadt">
                     <div class="carousel-caption d-none d-md-block" style="background-color:#51545590">
                         <h1 style="font-weight:900">Willkomen im Distant Hotel!</h1>
                         <h2 style="font-weight:700">Your HOME Away From HOME</h2>
@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="res\img\hotel-rooms.png" class="d-block w-100" alt="Hotel Rooms">
+                    <img src="res\img\hotel-rooms.png" class="d-block w-100" alt="Ein komfortables Hotelzimmer im Distant Hotel">
                     <div class="carousel-caption d-none d-md-block" style="background-color:#51545590">
                         <h1 style="font-weight:900">Die wundervollen Hotel-Zimmer</h1>
                         <h2 style="font-weight:700">Jedes Zimmer ist eine Insel der Erholung!</h2>
@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="res\img\hotel-pool.png" class="d-block w-100" alt="Hotel Infinity-Pool">
+                    <img src="res\img\hotel-pool.png" class="d-block w-100" alt="Die Liegen vor dem Infinity Pool im Distant Hotel">
                     <div class="carousel-caption d-none d-md-block" style="background-color:#51545590">
                         <h1 style="font-weight:900">Der Distant-Pool</h1>
                         <h2 style="font-weight:700">Ein Infinty-Pool zum Seele baumeln lassen!</h2>

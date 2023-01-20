@@ -9,7 +9,7 @@ require(dirname(__FILE__, 1) . "\components\inputValidation.php");
 
 <head>
     <?php include "components/head.php"; ?>
-    <title>Distant Hotel | News</title>
+    <title>Distant Hotel in Kreta | News vom Hotel direkt am Meer</title>
 </head>
 
 <body>
@@ -48,7 +48,7 @@ require(dirname(__FILE__, 1) . "\components\inputValidation.php");
                                 <?php echo "$headline"; ?>
                             </h3>
                             <div id="newsImgFrame">
-                                <p><img src="<?php echo $newsImgThumbPath; ?>" alt="Bild News Beitrag" id="news-img" class="img-fluid float-end" style="padding: 10px;">
+                                <p><img src="<?php echo $newsImgThumbPath; ?>" alt="Das Bild zum News-Betrag '<?php echo "$headline"; ?>'" id="news-img" class="img-fluid float-end" style="padding: 10px;">
                                 <?php echo "$text"; ?></p>
                             </div>
                     </div>

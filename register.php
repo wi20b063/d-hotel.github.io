@@ -102,7 +102,7 @@ function test_input($data)
 
 <head>
     <?php include "components/head.php"; ?>
-    <title>Distant Hotel | Über uns</title>
+    <title>Distant Hotel in Kreta | Beim Hotel direkt am Meer registrieren</title>
 </head>
 
 <body>

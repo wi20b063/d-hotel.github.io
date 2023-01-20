@@ -5,7 +5,7 @@
 
 <head>
     <?php include "components/head.php";?>
-    <title>Distant Hotel | Über uns</title>
+    <title>Distant Hotel in Kreta | Über uns - Das Hotel direkt am Meer</title>
 </head>
 
 <body>
@@ -73,7 +73,7 @@
                         </p>
                     </div>
                     <div class="col-lg-4 align-items-center" id="newsImgFrame">
-                        <img src="./res/img/hotel view inside.jpg" alt="Hotel Innenansicht" class="img-fluid" id="news-img">
+                        <img src="./res/img/hotel view inside.jpg" alt="Die begrünte Lobby des Distant Hotels" class="img-fluid" id="news-img">
                     </div>
                 </div>
             </div>

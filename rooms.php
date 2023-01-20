@@ -5,7 +5,7 @@
 
 <head>
     <?php include "components/head.php"; ?>
-    <title>Distant Hotel | Über uns</title>
+    <title>Distant Hotel in Kreta | Zimmer im Hotel direkt am Meer</title>
 
     <?php
     $isLoggedIn = false;

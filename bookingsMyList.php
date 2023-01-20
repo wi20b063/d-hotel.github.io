@@ -67,7 +67,7 @@
 
 <head>
     <?php include "components/head.php";?>
-    <title>Distant Hotel | Buchungsübersicht</title>
+    <title>Distant Hotel in Kreta | Meine Buchungen im Hotel direkt am Meer</title>
 </head>
 
 <body>
