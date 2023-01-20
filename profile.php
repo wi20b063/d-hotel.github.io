@@ -304,7 +304,11 @@ function update_pwd($newPassword, $idPerson)
 									<form class="data-form" method="post" autocomplete="on"
 										action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
 										<div class="row g-3">
-											<h4 class="mb-4 mt-0">Kontaktdaten</h4>
+										<?php if ($profile_status != p_status::PROFILE_MODIFY) {
+											echo "<h4 class='mb-4 mt-0'>Kontaktdaten</h4>";
+										} else {
+											echo "<h4 class='mb-4 mt-0'>Kontaktdaten bearbeiten:</h4>";
+										} ?>
 											<!-- First Name -->
 											<div class="col-md-6">
 												<p><strong>Vorname:</strong></p>
@@ -322,7 +326,7 @@ function update_pwd($newPassword, $idPerson)
 											</div>
 											<!-- Address -->
 											<div class="col-md-6">
-												<p><strong>Straße:</strong></p>
+												<label for="address" class="form-label"><strong>Straße:</strong></label>
 												<p>
 													<?php
 													if ($profile_status != p_status::PROFILE_MODIFY) {
@@ -336,7 +340,7 @@ function update_pwd($newPassword, $idPerson)
 												</p>
 											</div>
 											<div class="col-md-6">
-												<p><strong>Hausnummer/Stiege/Tür:</strong></p>
+												<label for="address2" class="form-label"><strong>Hausnummer/Stiege/Tür:</strong></label>
 												<p>
 													<?php
 													if ($profile_status != p_status::PROFILE_MODIFY) {
@@ -350,7 +354,7 @@ function update_pwd($newPassword, $idPerson)
 												</p>
 											</div>
 											<div class="col-md-6">
-												<p><strong>PLZ:</strong></p>
+												<label for="zipcode" class="form-label"><strong>PLZ:</strong></label>
 												<p>
 													<?php
 													if ($profile_status != p_status::PROFILE_MODIFY) {
@@ -364,7 +368,7 @@ function update_pwd($newPassword, $idPerson)
 												</p>
 											</div>
 											<div class="col-md-6">
-												<p><strong>Stadt:</strong></p>
+												<label for="city" class="form-label"><strong>Stadt:</strong></label>
 												<p>
 													<?php
 													if ($profile_status != p_status::PROFILE_MODIFY) {
@@ -378,7 +382,7 @@ function update_pwd($newPassword, $idPerson)
 											</div>
 											<!-- Phone number -->
 											<div class="col-md-6">
-												<p><strong>Telefonnummer:</strong></p>
+												<label for="tel" class="form-label"><strong>Telefonnummer:</strong></label>
 												<p>
 													<?php
 													if ($profile_status != p_status::PROFILE_MODIFY) {
@@ -392,7 +396,7 @@ function update_pwd($newPassword, $idPerson)
 											</div>
 											<!-- Email -->
 											<div class="col-md-6">
-												<p><strong>E-Mailadresse:</strong></p>
+												<label for="email" class="form-label"><strong>E-Mailadresse:</strong></label>
 												<p>
 													<?php
 													if ($profile_status != p_status::PROFILE_MODIFY) {
@@ -498,13 +502,13 @@ function update_pwd($newPassword, $idPerson)
 										<div class="row">
 											<!-- New password -->
 											<div class="col-md-6 mb-4">
-												<label for="exampleInputPassword2" class="form-label">Neues Passwort *</label>
+												<label for="new-password" class="form-label">Neues Passwort *</label>
 												<input type="password" class="form-control" id="new-password" name="new-password">
 											</div>									
 
 											<!-- Confirm password -->
 											<div class="col-md-6 mb-4">
-												<label for="exampleInputPassword3" class="form-label">Neues Passwort bestätigen *</label>
+												<label for="new-passwordRepeated" class="form-label">Neues Passwort bestätigen *</label>
 												<input type="password" class="form-control" id="new-passwordRepeated" name="new-passwordRepeated">
 											</div>
 

@@ -1,1 +1,0 @@
-# d-hotel.github.io

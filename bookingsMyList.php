@@ -149,7 +149,7 @@
                                         <?php if ($status == "reserved") { ?>
                                             <td style="background-color:lightgreen">Bestätigt</th>
                                         <?php } else if ($status == "cancelled") { ?>
-                                            <td style="color:red">Storniert</th>
+                                            <td style="background-color:lightpink">Storniert</th>
                                         <?php } else if ($status == "new") { ?>
                                             <td>Offen</th>
                                         <?php } else { ?>

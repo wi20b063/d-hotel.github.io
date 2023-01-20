@@ -13,8 +13,7 @@ if (isset($_POST["email"])) {
     } else {
         if (emailValidation($_POST["email"])) {
             // valid email. now try to insert address to DB
-            $sqlIns = "INSERT INTO tbl_newsletter_address (email) 
-            VALUES (?)";
+            $sqlIns = "INSERT INTO tbl_newsletter_address (email) VALUES (?)";
             $stmtIns = $con->prepare($sqlIns);
             $stmtIns->bind_param("s", $_POST["email"]);
 
@@ -23,9 +22,9 @@ if (isset($_POST["email"])) {
 
             if ($result == 1) {
                 //insert success
-                $newsletterSubscribeMsg = "Vielen Dank für, der nächste Newsletter kommt auch zu Ihnen...";
+                $newsletterSubscribeMsg = "Vielen Dank für die Anmeldung, der nächste Newsletter kommt auch zu Ihnen...";
             } else { //insert failed
-                $newsletterSubscribeMsg = "Feher in Datenbank update. Bitte später nochmals versuchen";
+                $newsletterSubscribeMsg = "Feher in bei der Datenübetragung. Bitte später nochmals versuchen";
                 $error["email"] = true;
             }
         } else {
@@ -41,7 +40,7 @@ if (isset($_POST["email"])) {
 <!--Stylesheet-->
 <link rel="stylesheet" type="text/css" href="res/css/mystyle.css">
 
-<!-- class fixed-bottom or sticky-botton should make footer
+<!-- class fixed-bottom or sticky-botton makes footer
 stick to the bottom regardless of the lenght of the content -->
 
 <!-- footer mt-auto py-3 bg-light -->
@@ -91,7 +90,8 @@ stick to the bottom regardless of the lenght of the content -->
                 <div class="col-lg-3 col-sm-6 newsletter">
                     <h4>NEWSLETTER</h4>
                     <form action="" method="post">
-                        <input type="email" name="email">
+                        <label for="email"></label>
+                        <input type="email" name="email" id=email">
                         <input type="submit" value="FOLGE UNS!" style="font-size:14px; font-weight:500;">
                     </form>
                     <br>

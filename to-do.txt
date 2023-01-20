@@ -94,6 +94,8 @@ ACCESSIBILITY:
 - Contrast of colors
     - make font on yellow buttons (and when hover) black or darkgrey
 
+- Input field newsletter mail needs to have a name
+
 
 --------------------------------------------------------------------------
 BUGS

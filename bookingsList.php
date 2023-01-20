@@ -122,7 +122,7 @@
                 <div class="row g-3">
                     <label for="bookingListFilter"><strong>Filter wählen:</strong></label>
                     <div class="col-md-3">                        
-                        <select id="bookingListFilter" name="bookingListFilter" class="form-select" aria-label="Select filter">
+                        <select id="bookingListFilter" name="bookingListFilter" class="form-select" aria-label="Select filter option">
                             <option selected></option>
                             <option value="all">Alle</option>
                             <option value="new">Neu</option>
@@ -284,7 +284,7 @@
                                          <!-- Modal Change Status -->
                                         <form action="" method="POST" enctype="multipart/form-data">
                                                 <div class="container">
-                                                    <div class="modal fade" id="changeStatus<?php echo $reservationID; ?>" tabindex="-1" role="dialog" aria-labelledby="statusModalLabel" aria-hidden="true">
+                                                    <div class="modal fade" id="changeStatus<?php echo $reservationID; ?>" tabindex="-1" role="dialog" aria-labelledby="statusModalLabel">
                                                         <div class="modal-dialog" role="document">
                                                             <div class="modal-content">
                                                             <div class="modal-header">
