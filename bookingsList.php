@@ -63,35 +63,6 @@
     
     }
 
-    
-    // change status of reservation if status button is pressed
-    $readyForSubmit = true;
-
-    if (isset($_POST['changeStatus']) && ($_SERVER["REQUEST_METHOD"] == "POST")) {
-
-        // combined generic Validations (isempty, errorMsgs, open for expansion)
-        $readyForSubmit = $readyForSubmit & genericValidation($resIDErr, $_POST["reservationIDstatus"]);
-        $readyForSubmit = $readyForSubmit & genericValidation($changeStatusSelectErr, $_POST["changeStatusSelect"]);
-
-        if ($readyForSubmit == true) {
-        // get the data from the form
-        $resID = $_POST["reservationIDstatus"];
-        $changeStatusSelectValue = $_POST["changeStatusSelect"];
-
-        // Submit to database SQL Statemnt for prepared statements
-        $sqlChangeStatus = "UPDATE $mysqli_tbl_reservation SET STATUS = ? WHERE RESERVEID = ?";
-        $stmtReservStatus = $con->prepare($sqlChangeStatus);
-        $stmtReservStatus -> bind_param("si", $changeStatusSelectValue, $resID);
-        $stmtReservStatus -> execute();
-
-        $msg = "Status der Buchung $resID wurde erfolgreich geändert!";
-        header("Refresh: 3; url=bookingsList.php");
-        
-        } else {
-        $msg = "Fehler beim ändern des Status der Buchung $resID.";
-        }
-    
-    }
 ?>
 
 <!DOCTYPE html>
