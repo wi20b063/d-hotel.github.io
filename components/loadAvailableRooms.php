@@ -68,11 +68,11 @@ $result = mysqli_query($con, $query) or die(mysqli_error($con));
     <caption> Verfügbare Zimmer für Ihre Auswahl </caption>
     <thead>
         <tr>
-            <th>Ausahl</th>
+            <th>Auswahl</th>
             <th>Kategorie</th>
             <th>Frei</th>
             <th>Preis pN</th>
-            <th>Max.Pers</th>
+            <th>Max. Pers</th>
             <th>Info Bild</th>
         <tr>
     </thead>
@@ -89,7 +89,7 @@ $result = mysqli_query($con, $query) or die(mysqli_error($con));
                 <tr>
                     <td>
                         <!-- writing table row by row. 
-                First row radio button is selected, also its the cheapes option-->
+                First row radio button is selected, also its the cheapest option-->
                         <input type='radio' name="roomSelection" style="height: 2em; width: 100%; vertical-align: middle;" value="<?php echo $row->CAT; ?>" id="roomSelection" <?php if ($i == 0) { ?> checked="checked" <?php } ?>>
                     </td>
                     <td>

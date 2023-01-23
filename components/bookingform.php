@@ -12,7 +12,6 @@
     }
 
     /*first getting  price info 
-    Insert reservation to Database
     Query price table from DB*/
     $sqlQuery = "Select * FROM  $mysqli_tbl_price";
     $result = mysqli_query($con, $sqlQuery) or die(mysqli_error($con));
@@ -27,7 +26,7 @@
     }
     ?>
 
-    <!-- need jQuery for sending form data from modal. Necessary since we deviced for Modal for the reservation/booking
+    <!-- need jQuery for sending form data from modal. Necessary since we decided for Modal for the reservation/booking
     (HTML and Modal is already loaded and cannot update Content or query the Database without reloading the page).
     >>>> function getroomssAvailable: 
             -   sends an ajax request with $GET parameters which calls  loadAvailableRooms.php and displays the result
@@ -36,7 +35,7 @@
             - the data from the date input form requires another Eventhandler (intput value change or button click)
                 similar to: https://www.geeksforgeeks.org/how-to-pass-data-into-a-bootstrap-modal/ 
             
-            ALTERNATIVELY we had to discard the modal or use something simiar as in profile (If clauses and $POST requests
+            ALTERNATIVELY we had to discard the modal or use something similar as in profile (If clauses and $POST requests
         -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js" defer="defer"></script>
     <script type="text/javascript">
