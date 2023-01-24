@@ -32,13 +32,10 @@
 
     // GETTING DATA FROM DATABASE
 
+    // get personID from URL .php?personID=...
     $id = $_GET["personID"];
+
     $sqlSelectProfile = "SELECT * FROM $mysqli_tbl_u_profile WHERE personID = $id";
-    /* $stmtProfile = $con->prepare($sqlSelectProfile);
-    $stmtProfile -> bind_param("i", $personID);
-    $personID = $_GET["personID"];
-    $stmtProfile -> execute();
-    $stmtProfile -> bind_result($personID, $role, $firstName, $lastName, $email, $zipcode, $city, $street, $housenumber, $phone, $salutation, $profileImg); */
     
     $result = $con->query($sqlSelectProfile);
     while ($row = $result->fetch_assoc()) {
@@ -52,16 +49,10 @@
         $city = $row["city"];
         $email = $row["email"];
         $phone = $row["tel"];
-        // $role = $row["role"]; moved in DB. Could also combine the 2 queries into 1 using same JOIN as in userList.php
         $profileImg = $row["target_file"];
     }
     
     $sqlSelectLogin = "SELECT * FROM $mysqli_tbl_login WHERE ID = $id";
-    /* $stmtLogin = $con->prepare($sqlSelectLogin);
-    $personID = $_GET["personID"];
-    $stmtLogin -> bind_param("i", $personID);
-    $stmtLogin -> execute();
-    $stmtLogin -> bind_result($ID, $username, $password, $status); */
 
     $result = $con->query($sqlSelectLogin);
     while ($row = $result->fetch_assoc()) {
@@ -82,7 +73,6 @@
         $readyForSubmit = $readyForSubmit & genericValidation($firstNameErr, $_POST["firstName"]);
         $readyForSubmit = $readyForSubmit & genericValidation($lastNameErr, $_POST["lastName"]);
         $readyForSubmit = $readyForSubmit & genericValidation($emailErr, $_POST["email"]);
-        // $readyForSubmit = $readyForSubmit & genericValidation($roleErr, $_POST["role"]);
         $readyForSubmit = $readyForSubmit & genericValidation($usernameErr, $_POST["username"]);
         $readyForSubmit = $readyForSubmit & genericValidation($statusErr, $_POST["status"]);
 

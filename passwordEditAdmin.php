@@ -37,14 +37,10 @@
 
     // GETTING DATA FROM DATABASE
 
+    // get personID from URL .php?personID=...
     $id = $_GET["personID"];
     
     $sqlSelectLogin = "SELECT * FROM $mysqli_tbl_login WHERE ID = $id";
-    /* $stmtPassword = $con->prepare($sqlSelectLogin);
-    $personID = $_GET["personID"];
-    $stmtPassword -> bind_param("i", $personID);
-    $stmtPassword -> execute();
-    $stmtPassword -> bind_result($ID, $username, $password, $status); */
 
     $result = $con->query($sqlSelectLogin);
     while ($row = $result->fetch_assoc()) {
@@ -67,11 +63,6 @@
 
         //Additional validation: Passwords equal, Username needs to be unique (check if it already exists in database)
         $readyForSubmit = $readyForSubmit & pwd_equalValidation($_POST["password"], $_POST["passwordRepeated"], $passwordRepeatedErr);
-
-        /* if ($_POST["password"] != $_POST["passwordRepeated"]) {
-            $passwordRepeatedErr = "Passwörter stimmen nicht überein.";
-            $readyForSubmit = false;
-        } */
 
         $password = mysqli_real_escape_string($con, $_POST["password"]);
 
@@ -166,7 +157,6 @@
                                             <div class="col-md-6">
                                                 <button type="submit" name="submit" class="btn btn-blue">Speichern</button>
                                                 <a href="./userList.php" class="btn btn-grey">Abbrechen</a>
-                                                <!-- <button type="reset" name="reset" class="btn btn-primary">Abbrechen</button> -->
                                             </div>
                                         </div>
 

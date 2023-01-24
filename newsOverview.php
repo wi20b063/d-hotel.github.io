@@ -51,10 +51,8 @@
         
         } else {
         $msg = "Fehler beim Löschen des Newsbeitrags!";
-        }
-    
+        }    
     }
-
 ?>
 
 <!DOCTYPE html>
@@ -89,9 +87,6 @@
                                     <th scope="col">Erstellt am</th>
                                     <th scope="col">Headline</th>
                                     <th scope="col">Text</th>
-                                    <!-- <th scope="col">Thumb Anzeige</th>
-                                    <th scope="col">Thumb Download</th>
-                                    <th scope="col">Löschung</th> -->
                                 </tr>
                             </thead>
 
@@ -125,7 +120,8 @@
                                     <td><?php echo $text; ?></td>
                                     <td><a href="<?php echo $newsImgThumbPath; ?>" target="_blank">Zeige Thumb</a></td>
                                     <td><a href="<?php echo $newsImgThumbPath; ?>" download="<?php echo $newsImgThumbPath; ?>">Download Thumb</a></td>
-                                    <!-- Delete news article TODO-->
+                                    <!-- Button trigger modal delete news article and send corresponding
+                                        newsID with element data-bs-target (open modal for specific newsID) -->
                                     <td><button type="button" class="btn btn-red " data-bs-toggle="modal" data-bs-target="#deletNews_<?php echo $newsID; ?>">
                                             Löschen
                                         </button>
@@ -139,6 +135,9 @@
                                                         <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h5 class="modal-title">Newsbeitrag löschen</h5>
+                                                            <!-- Add newsID as hidden input to submit with 
+                                                                submit "delete" to be able to perform sql query 
+                                                                for selected newsID -->
                                                             <input type="hidden" id="newsIDdelete" name="newsIDdelete" value="<?php echo $newsID; ?>">
                                                         </div>
                                                         <div class="modal-body">                            

@@ -98,7 +98,6 @@
                                     <th scope="col-sm-1">Ankunftsdatum</th>
                                     <th scope="col-sm-1">Abreisedatum</th>
                                     <th scope="col-sm-1">Anmerkungen</th>
-                                    <!-- <th scope="col-sm-1">Personen-anzahl</th> -->
                                     <th scope="col-sm-1">Status</th>
                                 </tr>
                             </thead>
@@ -130,7 +129,6 @@
                                     $firstname = $rowPerson["firstName"];
                                     $lastname = $rowPerson["lastName"];
                                     $email = $rowPerson["email"];
-                                    //$numberOfGuests = $rowPerson["numberOfGuests"];
                                 } ?>
 
                                 <tbody>
@@ -161,6 +159,8 @@
                                                     Stornieren
                                                 </button>
                                             <?php } else { ?>
+                                                <!-- Button trigger modal cancel booking and send corresponding
+                                                    reservationID with element data-bs-target (open modal for specific reservationID) -->
                                                 <button type="button" class="btn btn-red" data-bs-toggle="modal" data-bs-target="#cancelReserv_<?php echo $reservationID; ?>">
                                                     Stornieren
                                                 </button>
@@ -175,6 +175,9 @@
                                                         <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h5 class="modal-title">Buchung stornieren</h5>
+                                                            <!-- Add reservationID as hidden input to submit with 
+                                                                submit "cancel" to be able to perform sql query 
+                                                                for selected reservationID -->
                                                             <input type="hidden" id="reservationIDcancel" name="reservationIDcancel" value="<?php echo $reservationID; ?>">
                                                         </div>
                                                         <div class="modal-body">                            

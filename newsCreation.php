@@ -98,12 +98,6 @@ if (isset($_POST['submit']) && ($_SERVER["REQUEST_METHOD"] == "POST")) {
             die('Bei der Verbindung mit der Datenbank ist ein Fehler aufgetreten:  ' . mysqli_error($con));
         }
 
-        /* $headline = mysqli_real_escape_string($con, $headline);
-        $text = mysqli_real_escape_string($con, $text);
-        $personID = mysqli_real_escape_string($con, $personID);
-        $newsImg_target_file = mysqli_real_escape_string($con, $newsImg_target_file);
-        $thumb_newsImg_target_file = mysqli_real_escape_string($con, $thumb_newsImg_target_file); */
-
         // SQL Statemnt for prepared statements
         $sqlInsertNews = "INSERT INTO $mysqli_tbl_news (headline, text, personID, newsImgPath, newsImgThumbPath) VALUES (?, ?, ?, ?, ?)";
         $stmt = $con -> prepare($sqlInsertNews);

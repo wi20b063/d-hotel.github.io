@@ -174,14 +174,16 @@
                                             <td>Fehler</th>
                                         <?php } ?>
 
-                                        <!-- Button trigger modal show details-->
+                                        <!-- Button trigger modal show details and send corresponding
+                                        reservationID with element data-bs-target (open modal for specific reservationID) -->
                                         <div><button type="button" class="btn btn-blue" style="font-size:10px" data-bs-toggle="modal" data-bs-target="#changeStatus<?php echo $reservationID; ?>">Status ändern</button></div>
 
-                                         <!-- Button trigger modal change status-->
+                                         <!-- Button trigger modal change status and send corresponding
+                                        reservationID with element data-bs-target (open modal for specific reservationID) -->
                                          <td><button type="button" class="btn btn-blue" data-bs-toggle="modal" data-bs-target="#showDetails<?php echo $reservationID; ?>">Details</button></td>
                                     
                                         
-                                        <!-- Modal See Details -->
+                                        <!-- Modal show details -->
                                                 <div class="container">
                                                     <div class="modal fade" id="showDetails<?php echo $reservationID; ?>" tabindex="-1" role="dialog" aria-labelledby="statusModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
@@ -260,6 +262,9 @@
                                                             <div class="modal-content">
                                                             <div class="modal-header">
                                                                 <h5 class="modal-title">Buchungsstatus ändern</h5>
+                                                                <!-- Add reservationID as hidden input to submit with 
+                                                                submit "changeStatus" to be able to perform sql query 
+                                                                for selected reservationID -->
                                                                 <input type="hidden" id="reservationIDstatus" name="reservationIDstatus" value="<?php echo $reservationID; ?>">
                                                             </div>
                                                             <div class="modal-body">                            

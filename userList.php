@@ -103,12 +103,6 @@
                                 $email = $row["email"];
                                 $tel = $row["tel"];
                                 $role = $row["role"];
-                                // Get status from tbl_login
-                                /* $sqlSelectPerson = "SELECT * FROM $mysqli_tbl_login WHERE ID = $personID";
-                                $resultPerson = $con->query($sqlSelectPerson);
-                                while ($rowPerson = $resultPerson->fetch_assoc()) {
-                                    $status = $rowPerson["active"];
-                                } */
                                 $status = $row["active"];
                                 $profileImg = $row["target_file"];?>
 
@@ -140,6 +134,7 @@
                                             <?php } else { ?>
                                                 <td style="background-color:lightpink">Inaktiv</td>
                                             <?php } ?>
+                                            <!--- send personID to passwordEditAdmin.php and profileEditAdmin.php by using ...php?personID=... -->
                                             <td><a class="btn btn-red" href="./passwordEditAdmin.php?personID=<?php echo $personID; ?>">Neues Passwort</a></td>
                                             <td><a class="btn btn-blue" href="./profileEditAdmin.php?personID=<?php echo $personID; ?>">Profil bearbeiten</a></td>
                                         </tr>
