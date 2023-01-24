@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 15, 2023 at 09:38 PM
+-- Generation Time: Jan 23, 2023 at 08:15 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -77,6 +77,29 @@ INSERT INTO `tbl_news` (`id`, `headline`, `text`, `personID`, `newsImgPath`, `ne
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_newsletter_address`
+--
+
+CREATE TABLE `tbl_newsletter_address` (
+  `ID` int(11) NOT NULL,
+  `email` varchar(64) NOT NULL,
+  `dateadded` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_newsletter_address`
+--
+
+INSERT INTO `tbl_newsletter_address` (`ID`, `email`, `dateadded`) VALUES
+(1, 'wer@we.lo', '2023-01-19 22:13:17'),
+(2, 'troo@rr.zu', '2023-01-20 19:11:15'),
+(3, 'rr@ff.com', '2023-01-20 19:25:33'),
+(4, 'eddy@sh.com', '2023-01-20 19:27:24'),
+(5, 'eddy@sh.com', '2023-01-20 19:28:49');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_reservation`
 --
 
@@ -103,20 +126,22 @@ CREATE TABLE `tbl_reservation` (
 
 INSERT INTO `tbl_reservation` (`RESERVEID`, `CONFIRMCODE`, `ROOMCAT`, `PRICE`, `DATEARRIVAL`, `DATEDEPART`, `DATECREATE`, `DATELASTUP`, `STATUS`, `REMARK`, `GUESTID`, `BREAKF`, `PARKING`, `PET`) VALUES
 (1255, '847497', 'STANDARD', 179, '2023-01-11 12:00:00', '2023-01-12 10:00:00', '2023-01-11 11:25:56', '2023-01-11 11:25:56', 'new', NULL, 14, 1, 1, 1),
-(1256, '523413', 'BUDGET', 169, '2023-01-18 12:00:00', '2023-01-19 10:00:00', '2023-01-11 11:29:59', '2023-01-15 20:29:17', 'reserved', NULL, 15, 1, 1, 1),
+(1256, '523413', 'BUDGET', 169, '2023-01-18 12:00:00', '2023-01-19 10:00:00', '2023-01-11 11:29:59', '2023-01-22 22:13:54', 'new', NULL, 15, 1, 1, 1),
 (1257, '196839', 'BUDGET', 169, '2023-01-11 12:00:00', '2023-01-12 10:00:00', '2023-01-11 11:50:38', '2023-01-11 11:50:38', 'cancelled', NULL, 15, 1, 1, 1),
 (1258, '611251', 'BUDGET', 169, '2023-01-12 12:00:00', '2023-01-13 10:00:00', '2023-01-12 16:43:00', '2023-01-12 16:43:00', 'new', NULL, 23, 1, 1, 1),
 (1259, '939171', 'BUDGET', 169, '2023-01-12 12:00:00', '2023-01-13 10:00:00', '2023-01-12 17:02:59', '2023-01-12 17:02:59', 'new', NULL, 23, 1, 1, 1),
 (1260, '478743', 'BUDGET', 169, '2023-01-12 12:00:00', '2023-01-13 10:00:00', '2023-01-12 17:04:55', '2023-01-12 17:04:55', 'new', NULL, 23, 1, 1, 1),
 (1261, '733161', 'STANDARD', 179, '2023-01-12 12:00:00', '2023-01-13 10:00:00', '2023-01-12 17:17:16', '2023-01-12 17:17:16', 'reserved', NULL, 23, 1, 1, 1),
 (1262, '697935', 'STANDARD', 179, '2023-01-12 12:00:00', '2023-01-13 10:00:00', '2023-01-12 17:51:27', '2023-01-12 17:51:27', 'reserved', NULL, 23, 0, 0, 1),
-(1263, '452175', 'STANDARD', 139, '2023-01-12 12:00:00', '2023-01-13 10:00:00', '2023-01-12 18:01:35', '2023-01-12 18:01:35', 'new', NULL, 23, 0, 0, 1),
+(1263, '452175', 'STANDARD', 139, '2023-01-12 12:00:00', '2023-01-13 10:00:00', '2023-01-12 18:01:35', '2023-01-22 21:41:31', 'reserved', NULL, 23, 0, 0, 1),
 (1264, '659496', 'BUDGET', 129, '2023-01-13 12:00:00', '2023-01-14 10:00:00', '2023-01-13 00:24:08', '2023-01-13 00:24:08', 'new', NULL, 15, 0, 0, 1),
 (1265, '457463', 'BUDGET', 94, '2023-01-13 12:00:00', '2023-01-14 10:00:00', '2023-01-13 01:17:18', '2023-01-13 01:17:18', 'new', NULL, 15, 0, 1, 0),
 (1266, '650839', 'BUDGET', 832, '2023-01-18 12:00:00', '2023-01-26 10:00:00', '2023-01-13 12:18:36', '2023-01-13 12:18:36', 'new', NULL, 15, 1, 0, 0),
 (1267, '683315', 'BUDGET', 832, '2023-01-17 12:00:00', '2023-01-25 10:00:00', '2023-01-14 21:27:45', '2023-01-14 21:27:45', 'new', NULL, 15, 1, 0, 0),
 (1268, '464114', 'PREMIUM', 173, '2023-01-14 12:00:00', '2023-01-15 10:00:00', '2023-01-14 21:33:17', '2023-01-14 21:33:17', 'reserved', NULL, 15, 1, 0, 0),
-(1269, '321588', 'STANDARD', 258, '2023-01-17 12:00:00', '2023-01-19 10:00:00', '2023-01-15 19:49:59', '2023-01-15 19:49:59', 'new', NULL, 15, 1, 1, 0);
+(1269, '321588', 'STANDARD', 258, '2023-01-17 12:00:00', '2023-01-19 10:00:00', '2023-01-15 19:49:59', '2023-01-15 19:49:59', 'new', NULL, 15, 1, 1, 0),
+(1270, '146722', 'STANDARD', 1032, '2023-01-18 12:00:00', '2023-01-26 10:00:00', '2023-01-18 20:25:13', '2023-01-22 22:40:33', 'reserved', NULL, 15, 1, 1, 0),
+(1271, '441896', 'STANDARD', 684, '2023-01-20 12:00:00', '2023-01-26 10:00:00', '2023-01-20 20:06:24', '2023-01-22 22:40:55', 'reserved', NULL, 26, 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -175,7 +200,9 @@ INSERT INTO `user_login` (`ID`, `username`, `password`, `role`, `active`) VALUES
 (21, 'AnnaM', '265a9b497722342d9c3506671e429215', 2, 1),
 (22, 'mario', '265a9b497722342d9c3506671e429215', 2, 1),
 (23, 'kim', 'fffdbe096056ccd42e77aa917f600079', 2, 1),
-(24, 'last', 'fffdbe096056ccd42e77aa917f600079', 2, 0);
+(24, 'last', 'fffdbe096056ccd42e77aa917f600079', 2, 0),
+(25, 'res', '265a9b497722342d9c3506671e429215', 2, 1),
+(26, 'eddy', '265a9b497722342d9c3506671e429215', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -208,7 +235,9 @@ INSERT INTO `user_profile` (`personID`, `firstName`, `lastName`, `email`, `zipco
 (21, 'Anna', 'Maier', 'anna@google.com', '1010', 'Wien', 'Teststraße', '1/1/1', '12345678', 'female', NULL),
 (22, 'Mario', 'Bros', 'mario@bbbros.com', '122451', 'Kendall1', 'Nintendo1', '1441', '+1209333888441', 'male', '63bf2d726cf8f.jpg'),
 (23, 'Kim', 'Kardi', 'kim@kardi.bb', '1', 'Los Angeles BH', 'Sunset Blv', '20133', '222222444', 'neutral', '63c03836930d9.png'),
-(24, 'Last', 'Test', 'last@test.te', '', '', '', '', '', 'neutral', NULL);
+(24, 'Last', 'Test', 'last@test.te', '', '', '', '', '', 'neutral', NULL),
+(25, 'Ja', 'Aj', 'res@tes.com', NULL, NULL, NULL, NULL, NULL, 'neutral', NULL),
+(26, 'Ed', 'Sheeran', 'eddy@sh.com', '', '', 'Waterloo1', '1001', '', 'neutral', '63caf3dbc7753.png');
 
 --
 -- Indexes for dumped tables
@@ -225,6 +254,12 @@ ALTER TABLE `tbl_currentprice`
 --
 ALTER TABLE `tbl_news`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_newsletter_address`
+--
+ALTER TABLE `tbl_newsletter_address`
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `tbl_reservation`
@@ -268,10 +303,16 @@ ALTER TABLE `tbl_news`
   MODIFY `id` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
+-- AUTO_INCREMENT for table `tbl_newsletter_address`
+--
+ALTER TABLE `tbl_newsletter_address`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `tbl_reservation`
 --
 ALTER TABLE `tbl_reservation`
-  MODIFY `RESERVEID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1270;
+  MODIFY `RESERVEID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1272;
 
 --
 -- AUTO_INCREMENT for table `tbl_room`
@@ -283,7 +324,7 @@ ALTER TABLE `tbl_room`
 -- AUTO_INCREMENT for table `user_login`
 --
 ALTER TABLE `user_login`
-  MODIFY `ID` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `ID` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Constraints for dumped tables
